@@ -3,7 +3,7 @@
 <hr>
 <h2>Розробники</h2>
 <ul>
-  <li>Володимир Шевчик (Mentor)</li>
+  <li>Шевчик Володимир (Mentor)</li>
   <li>Степанюк Олег (Team leader)</li>
   <li>Шум Володимир (Front end)</li>
   <li>Лобач Олег (Back end)</li>
