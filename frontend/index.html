@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Home</title>
+	<title>Головна</title>
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css">
@@ -12,13 +12,34 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<a href="index.html"><img src="img/logo.png" alt="Логотип"></a>
-					<ul class="menu">
-				
-					</ul>
-					<div class="login-form">
-						<form action="index.html" method="POST"></form>
+					<a href="index.html" class="logo"><img src="img/logo.png" alt="Логотип"></a>
+					<nav class="menu">
+						<ul>
+							<li><a href="#">Головна</a></li>
+							<li><a href="#">Зниклі</a>
+								<ul>
+									<li><a href="#">1</a></li>
+									<li><a href="#">2</a></li>
+									<li><a href="#">3</a></li>
+								</ul>
+							</li>
+							<li><a href="#">Знайдені</a></li>
+							<li><a href="#">Про нас</a></li>
+						</ul>
+					</nav>
+					<div class="menu-user">
+						<a href="#profile-link"><img class="avatar" src="img/ava.jpg" alt="avatar"></a>
+
 					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="row">
+				<h1>Шукаємо домашнього улюбленця?</h1>
+				<div class="header-input">
+					<input type="text" placeholder="Кого шукаємо?"><br>
+					<a href="#">Подати оголошення</a>
+					<a href="#">Прибати нашийник</a>
 				</div>
 			</div>
 		</div>
@@ -26,7 +47,8 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<h2>text</h2>
+				<h2 class="text-center">Зникла домашня тварина?</h2>
+
 			</div>
 		</div>	
 	</div>
