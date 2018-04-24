@@ -8,5 +8,4 @@
   <li>Шум Володимир (Front end)</li>
   <li>Лобач Олег (Back end)</li>
   <li>Богоніс Єлізавета (Back end)</li>
-  <li>Ільїн Владислав (Back end)</li>
 </ul>
