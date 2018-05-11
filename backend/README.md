@@ -6,6 +6,4 @@
   <li>Шевчик Володимир (Mentor)</li>
   <li>Степанюк Олег (Team leader)</li>
   <li>Шум Володимир (Front end)</li>
-  <li>Лобач Олег (Back end)</li>
-  <li>Богоніс Єлізавета (Back end)</li>
 </ul>
