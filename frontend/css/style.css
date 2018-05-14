@@ -12,7 +12,8 @@ h2 { margin: 40px auto; color: #181e24; }
 h3 { margin: 12px auto; font-size: 18px; }
 hr { margin: 10px auto; width: 100%; border: 1px solid #adb2b8; box-shadow: 0 0 30px rgba(0,0,0,0.5); }
 .clear { clear: both; } /* Очистка float */
-
+.f-left { float: left; }
+.f-right { float: right; }
 
 /* Для шаблону */
 
@@ -137,7 +138,7 @@ header {
 	text-align: center;
 	background: #000;
 	color: #fff;
-	line-height: 10px;
+	line-height: 20px;
 	overflow: hidden;
 }
 .last-lost .item h3 { margin: 20px auto; }
@@ -147,7 +148,8 @@ header {
 .contact-info { margin: 40px auto; }
 .callback-form {
 	margin: 0 auto;
-	width: 680px;
+	max-width: 680px;
+	width: 100%;
 	height: auto;
 }
 .callback-form input { margin: 10px auto; padding: 5px; width: 100%; height: 30px; border-radius: 8px; border: none; box-shadow: 0 0 30px rgba(0,0,0,0.5); }
