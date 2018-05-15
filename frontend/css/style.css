@@ -164,9 +164,47 @@ header {
 .left-bar img {	margin: 5px auto; width: 150px; border: 2px solid #ff8a00; border-radius: 100%; box-shadow: 0 0 30px rgba(0,0,0,0.5); }
 	.user-rank { color: #FF0000; }
 	.user-code { color: #009400; }
+	.user-found { color: #FFD20A; }
 	.left-bar a { display: block; margin: 10px auto; text-align: center; width: 120px; height: 30px; line-height: 30px; color: #fff; background: #364D62; text-decoration: none; transition: 0.3s}
 	.left-bar a:hover { background: #FF5C3F; transition: 0.3s; }
 .right-bar img { float: left; margin: 5px 20px; width: 150px; border: 2px solid #ff8a00; border-radius: 100%; box-shadow: 0 0 30px rgba(0,0,0,0.5); } 
+
+/* Фільтр пошуку */
+
+.filter-search {
+	margin: 0 auto;
+	padding: 15px;
+	width: 100%;
+	border: 2px solid #FF8A00;
+	border-radius: 2px;
+}
+
+.filter-search input { width: 100%; }
+
+.filter-search select {
+	margin: 10px auto;
+	width: 100%;
+}
+
+.filter-search button {
+	margin: 0 auto;
+	padding: 5px;
+	width: 100%;
+	background: #FF8A00;
+	border: 2px solid #fff;
+	border-radius: 3px;
+	color: #fff;
+	font-weight: 600;
+
+}
+/* Блоки результату */
+
+.search-result div img {
+	margin: 0 5px 5px 0;
+	box-shadow: 0 0 30px rgba(0,0,0,0.2);
+	border-radius: 3px;
+	float: left;
+}
 
 /* Футер */
 footer {
