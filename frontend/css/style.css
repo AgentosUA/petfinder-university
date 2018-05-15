@@ -4,6 +4,11 @@
 	src:url(../fonts/regular.otf);
 }
 
+@font-face {
+	font-family: "p-reg";
+	src:url(../fonts/p-reg.otf);
+}
+
 /* Стандартні значення CSS */
 
 h1, h2, h3 { font-family: "regular"; }
@@ -11,6 +16,7 @@ h1 { margin: 40px auto; }
 h2 { margin: 40px auto; color: #181e24; }
 h3 { margin: 12px auto; font-size: 18px; }
 hr { margin: 10px auto; width: 100%; border: 1px solid #adb2b8; box-shadow: 0 0 30px rgba(0,0,0,0.5); }
+button { font-family: "regular"; }
 .clear { clear: both; } /* Очистка float */
 .f-left { float: left; }
 .f-right { float: right; }
@@ -19,7 +25,7 @@ hr { margin: 10px auto; width: 100%; border: 1px solid #adb2b8; box-shadow: 0 0 
 
 body {
 	background: #f4f3f3;
-	font-family: "regular"; 
+	font-family: "p-reg";
 }
 
 header {
@@ -45,6 +51,7 @@ header {
     padding: 28px 16px;
     text-decoration: none;
     font-size: 15px;
+    font-family: "regular";
 }
 
 .topnav a:hover {
@@ -83,10 +90,13 @@ header {
 .menu-user { margin: 10px auto 0 auto; float: right; width: 220px; }
 .menu-user .avatar { margin-right: 5px; width: 52px; border-radius: 100%; border: 4px solid #5D7081; }
 .menu-user img{ margin: 0 2px; width: 15px; }
+.menu-user a { margin-top: 5px; color: #FF8B00; }
+.menu-user a:hover { color: #fff; text-decoration: none;}
 .header-input {
 	margin: 30px auto 0 auto;
 	text-align: center;
 	max-width: 800px;
+	font-family: "regular";
 }
 
 .header-input input {
@@ -146,16 +156,16 @@ header {
 .last-lost .item img:hover { opacity: 0.2; transition: all 0.3s;}
 
 .contact-info { margin: 40px auto; }
-.callback-form {
+.reg-form {
 	margin: 0 auto;
-	max-width: 680px;
+	max-width: 650px;
 	width: 100%;
 	height: auto;
 }
-.callback-form input { margin: 10px auto; padding: 5px; width: 100%; height: 30px; border-radius: 8px; border: none; box-shadow: 0 0 30px rgba(0,0,0,0.5); }
-.callback-form textarea { resize: none; padding: 10px; width: 100%; height: 120px; border-radius: 8px; border: none; box-shadow: 0 0 30px rgba(0,0,0,0.5); }
-.callback-form button { transition: 0.3s; margin: 5px auto; min-width: 100px; background: #ff8a00; border: none; color: #fff; float: right; padding: 5px; border-radius: 8px; box-shadow: 0 0 30px rgba(0,0,0,0.5); }
-.callback-form button:hover { transition: 0.3s; background: #FFA200; }
+.reg-form input { margin: 10px auto; padding: 5px; width: 100%; height: 38px; border-radius: 8px; border: none; box-shadow: 0 0 30px rgba(0,0,0,0.5); }
+.reg-form textarea { resize: none; padding: 10px; width: 100%; height: 120px; border-radius: 8px; border: none; box-shadow: 0 0 30px rgba(0,0,0,0.5); }
+.reg-form button { transition: 0.3s; margin: 5px auto; min-width: 100px; background: #ff8a00; border: none; color: #fff; padding: 5px; border-radius: 8px; box-shadow: 0 0 30px rgba(0,0,0,0.5); }
+.reg-form button:hover { transition: 0.3s; background: #3C4148; color: #fff; }
 
 /* Профіль */
 
@@ -195,15 +205,21 @@ header {
 	border-radius: 3px;
 	color: #fff;
 	font-weight: 600;
-
+	transition: 0.3s;
 }
+
+.filter-search button:hover { background: #3C4148; color: #fff; transition: 0.3s; }
 /* Блоки результату */
 
-.search-result div img {
+.search-result article img {
 	margin: 0 5px 5px 0;
 	box-shadow: 0 0 30px rgba(0,0,0,0.2);
 	border-radius: 3px;
 	float: left;
+}
+
+.login-form {
+
 }
 
 /* Футер */
@@ -214,6 +230,7 @@ footer {
 	width: 100%;
 	height: 75px;
 	color: #fff;
+	font-family: "regular";
 	background: #3c4148;
 	overflow: hidden;
 } 
