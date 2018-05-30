@@ -59,14 +59,18 @@ header {
 }
 
 .topnav .icon {
+	margin: 10px auto;
     display: none;
 }
 
 @media screen and (max-width: 600px) {
-  .topnav a:not(:first-child) {display: none;}
+  .topnav a { margin: 10px auto; float: none; display: none;}
   .topnav a.icon {
     float: right;
     display: block;
+  }
+  .menu-user {
+  	margin: 10px auto;
   }
 }
 
@@ -78,7 +82,8 @@ header {
     top: 0;
   }
   .topnav.responsive a {
-    float: none;
+	margin: 15px 25px 5px 0;
+	float: left;
     display: block;
     text-align: left;
   }
@@ -131,8 +136,6 @@ header {
 	text-align: center;
 	border: 5px solid #3c4148;
 	border-radius: 100%;
-	display: inline-block;
-	float: left;
 } .instruction h3 { font-size: 50px; color: #ff8a00; }
 
 .last-lost { margin: 5px auto; }
@@ -162,8 +165,10 @@ header {
 	width: 100%;
 	height: auto;
 }
-.reg-form input { margin: 10px auto; padding: 5px; width: 100%; height: 38px; border-radius: 8px; border: none; box-shadow: 0 0 30px rgba(0,0,0,0.5); }
-.reg-form textarea { resize: none; padding: 10px; width: 100%; height: 120px; border-radius: 8px; border: none; box-shadow: 0 0 30px rgba(0,0,0,0.5); }
+.reg-form input { margin: 10px auto; padding: 5px; width: 100%; height: 38px; border-radius: 8px; border: 2px solid #B6B6B6; }
+.reg-form input:hover { box-shadow: 0 0 5px rgba(0,0,0,0.5); }
+.reg-form textarea { resize: none; padding: 10px; width: 100%; height: 120px; border-radius: 8px; border: 2px solid #B6B6B6; }
+.reg-form textarea:hover { box-shadow: 0 0 5px rgba(0,0,0,0.5); }
 .reg-form button { transition: 0.3s; margin: 5px auto; min-width: 100px; background: #ff8a00; border: none; color: #fff; padding: 5px; border-radius: 8px; box-shadow: 0 0 30px rgba(0,0,0,0.5); }
 .reg-form button:hover { transition: 0.3s; background: #3C4148; color: #fff; }
 
@@ -218,9 +223,20 @@ header {
 	float: left;
 }
 
-.login-form {
-
+.detailed-btn { 
+	margin-top: 10px auto;
+	width: 150px;
+	padding: 8px;
+	background: #FF8A00;
+	border: none;
+	color: #fff;
+	transition: 0.3s;
+	text-decoration: none;
 }
+
+.min-block { min-height: 550px; }
+
+.detailed-btn:hover { background: #3C4148; color: #fff; transition: 0.3s; }
 
 /* Футер */
 footer {
