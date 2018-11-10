@@ -5,7 +5,7 @@
       "connector": "strapi-hook-mongoose",
       "settings": {
         "client": "mongo",
-        "host": "cluster0-svbkc.mongodb.net",
+        "host": "cluster0-5loat.mongodb.net",
         "srv": true,
         "port": 27017,
         "database": "petfinderDB",

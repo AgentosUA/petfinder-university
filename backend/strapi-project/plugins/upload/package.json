@@ -1,64 +1,41 @@
 {
-  "_args": [
-    [
-      "strapi-plugin-upload@3.0.0-alpha.14.4.0",
-      "/home/agentos/Web/petfinder/backend/strapi-project/plugins/upload"
-    ]
-  ],
   "_from": "strapi-plugin-upload@3.0.0-alpha.14.4.0",
-  "_hasShrinkwrap": false,
   "_id": "strapi-plugin-upload@3.0.0-alpha.14.4.0",
-  "_inCache": true,
-  "_installable": true,
+  "_inBundle": false,
+  "_integrity": "sha512-xH5a0UA9Y08pkOgrs3J7cdITP878TAL86K0Oi9QDzA7Jq9bNfqOWQaWIJ2ZuijDRcwVAWd6PXZraR81YaJd5iA==",
   "_location": "/strapi-plugin-upload",
-  "_nodeVersion": "10.8.0",
-  "_npmOperationalInternal": {
-    "host": "s3://npm-registry-packages",
-    "tmp": "tmp/strapi-plugin-upload_3.0.0-alpha.14.4.0_1540481654834_0.8974314352604555"
-  },
-  "_npmUser": {
-    "email": "j.laurie6993@gmail.com",
-    "name": "lauriejim"
-  },
-  "_npmVersion": "6.2.0",
   "_phantomChildren": {},
   "_requested": {
-    "name": "strapi-plugin-upload",
+    "type": "version",
+    "registry": true,
     "raw": "strapi-plugin-upload@3.0.0-alpha.14.4.0",
+    "name": "strapi-plugin-upload",
+    "escapedName": "strapi-plugin-upload",
     "rawSpec": "3.0.0-alpha.14.4.0",
-    "scope": null,
-    "spec": "3.0.0-alpha.14.4.0",
-    "type": "version"
+    "saveSpec": null,
+    "fetchSpec": "3.0.0-alpha.14.4.0"
   },
   "_requiredBy": [
     "#USER"
   ],
   "_resolved": "https://registry.npmjs.org/strapi-plugin-upload/-/strapi-plugin-upload-3.0.0-alpha.14.4.0.tgz",
   "_shasum": "3c4c89336debc14f9c83fbb782af96240a025647",
-  "_shrinkwrap": null,
   "_spec": "strapi-plugin-upload@3.0.0-alpha.14.4.0",
-  "_where": "/home/agentos/Web/petfinder/backend/strapi-project/plugins/upload",
+  "_where": "E:\\Web\\repositories\\petfinder\\backend\\strapi-project",
   "author": {
     "name": "A Strapi developer"
   },
+  "bundleDependencies": false,
   "dependencies": {
     "react-copy-to-clipboard": "^5.0.1",
     "strapi-upload-local": "3.0.0-alpha.14.4.0",
     "stream-to-array": "^2.3.0",
     "uuid": "^3.2.1"
   },
+  "deprecated": false,
   "description": "This is the description of the plugin.",
   "devDependencies": {
     "strapi-helper-plugin": "3.0.0-alpha.14.4.0"
-  },
-  "directories": {},
-  "dist": {
-    "fileCount": 73,
-    "integrity": "sha512-xH5a0UA9Y08pkOgrs3J7cdITP878TAL86K0Oi9QDzA7Jq9bNfqOWQaWIJ2ZuijDRcwVAWd6PXZraR81YaJd5iA==",
-    "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb0eJ3CRA9TVsSAnZWagAAuG4P/jG0nyWX5SJJBoGGet2E\n/oPOj/e+BCpRP9T9K0yFUJldoShRhR63IwrMLv7p6ZQTrFW7rHUz7exfhL76\n0JIHLm3sNznfL0RPTFH1qEHGrvo8uEXQMb17TUxJGM3lCM5Huq4tlB5R/Dgj\nf4qx+mzeQWN1zw0d5fkfbf5GTWrLcdMjgCxAHZqpiVVcL1bIQI+LLtrHgRO2\nZLm1oeojay0SPp5JKaSM739Kk2HAT7XSTBsB5qiQJlKa1ALEgWtBWwGBWpUW\n00kffekyHNPBubo1lQgim/olM71BBx+LwZ365jeL43zJ7uDyjGW3M9yszYHL\nL+eyKmgSzD/V0JyWfWXbySCpfabXKUbh4XHbzdxVRdLOn/xIQCGeq1Tjn8a5\n9T8vSfkuv8/DqRS/oq+Ch1Drjl03/sLxNbcoQgbsv+RV4Lj/bWp+kv8ZOZ8w\ntcfrwqBUhlu9l76sLSc4v9hoD3rzd8C8GZB6YEkrVwOrw50Ysezi5h05IaW9\ns9pkcCLDV37wkutkie7Z6FOt9GrKlsF9y8UCPnoL6yHwFXkGR4LT1AchViyG\nudCNkgvqoZGoVHkRfXZjEKFmBxBoSwo93kwohVhOw3InjhxEDC40Tp/lDj+7\nAz6DuhjlxJFvYRxY/2s72a6RKN0Ci2B58NFcxfRuzGyuYNxym9X/I35Q1Q0n\nWOeF\r\n=mt5Q\r\n-----END PGP SIGNATURE-----\r\n",
-    "shasum": "3c4c89336debc14f9c83fbb782af96240a025647",
-    "tarball": "https://registry.npmjs.org/strapi-plugin-upload/-/strapi-plugin-upload-3.0.0-alpha.14.4.0.tgz",
-    "unpackedSize": 1180209
   },
   "engines": {
     "node": ">= 7.0.0",
@@ -67,26 +44,10 @@
   "license": "MIT",
   "maintainers": [
     {
-      "name": "aurelsicoko",
-      "email": "aurelsicoko@gmail.com"
-    },
-    {
-      "name": "lauriejim",
-      "email": "j.laurie6993@gmail.com"
-    },
-    {
-      "name": "pierreburgy",
-      "email": "pierre.burgy@gmail.com"
-    },
-    {
-      "name": "soupette",
-      "email": "cyril.lpz@gmail.com"
+      "name": "A Strapi developer"
     }
   ],
   "name": "strapi-plugin-upload",
-  "optionalDependencies": {},
-  "readme": "# Strapi plugin",
-  "readmeFilename": "README.md",
   "scripts": {
     "analyze": "node ./node_modules/strapi-helper-plugin/lib/internals/scripts/analyze.js",
     "analyze:clean": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/rimraf stats.json",
@@ -102,9 +63,9 @@
     "test": "echo \"Error: no test specified\""
   },
   "strapi": {
-    "description": "Description of upload plugin.",
+    "name": "Files Upload",
     "icon": "cloud-upload",
-    "name": "Files Upload"
+    "description": "Description of upload plugin."
   },
   "version": "3.0.0-alpha.14.4.0"
 }

@@ -1,51 +1,36 @@
 {
-  "_args": [
-    [
-      "strapi-plugin-users-permissions@3.0.0-alpha.14.4.0",
-      "/home/agentos/Web/petfinder/backend/strapi-project/plugins/users-permissions"
-    ]
-  ],
   "_from": "strapi-plugin-users-permissions@3.0.0-alpha.14.4.0",
-  "_hasShrinkwrap": false,
   "_id": "strapi-plugin-users-permissions@3.0.0-alpha.14.4.0",
-  "_inCache": true,
-  "_installable": true,
+  "_inBundle": false,
+  "_integrity": "sha512-+ydSmYyDcmXGa/dJY9Pwmoy47eklvVEn0CQpJGoVThjeG92nzQ8q1Hv3bOqpam+Bi/wIV6f+02rwVUtacmEcRA==",
   "_location": "/strapi-plugin-users-permissions",
-  "_nodeVersion": "10.8.0",
-  "_npmOperationalInternal": {
-    "host": "s3://npm-registry-packages",
-    "tmp": "tmp/strapi-plugin-users-permissions_3.0.0-alpha.14.4.0_1540481705495_0.7404867223862208"
-  },
-  "_npmUser": {
-    "email": "j.laurie6993@gmail.com",
-    "name": "lauriejim"
-  },
-  "_npmVersion": "6.2.0",
   "_phantomChildren": {},
   "_requested": {
-    "name": "strapi-plugin-users-permissions",
+    "type": "version",
+    "registry": true,
     "raw": "strapi-plugin-users-permissions@3.0.0-alpha.14.4.0",
+    "name": "strapi-plugin-users-permissions",
+    "escapedName": "strapi-plugin-users-permissions",
     "rawSpec": "3.0.0-alpha.14.4.0",
-    "scope": null,
-    "spec": "3.0.0-alpha.14.4.0",
-    "type": "version"
+    "saveSpec": null,
+    "fetchSpec": "3.0.0-alpha.14.4.0"
   },
   "_requiredBy": [
     "#USER"
   ],
   "_resolved": "https://registry.npmjs.org/strapi-plugin-users-permissions/-/strapi-plugin-users-permissions-3.0.0-alpha.14.4.0.tgz",
   "_shasum": "0cda9ea71fc63ba38a98fc12a663983c7e372d5a",
-  "_shrinkwrap": null,
   "_spec": "strapi-plugin-users-permissions@3.0.0-alpha.14.4.0",
-  "_where": "/home/agentos/Web/petfinder/backend/strapi-project/plugins/users-permissions",
+  "_where": "E:\\Web\\repositories\\petfinder\\backend\\strapi-project",
   "author": {
-    "email": "hi@strapi.io",
     "name": "Strapi team",
+    "email": "hi@strapi.io",
     "url": "http://strapi.io"
   },
   "bugs": {
     "url": "https://github.com/strapi/strapi/issues"
   },
+  "bundleDependencies": false,
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "grant-koa": "^3.8.1",
@@ -56,18 +41,10 @@
     "request": "^2.83.0",
     "uuid": "^3.1.0"
   },
+  "deprecated": false,
   "description": "Protect your API with a full-authentication process based on JWT",
   "devDependencies": {
     "strapi-helper-plugin": "3.0.0-alpha.14.4.0"
-  },
-  "directories": {},
-  "dist": {
-    "fileCount": 119,
-    "integrity": "sha512-+ydSmYyDcmXGa/dJY9Pwmoy47eklvVEn0CQpJGoVThjeG92nzQ8q1Hv3bOqpam+Bi/wIV6f+02rwVUtacmEcRA==",
-    "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb0eKqCRA9TVsSAnZWagAAjQEP/0tq9LqUUp1/dymqZ//K\njPN7yhudRYmHn33S1BlvorlS4IgEmBtJVM1G9Tfu4iegKOHJYuR2qpTjTjWZ\nMWTUX7my+CICkWpvtgU7BKkY1C+ENaswYvQjESl3/KFESmn3zbG2gqMB2uyd\nIQ+wmF+FYo4Bl3VvOrXLwcAjcEqHpqM8IzAXU2P4cOAMAakPfG3jWnN/VXYO\nBHZnKQBTTmSz2C59M4jg+PaL7qroAdVLyBe4TsZK7YyKWLcEuXGFISeZ5wdz\nG3wNDUJOEIsMNSyYprl+BCm/xT01mO6Zksh09k8LEYsXkFjkI8097GgBoFV3\nbGISVqQ7+uHiHF3JYUEfoWMHT+VkCkHRiO2YN5Q+f96btR5YaOGxc3Ff5+tU\n5PSO/kTHu7AksaYUzJ+qAx42i2susdY5rceHfAAgkxtMHVY7VYXuAAy4cvsD\n17mt8N7jImqjsIQtyjZ6qCKI9DAbJRl2HbW+R48hpBOrLt9+Akous0fjDlOw\nNk7NDpciBVIZlntpSt+52sDEf46OPLgkIQZApzDDtGoEA0uOYcwJv7nHqf/5\nXA9gNkRSigvAIal78B+k4K0mjHGj09kira7zEAtt0DwT84DfOzJPxhL5Vjff\nokPJm1S1qcmb0TkBEkyGWEZy7lusyb8oMl6BN2+WgvUMLSU0tPjoIy7Vp8kh\n4Mb6\r\n=usyd\r\n-----END PGP SIGNATURE-----\r\n",
-    "shasum": "0cda9ea71fc63ba38a98fc12a663983c7e372d5a",
-    "tarball": "https://registry.npmjs.org/strapi-plugin-users-permissions/-/strapi-plugin-users-permissions-3.0.0-alpha.14.4.0.tgz",
-    "unpackedSize": 1746518
   },
   "engines": {
     "node": ">= 9.0.0",
@@ -77,26 +54,12 @@
   "license": "MIT",
   "maintainers": [
     {
-      "name": "aurelsicoko",
-      "email": "aurelsicoko@gmail.com"
-    },
-    {
-      "name": "lauriejim",
-      "email": "j.laurie6993@gmail.com"
-    },
-    {
-      "name": "pierreburgy",
-      "email": "pierre.burgy@gmail.com"
-    },
-    {
-      "name": "soupette",
-      "email": "cyril.lpz@gmail.com"
+      "name": "Strapi team",
+      "email": "hi@strapi.io",
+      "url": "http://strapi.io"
     }
   ],
   "name": "strapi-plugin-users-permissions",
-  "optionalDependencies": {},
-  "readme": "# Strapi plugin",
-  "readmeFilename": "README.md",
   "repository": {
     "type": "git",
     "url": "git://github.com/strapi/strapi.git"
@@ -116,9 +79,27 @@
     "test": "echo \"Error: no test specified\""
   },
   "strapi": {
-    "description": "users-permissions.plugin.description",
+    "name": "Roles & Permissions",
     "icon": "users",
-    "name": "Roles & Permissions"
+    "description": "users-permissions.plugin.description"
   },
-  "version": "3.0.0-alpha.14.4.0"
+  "version": "3.0.0-alpha.14.4.0",
+  "warnings": [
+    {
+      "code": "ENOTSUP",
+      "required": {
+        "node": ">= 9.0.0",
+        "npm": ">= 5.0.0"
+      },
+      "pkgid": "strapi-plugin-users-permissions@3.0.0-alpha.14.4.0"
+    },
+    {
+      "code": "ENOTSUP",
+      "required": {
+        "node": ">= 9.0.0",
+        "npm": ">= 5.0.0"
+      },
+      "pkgid": "strapi-plugin-users-permissions@3.0.0-alpha.14.4.0"
+    }
+  ]
 }
