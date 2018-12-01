@@ -236,6 +236,8 @@ footer .social-icon div { display: inline-block; }
 
 .footer-info { line-height: 35px; }
 
+/* Для моб версії */
+
 @media screen and (max-width: 600px) {
   .last-lost {
   	width: 70%
