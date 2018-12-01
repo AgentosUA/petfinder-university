@@ -64,6 +64,9 @@ header {
 }
 
 @media screen and (max-width: 600px) {
+  .last-lost {
+  	width: 70%
+  }
   .topnav a { margin: 10px auto; float: none; display: none;}
   .topnav a.icon {
     float: right;
@@ -73,6 +76,11 @@ header {
   	margin: 10px auto;
   }
 }
+@media screen and (max-width: 1150px) {
+  .last-lost {
+  	width: 90%
+  }
+  }
 
 @media screen and (max-width: 600px) {
   .topnav.responsive {position: relative;}
