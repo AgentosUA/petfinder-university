@@ -251,11 +251,6 @@ footer .social-icon div { display: inline-block; }
   	margin: 10px auto;
   }
 }
-@media screen and (max-width: 1150px) {
-  .last-lost {
-  	width: 90%
-  }
-  }
 
 @media screen and (max-width: 600px) {
   .topnav.responsive {position: relative;}
