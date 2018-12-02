@@ -1,0 +1,268 @@
+/* Шрифти */
+@font-face {
+	font-family: "regular";
+	src:url(../fonts/regular.otf);
+}
+
+@font-face {
+	font-family: "p-reg";
+	src:url(../fonts/p-reg.otf);
+}
+
+/* Стандартні значення CSS */
+
+h1, h2, h3 { font-family: "regular"; }
+h1 { margin: 40px auto; }
+h2 { margin: 40px auto; color: #181e24; }
+h3 { margin: 12px auto; font-size: 18px; }
+hr { margin: 10px auto; width: 100%; border: 1px solid #adb2b8; box-shadow: 0 0 30px rgba(0,0,0,0.5); }
+button { font-family: "regular"; }
+.clear { clear: both; } /* Очистка float */
+.f-left { float: left; }
+.f-right { float: right; }
+
+/* Для шаблону */
+
+body {
+	background: #f4f3f3;
+	font-family: "p-reg";
+}
+
+header {
+	margin: 0 auto;
+	width: 100%;
+	min-height: 370px;
+	background: #3c4148;
+} header h1 { text-align: center; color: #fff; }
+
+.logo  { margin: 10px auto 0 auto; float: left; }
+
+/* Меню */
+
+.topnav {
+    overflow: hidden;
+}
+
+.topnav a {
+    float: left;
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 28px 16px;
+    text-decoration: none;
+    font-size: 15px;
+    font-family: "regular";
+}
+
+.topnav a:hover {
+    color: #FF8400;
+}
+
+.topnav .icon {
+	margin: 10px auto;
+    display: none;
+}
+
+/* Профіль в меню */
+
+.menu-user { margin: 10px auto 0 auto; float: right; width: 220px; }
+.menu-user .avatar { margin-right: 5px; width: 52px; border-radius: 100%; border: 4px solid #5D7081; }
+.menu-user img{ margin: 0 2px; width: 15px; }
+.menu-user a { margin-top: 5px; color: #FF8B00; }
+.menu-user a:hover { color: #fff; text-decoration: none;}
+.header-input {
+	margin: 30px auto 0 auto;
+	text-align: center;
+	max-width: 800px;
+	font-family: "regular";
+}
+
+.header-input input {
+	margin: 0 auto;
+	padding: 10px;
+	height: 45px;
+	width: 100%;
+	color: #c0c4c9;
+	border: none;
+	border-radius: 8px;
+	box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+.header-input a { 
+	display: inline-block;
+	margin: 45px 15px;
+	width: 200px;
+	padding: 10px;
+	border: 1px solid #fff;
+	border-radius: 3px;
+	height: 40px;
+	line-height: 20px;
+	color: #fff;
+	text-decoration: none;
+	transition: all 0.3s;
+} .header-input a:hover { background: #FD7C00; transition: all 0.3s; }
+
+.instruction {
+	margin: 10px 80px;
+	padding: 10px;
+	width: 200px;
+	height: 200px;
+	text-align: center;
+	border: 5px solid #3c4148;
+	border-radius: 100%;
+} .instruction h3 { font-size: 50px; color: #ff8a00; }
+
+.last-lost { margin: 5px auto; }
+.last-lost .item {
+	margin: 10px 35px;
+	position: relative;
+	display: inline-block;
+	width: 210px;
+	height: 210px;
+	border-radius: 100%;
+	border: 1px solid grey;
+	box-shadow: 0 0 30px rgba(0,0,0,0.5);
+	text-align: center;
+	background: #000;
+	color: #fff;
+	line-height: 20px;
+	overflow: hidden;
+}
+.last-lost .item h3 { margin: 20px auto; }
+.last-lost .item img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; transition: all 0.3s;}
+.last-lost .item img:hover { opacity: 0.2; transition: all 0.3s;}
+
+.contact-info { margin: 40px auto; }
+.reg-form {
+	margin: 0 auto;
+	max-width: 650px;
+	width: 100%;
+	height: auto;
+}
+.reg-form input { margin: 10px auto; padding: 5px; width: 100%; height: 38px; border-radius: 8px; border: 2px solid #B6B6B6; }
+.reg-form input:hover { box-shadow: 0 0 5px rgba(0,0,0,0.5); }
+.reg-form textarea { resize: none; padding: 10px; width: 100%; height: 120px; border-radius: 8px; border: 2px solid #B6B6B6; }
+.reg-form textarea:hover { box-shadow: 0 0 5px rgba(0,0,0,0.5); }
+.reg-form button { transition: 0.3s; margin: 5px auto; min-width: 100px; background: #ff8a00; border: none; color: #fff; padding: 5px; border-radius: 8px; box-shadow: 0 0 30px rgba(0,0,0,0.5); }
+.reg-form button:hover { transition: 0.3s; background: #3C4148; color: #fff; }
+
+/* Профіль */
+
+.left-bar {	text-align: center; }
+
+.left-bar img {	margin: 5px auto; width: 150px; border: 2px solid #ff8a00; border-radius: 100%; box-shadow: 0 0 30px rgba(0,0,0,0.5); }
+	.user-rank { color: #FF0000; }
+	.user-code { color: #009400; }
+	.user-found { color: #FFD20A; }
+	.left-bar a { display: block; margin: 10px auto; text-align: center; width: 120px; height: 30px; line-height: 30px; color: #fff; background: #364D62; text-decoration: none; transition: 0.3s}
+	.left-bar a:hover { background: #FF5C3F; transition: 0.3s; }
+.right-bar img { float: left; margin: 5px 20px; width: 150px; border: 2px solid #ff8a00; border-radius: 100%; box-shadow: 0 0 30px rgba(0,0,0,0.5); } 
+
+/* Фільтр пошуку */
+
+.filter-search {
+	margin: 0 auto;
+	padding: 15px;
+	width: 100%;
+	border: 2px solid #FF8A00;
+	border-radius: 2px;
+}
+
+.filter-search input { width: 100%; }
+
+.filter-search select {
+	margin: 10px auto;
+	width: 100%;
+}
+
+.filter-search button {
+	margin: 0 auto;
+	padding: 5px;
+	width: 100%;
+	background: #FF8A00;
+	border: 2px solid #fff;
+	border-radius: 3px;
+	color: #fff;
+	font-weight: 600;
+	transition: 0.3s;
+}
+
+.filter-search button:hover { background: #3C4148; color: #fff; transition: 0.3s; }
+/* Блоки результату */
+
+.search-result article img {
+	margin: 0 5px 5px 0;
+	box-shadow: 0 0 30px rgba(0,0,0,0.2);
+	border-radius: 3px;
+	float: left;
+}
+
+.detailed-btn { 
+	margin-top: 10px auto;
+	width: 150px;
+	padding: 8px;
+	background: #FF8A00;
+	border: none;
+	color: #fff;
+	transition: 0.3s;
+	text-decoration: none;
+}
+
+.min-block { min-height: 550px; }
+
+.detailed-btn:hover { background: #3C4148; color: #fff; transition: 0.3s; }
+
+/* Футер */
+footer {
+	position: relative;
+	margin: 0 auto;
+	padding: 5px 0;
+	width: 100%;
+	height: 75px;
+	color: #fff;
+	font-family: "regular";
+	background: #3c4148;
+	overflow: hidden;
+} 
+
+footer .copyright { margin: 0 auto; text-align: center;}
+/* Іконки в футері */
+footer .social-icon { margin: 0 10px; position: absolute; top: 25px; right: 30px; }
+footer .social-icon div { display: inline-block; }
+.social-icon-github { margin: 0 auto; width: 25px; height: 25px; background: url(../img/icons/git-footer.png); opacity: 0.7; transition: 0.3s;}
+	.social-icon-github:hover { opacity: 1; }
+
+.social-icon-facebook { margin: 0 auto; width: 25px; height: 25px; background: url(../img/icons/facebook-footer.png); opacity: 0.7; transition: 0.3s;}
+	.social-icon-facebook:hover { opacity: 1; }
+
+.footer-info { line-height: 35px; }
+
+/* Для моб версії */
+
+@media screen and (max-width: 600px) {
+  .last-lost {
+  	width: 70%
+  }
+  .topnav a { margin: 10px auto; float: none; display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+  .menu-user {
+  	margin: 10px auto;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+	margin: 15px 25px 5px 0;
+	float: left;
+    display: block;
+    text-align: left;
+  }
+}
