@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-class Home extends Component {
+class Header extends Component {
     render() {
         return (
             <header>
                 <div className="container">
                     <div className="row">
                         <div className="col-md-2 col-12">
-                            <Link to="index.html" className="logo"><img src="img/logo.png" alt="Логотип"/></Link>
+                            <Link to="/" className="logo"><img src="img/logo.png" alt="Логотип"/></Link>
                         </div>
                         <div className="col-md-6 col-12 relative">
                             <div className="topnav" id="myTopnav">
-                                <Link to="index.html">Головна</Link>
-                                <Link to="search.html">Зниклі</Link>
-                                <Link to="search.html">Знайдені</Link>
-                                <Link to="about.html">Про нас</Link>
+                                <Link to="/">Головна</Link>
+                                <Link to="/pets/lost">Зниклі</Link>
+                                <Link to="/pets/found">Знайдені</Link>
+                                <Link to="/about">Про нас</Link>
                                 <Link to="javascript:void(0);" className="icon" onclick="myFunction()">
                                 <i className="fas fa-align-justify"></i>
                                 </Link>
@@ -23,10 +23,9 @@ class Home extends Component {
                         </div>
                         <div className="col-md-4 col-12">
                             <div className="menu-user">
-                                <Link to="profile.html"><img className="avatar" src="img/ava.jpg" alt="avatar"/></Link>
-                                <Link to="profile.html"><img src="img/icons/profile-icon.png" alt=""/></Link>
-                                <Link to="profile.html"><img src="img/icons/animals-icon.png" alt=""/></Link>
-                                <Link to="login.html"><img src="img/icons/exit-icon.png" alt=""/></Link>
+                                <Link to="profile"><img className="avatar" src="/img/ava.jpg" alt="avatar" /></Link>
+                                <Link to="/pets/my"><img src="/img/icons/animals-icon.png" alt="" /></Link>
+                                <Link to="logout"><img src="/img/icons/exit-icon.png" alt="" /></Link>
                             </div>
                             <div className="clear"></div>
                         </div>
