@@ -247,22 +247,21 @@ footer .social-icon div { display: inline-block; }
     float: right;
     display: block;
   }
-  .menu-user {
-  	margin: 10px auto;
+  .topnav.responsive {position: relative;}
+  .topnav.responsive a.icon {
+  	position: absolute;
+    height: 60px;
+    display: flex;
+    right: 0;
+    top: 0;
+    justify-content: space-between;
+  }
+
+  .topnav.responsive a {
+	float: left;
+    text-align: left;
+    display: flex;
+    width: 60%;
   }
 }
 
-@media screen and (max-width: 600px) {
-  .topnav.responsive {position: relative;}
-  .topnav.responsive a.icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  .topnav.responsive a {
-	margin: 15px 25px 5px 0;
-	float: left;
-    display: block;
-    text-align: left;
-  }
-}
