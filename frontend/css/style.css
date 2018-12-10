@@ -242,26 +242,32 @@ footer .social-icon div { display: inline-block; }
   .last-lost {
   	width: 70%
   }
+  .menu-user {
+  	position: relative right;
+  	float: center;
+  }
   .topnav a { margin: 10px auto; float: none; display: none;}
   .topnav a.icon {
     float: right;
     display: block;
+
   }
-  .topnav.responsive {position: relative;}
   .topnav.responsive a.icon {
-  	position: absolute;
-    height: 60px;
-    display: flex;
+    position: absolute;
+    width: 15%;
     right: 0;
-    top: 0;
-    justify-content: space-between;
-  }
+    display: flex;
+    }
 
   .topnav.responsive a {
-	float: left;
-    text-align: left;
+  	width: 60%;
+  	position: relative;
+  	cursor: pointer;
+	float: right;
     display: flex;
-    width: 60%;
-  }
+
+     }     
 }
+
+
 
