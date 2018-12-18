@@ -11,6 +11,7 @@ import AboutPage from './pages/About.js';
 import LoginPage from './pages/Login.js';
 import ProfilePage from './pages/Profile.js';
 import AdvertPage from './pages/Advert.js';
+import SearchPage from './pages/Search.js';
 
 
 class App extends Component {
@@ -21,6 +22,7 @@ class App extends Component {
           <Route exact path="/" component={Home}/>
           <Route path="/profile" component={ProfilePage}/>
           <Route path="/login" component={LoginPage}/>
+          <Route path="/search" component={SearchPage}/>
           <Route path="/advert" component={AdvertPage}/>
           <Route path="/about" component={AboutPage}/>
           

@@ -13,8 +13,8 @@ class Header extends Component {
                         <div className="col-md-6 col-12 relative">
                             <div className="topnav" id="myTopnav">
                                 <Link to="/">Головна</Link>
-                                <Link to="/pets/lost">Зниклі</Link>
-                                <Link to="/pets/found">Знайдені</Link>
+                                <Link to="/search">Зниклі</Link>
+                                <Link to="/search">Знайдені</Link>
                                 <Link to="/about">Про нас</Link>
                                 <Link to="javascript:void(0);" className="icon" onclick="myFunction()">
                                 <i className="fas fa-align-justify"></i>
