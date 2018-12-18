@@ -8,6 +8,9 @@ import './css/web-fonts-with-css/css/fontawesome-all.min.css';
 
 import Home from './pages/Home.js';
 import AboutPage from './pages/About.js';
+import LoginPage from './pages/Login.js';
+import ProfilePage from './pages/Profile.js';
+import AdvertPage from './pages/Advert.js';
 
 
 class App extends Component {
@@ -16,6 +19,9 @@ class App extends Component {
       <Router>
         <div>
           <Route exact path="/" component={Home}/>
+          <Route path="/profile" component={ProfilePage}/>
+          <Route path="/login" component={LoginPage}/>
+          <Route path="/advert" component={AdvertPage}/>
           <Route path="/about" component={AboutPage}/>
           
         </div>

@@ -35,10 +35,11 @@ class Header extends Component {
                             <h1>Шукаємо зниклого улюбленця?</h1>
                             <div className="header-input">
                                 <form action="" type="search-input">
-                                    <input type="text" placeholder="ID-код"/>
+                                    <input type="text" placeholder="Пошук" className="searchInput"/>
+                                    <i className="fas fa-search"></i>
                                 </form>
                                 <Link to="#">Придбати нашийник</Link>
-                                <Link to="#">Подати оголошення</Link>
+                                <Link to="/advert">Подати оголошення</Link>
                             </div>
                         </div>
                     </div>
