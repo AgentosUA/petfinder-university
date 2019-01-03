@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "lodash": "^4.17.11",
-    "strapi": "^3.0.0-alpha.15",
+    "strapi": "^3.0.0-alpha.17",
     "strapi-hook-mongoose": "3.0.0-alpha.14.4.0"
   },
   "author": {
