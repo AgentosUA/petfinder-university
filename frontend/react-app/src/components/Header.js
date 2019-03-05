@@ -16,7 +16,7 @@ class Header extends Component {
                                 <Link to="/search">Зниклі</Link>
                                 <Link to="/search">Знайдені</Link>
                                 <Link to="/about">Про нас</Link>
-                                <Link to="javascript:void(0);" className="icon" onclick="myFunction()">
+                                <Link to="" className="icon" onclick="myFunction()">
                                 <i className="fas fa-align-justify"></i>
                                 </Link>
                             </div>
