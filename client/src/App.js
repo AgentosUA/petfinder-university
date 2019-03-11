@@ -12,6 +12,7 @@ import LoginPage from './pages/Login.js';
 import ProfilePage from './pages/Profile.js';
 import AdvertPage from './pages/Advert.js';
 import SearchPage from './pages/Search.js';
+import TestPage from './pages/Test.js';
 
 
 class App extends Component {
@@ -25,6 +26,7 @@ class App extends Component {
           <Route path="/search" component={SearchPage} />
           <Route path="/advert" component={AdvertPage} />
           <Route path="/about" component={AboutPage} />
+          <Route path="/test" component={TestPage} />
         </div>
       </Router>
     );

@@ -4,7 +4,6 @@
   "description": "backend for petfinder Website",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js"
   },
   "author": "Agentos",
