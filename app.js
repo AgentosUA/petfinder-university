@@ -1,11 +1,9 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const app = express();
 const morgan = require('morgan');
+const bodyParser = require('body-parser');
 // db
-const MongoClient = require('mongodb').MongoClient;
-const dbUrl = "mongodb://127.0.0.1:27017";
-// devParser
-const bodyParser = require('body-parser')
 
 // routes
 
@@ -37,9 +35,6 @@ app.use((req, res, next) => {
     });
 });
 
-MongoClient.connect(dbUrl, function(err, db) {
-    if (err) throw err;
-    console.log("Database created!");
-    db.close();
-  }, {  useNewUrlParser: true} );
+mongoose()
+
 module.exports = app;
