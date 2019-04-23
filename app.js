@@ -4,18 +4,28 @@ const app = express();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 // db
+const url = 'mongodb://localhost:27017/petfinder_db';
+
+mongoose.connect(url, {
+    useNewUrlParser: true
+});
 
 // routes
 
-// const petsRoutes = require('./api/routes/pets');
-// const orderRoutes = require('./api/routes/orders');
+const homeRoutes = require('./api/routes/home');
+const petsRoutes = require('./api/routes/pets');
+const profileRoutes = require('./api/routes/profile');
+const aboutRoutes = require('./api/routes/about');
 
-// app.use(morgan('dev'));
-// app.use(bodyParser.urlencoded({extended: false}));
-// app.use(bodyParser.json());
 
-// app.use('/pets', petsRoutes);
-// app.use('/orders', orderRoutes);
+app.use(morgan('dev'));
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+
+app.use('/', homeRoutes);
+app.use('/pets', petsRoutes);
+app.use('/about', aboutRoutes);
+app.use('/profile', profileRoutes);
 
 
 // error handler
@@ -34,7 +44,5 @@ app.use((req, res, next) => {
         }
     });
 });
-
-mongoose()
 
 module.exports = app;
