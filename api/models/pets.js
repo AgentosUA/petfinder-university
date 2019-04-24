@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 
 const petSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
-    name: String,
-    age: Number,
-    adress: String
+    name: { type: String, required: true },
+    type: { type: String, required: true },
+    status: { type: String, required: true}
 });
 
 module.exports = mongoose.model('Pet', petSchema);
