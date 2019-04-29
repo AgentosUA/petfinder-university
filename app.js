@@ -9,6 +9,7 @@ const url = 'mongodb://localhost:27017/petfinder_db';
 mongoose.connect(url, {
     useNewUrlParser: true
 });
+mongoose.Promise = global.Promise;
 
 // routes
 
@@ -17,8 +18,8 @@ const petsRoutes = require('./api/routes/pets');
 const profileRoutes = require('./api/routes/profile');
 const aboutRoutes = require('./api/routes/about');
 
-
 app.use(morgan('dev'));
+app.use('/uploads', express.static('uploads'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
@@ -30,11 +31,7 @@ app.use('/profile', profileRoutes);
 
 // error handler
 
-app.use((req, res, next) => {
-    const error = new Error('not found');
-    error.status = 404;
-    next(error);
-});
+
 
 app.use((req, res, next) => {
     res.status(error.status || 500);
