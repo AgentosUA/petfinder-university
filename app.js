@@ -17,6 +17,7 @@ const homeRoutes = require('./api/routes/home');
 const petsRoutes = require('./api/routes/pets');
 const profileRoutes = require('./api/routes/profile');
 const aboutRoutes = require('./api/routes/about');
+const userRoutes = require('./api/routes/user');
 
 app.use(morgan('dev'));
 app.use('/uploads', express.static('uploads'));
@@ -27,6 +28,7 @@ app.use('/', homeRoutes);
 app.use('/pets', petsRoutes);
 app.use('/about', aboutRoutes);
 app.use('/profile', profileRoutes);
+app.use('/user', userRoutes);
 
 
 // error handler

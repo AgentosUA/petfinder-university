@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const multer = require('multer');
+const checkAuth = require('../middleware/check-auth');
 
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
@@ -67,7 +68,7 @@ router.get('/', (req, res, next) => {
         });
 });
 
-router.post('/', upload.single('petImage'), (req, res, next) => {
+router.post('/', checkAuth, upload.single('petImage'), (req, res, next) => {
     console.log(req.file);
     const pet = new Pet({
         _id: new mongoose.Types.ObjectId(),
@@ -122,7 +123,7 @@ router.get('/:petId', (req, res, next) => {
         });
 });
 
-router.patch('/:petId', (req, res, next) => {
+router.patch('/:petId', checkAuth, (req, res, next) => {
     const id = req.params.petId;
     const updateOps = {};
     for(const ops of req.body) {
@@ -147,7 +148,7 @@ router.patch('/:petId', (req, res, next) => {
         });
 })
 
-router.delete('/:petId', (req, res, next) => {
+router.delete('/:petId', checkAuth, (req, res, next) => {
     const id = req.params.petId
     Pet.remove({_id : id})
         .exec()
