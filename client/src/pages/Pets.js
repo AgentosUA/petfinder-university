@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import Header from '../components/Header.js';
-import Home from '../components/Home.js';
+import Pets from '../components/Pets.js';
 import Footer from '../components/Footer.js';
+import './style.css';
 
-class HomePage extends Component {
+class PetsPage extends Component {
     render() {
         return (
             <div>
                 <Header />
-                <Home />
+                <Pets />
                 <Footer />
-            </div>
+             </div>        
         );
     }
 }
 
-export default HomePage;
+export default PetsPage;
