@@ -16,9 +16,9 @@ class Advert extends Component {
                                     <div>Тип тварини</div>
                                     <select>
                                         <option value="all-animal">Всі</option>
-                                        <option value="saab">Коти</option>
-                                        <option value="fiat">Собаки</option>
-                                        <option value="audi">Інші тварини</option>
+                                        <option value="cat">Коти</option>
+                                        <option value="dog">Собаки</option>
+                                        <option value="other">Інші тварини</option>
                                     </select>
                                     <div>Статус</div>
                                     <select>
