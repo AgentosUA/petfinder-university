@@ -5,15 +5,15 @@ class Pets extends Component {
         super();
         this.state = {
             loading: true,
-            pets: []
+            name: [],
+            count: []
         }
     }
 
     componentDidMount() {
         fetch('/pets')
         .then(res => res.json())
-        .then(pets => this.setState({pets}, () => console.log('Pets fetched...', pets)));
-
+        .then(pets => this.setState({name: pets.pets[0].name}, () => console.log('Pets fetched...', pets.pets[0].name)));
     }
 
     render() {
@@ -22,9 +22,9 @@ class Pets extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-8 search-result">
-                        <h2>Знайдено: {this.state.pets.count}</h2>
+                        <h2>Знайдено: {this.state.count}</h2>
                             <article>
-                                <h3>Age: {this.state.pets.age}</h3>
+                                <h3>Age: {this.state.name}</h3>
                                 <img src="" alt="" />
                                 <b>Опис:</b>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima nemo, doloribus sed illo, repudiandae fugit itaque non cum atque aperiam similique velit enim soluta necessitatibus libero reiciendis ducimus delectus rem.</p>
