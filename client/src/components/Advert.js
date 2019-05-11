@@ -10,9 +10,9 @@ class Advert extends Component {
                         <div className="col-md-12">
                             <h2 className="text-center">Подати оголошення</h2>
                             <div className="col-md-12 min-block">
-                                <form action="" method="POST" className="reg-form">
+                                <form action="/pets" method="POST" className="reg-form">
                                     <input type="text" placeholder="Ім'я" required="" /><br/>
-                                    <input type="date" placeholder="Дата" required="" /><br/>
+                                    <input type="text" placeholder="Ім'я" required="" /><br/>
                                     <div>Тип тварини</div>
                                     <select>
                                         <option value="all-animal">Всі</option>
@@ -26,24 +26,9 @@ class Advert extends Component {
                                         <option value="saab">Зниклі</option>
                                         <option value="fiat">Знайдені</option>
                                     </select>
-                                    <div>Порода тварини</div>
-                                    <select>
-                                        <option value="all-animal">Всі</option>
-                                        <option value="saab">Породисті</option>
-                                        <option value="fiat">Вуличні</option>
-                                    </select>
-                                    <div>Колір хутра</div>
-                                    <select>
-                                        <option value="all-animal">Всі</option>
-                                        <option value="saab">Сірій</option>
-                                        <option value="fiat">Рижий</option>
-                                        <option value="audi">Білий</option>
-                                        <option value="audi">Чорний</option>
-                                        <option value="saab">Інший</option>
-                                    </select><br/><br/>
                                     <textarea rows="4" cols="50"></textarea>
                                     <input type="file" className="f-left"/>Завантажте зображення
-                                    <button className="f-right">Подати оголошення</button>
+                                    <input type="submit" className="f-right" value="Подати оголошення"></input>
                                 </form>               
                             </div>
                         </div>
