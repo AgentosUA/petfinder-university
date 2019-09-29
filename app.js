@@ -13,19 +13,18 @@ mongoose.Promise = global.Promise;
 
 // routes
 
-const homeRoutes = require('./api/routes/home');
 const profileRoutes = require('./api/routes/profile');
 const authRoutes = require('./api/routes/auth');
+const searchRoutes = require('./api/routes/search');
 
 app.use(morgan('dev'));
 app.use('/uploads', express.static('uploads'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use('/', homeRoutes);
-app.use('/search', searchRoutes);
+// app.use('/search', searchRoutes);
 app.use('/profile', profileRoutes);
-app.use('/auth', authRoutes);
+app.use(authRoutes);
 
 // error handler
 

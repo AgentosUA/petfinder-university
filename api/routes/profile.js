@@ -1,22 +1,10 @@
 const express = require('express');
 const router = express.Router();
+const profileController = require('../controllers/profile');
 
-router.get('/', (req, res, next) => {
-    res.status(200).json({
-        message: 'Handling GET requests to /profile',
-    });
-    console.log('Get!');
-});
+router.get('/:id', profileController.getPets);
 
-router.post('/', (req, res, next) => {
-    const pet = {
-        name: req.body.name,
-        price: req.body.price
-    };
-    res.status(201).json({
-        message: 'Handling POST request to /profile',
-        createdpet: pet
-    });
-});
+router.post('/:id/add-pet', profileController.addPet);
+router.post('/:id/remove-pet/:id', profileController.removePet);
 
 module.exports = router;
