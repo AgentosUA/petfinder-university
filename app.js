@@ -22,7 +22,7 @@ app.use('/uploads', express.static('uploads'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// app.use('/search', searchRoutes);
+app.use(searchRoutes);
 app.use('/profile', profileRoutes);
 app.use(authRoutes);
 
