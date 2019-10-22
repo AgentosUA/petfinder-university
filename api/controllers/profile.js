@@ -4,14 +4,14 @@ const Pet = require('../models/pet');
 exports.getPets = (req, res, next) => {
   let id = req.params.id;
   User.findOne({
-    id: req.params.id
+    id: id
   })
     .then(user => {
       res.status(200).json({
         pets: user.pets
       });
     })
-    .catch(err => console.log(err));
+    .catch(err => err.json());
 };
 
 exports.addPet = (req, res, next) => {
@@ -25,7 +25,7 @@ exports.addPet = (req, res, next) => {
   pet
     .save()
     .then(result => {
-      res.status(201).json({ result });
+      res.status(201).json({ message: 'Pet successfully added!' });
     })
     .catch(err => console.log(err));
 };
