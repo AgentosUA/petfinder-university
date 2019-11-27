@@ -15,6 +15,7 @@ exports.signup = (req, res, next) => {
 		email: req.body.email,
 		password: req.body.password
 	});
+
 	user
 		.save()
 		.then(result => {
@@ -23,13 +24,8 @@ exports.signup = (req, res, next) => {
 			});
 		})
 		.catch(err => {
-			if (err.code === 11000) {
-				return res.status(500).json({
-					message: 'User already exists!'
-				});
-			}
-			res.status(500).json({
-				message: 'Failed to add new user!'
+			res.status(409).json({
+				error: 'User already exists'
 			});
 		});
 };
