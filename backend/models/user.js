@@ -22,10 +22,7 @@ const userSchema = new Schema({
     {
       petId: { type: Schema.Types.ObjectId, ref: 'Pet' }
     }
-  ],
-  token: {
-    type: String
-  }
+  ]
 });
 
 module.exports = mongoose.model('User', userSchema);

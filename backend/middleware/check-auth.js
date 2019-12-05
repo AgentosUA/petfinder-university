@@ -7,6 +7,7 @@ module.exports = (req, res, next) => {
       'secret'
     );
     req.userData = decoded;
+    console.log(req.userData);
     next();
   } catch (error) {
     return res.status(401).json({

@@ -33,7 +33,7 @@ exports.login = (req, res, next) => {
             }
           );
 
-          res.status(200).json({
+          return res.status(200).json({
             token: token
           });
         }
@@ -45,6 +45,9 @@ exports.login = (req, res, next) => {
     })
     .catch(err => {
       console.log(err);
+      res.status(409).json({
+        error: 'Wrong data'
+      })
     });
 };
 
