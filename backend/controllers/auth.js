@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const User = require('../models/user.js');
 const jwt = require('jsonwebtoken');
 
@@ -47,7 +47,7 @@ exports.login = (req, res, next) => {
       console.log(err);
       res.status(409).json({
         error: 'Wrong data'
-      })
+      });
     });
 };
 

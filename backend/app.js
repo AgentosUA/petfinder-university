@@ -20,8 +20,8 @@ app.use(authRoutes);
 app.use('/', errorController404.error404);
 
 mongoose.connect('mongodb://localhost:27017/petfinder', {
-	useNewUrlParser: true,
-	useUnifiedTopology: true
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 });
 
 module.exports = app;
