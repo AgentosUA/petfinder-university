@@ -4,11 +4,13 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
 	name: { type: String, required: true },
 	age: { type: Number },
-	type: { type: String },
+	type: { type: String, required: true },
 	gender: { type: String },
 	breed: { type: String },
+	status: { type: String, required: true },
 	description: { type: String },
-	ownwer: { type: Schema.Types.ObjectId, ref: 'User', required: true }
+	images: { type: [] },
+	owner: { type: String }
 });
 
 module.exports = mongoose.model('Pet', userSchema);
