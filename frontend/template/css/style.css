@@ -1,16 +1,84 @@
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -20,8 +88,17 @@ time, mark, audio, video {
 }
 
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
   display: block;
 }
 
@@ -29,16 +106,20 @@ body {
   line-height: 1;
 }
 
-ol, ul {
+ol,
+ul {
   list-style: none;
 }
 
-blockquote, q {
+blockquote,
+q {
   quotes: none;
 }
 
-blockquote:before, blockquote:after,
-q:before, q:after {
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
   content: '';
   content: none;
 }
@@ -54,14 +135,14 @@ table {
 }
 
 @font-face {
-  font-family: "regular";
+  font-family: 'regular';
   src: url(../fonts/regular.otf);
 }
 
 body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: "regular", Arial, Helvetica, sans-serif;
+  font-family: 'regular', Arial, Helvetica, sans-serif;
   font-size: 14px;
 }
 
@@ -73,8 +154,8 @@ body {
 }
 
 header {
-  padding-top: 20px;
-  height: 100vh;
+  padding-top: 14px;
+  min-height: 50vh;
   background: #3c4148;
 }
 
@@ -93,8 +174,8 @@ section.top-nav .logo {
 
 section.top-nav .logo img {
   width: 80px;
-  border: 1px solid #000;
-  border-radius: 50%;
+  border: 2px solid #000;
+  border-radius: 40px;
 }
 
 section.top-nav .logo a {
@@ -112,12 +193,11 @@ section.top-nav .logo h1 {
   margin-left: 15px;
   line-height: 80px;
   font-size: 1.5em;
-  font-family: "logo", Arial, Helvetica, sans-serif;
+  font-family: 'logo', Arial, Helvetica, sans-serif;
 }
 
 section.top-nav .main-nav {
-  margin: auto;
-  height: 80px;
+  margin: 20px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -127,23 +207,78 @@ section.top-nav .main-nav a {
   margin: 0;
   text-align: center;
   padding: 0 25px;
-  height: 55px;
+  height: 35px;
   color: #fff;
   text-decoration: none;
-  line-height: 55px;
-  -webkit-transition: 0.7;
-  transition: 0.7;
+  line-height: 35px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  border: 2px solid #3c4148;
 }
 
 section.top-nav .main-nav a:hover {
-  -webkit-transition: 0.7;
-  transition: 0.7;
-  background: #ff8d00;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  border: 2px solid #ff8d00;
+}
+
+section.top-nav .profile-nav {
+  margin: 20px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
 }
 
 section.top-nav .profile-nav .avatar {
   width: 65px;
   border: 2px solid #ff8d00;
   border-radius: 100%;
+}
+
+section.top-nav .profile-nav a {
+  margin: 0;
+  padding: 2px 10px;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid #ff8d00;
+  color: #fff;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+section.top-nav .profile-nav a.login-btn {
+  margin-right: 10px;
+}
+
+section.top-nav .profile-nav a.signup-btn {
+  background: #ff8d00;
+  border: 2px solid #ff8d00;
+}
+
+section.top-nav .profile-nav a:hover {
+  background: none;
+  border: 2px solid #fff;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+section.header-action .header-title {
+  margin-top: 10px;
+}
+
+section.header-action h2 {
+  font-size: 3em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #fff;
+  text-decoration: underline;
+}
+
+section.header-action h2 span {
+  color: #ff8d00;
+  text-decoration: underline;
 }
 /*# sourceMappingURL=style.css.map */
