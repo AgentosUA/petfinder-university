@@ -144,6 +144,11 @@ body {
           box-sizing: border-box;
   font-family: 'regular', Arial, Helvetica, sans-serif;
   font-size: 14px;
+  color: #3c4148;
+}
+
+h2 {
+  font-size: 2em;
 }
 
 .wrapper {
@@ -265,6 +270,11 @@ section.top-nav .profile-nav a:hover {
   transition: 0.3s;
 }
 
+section h2 {
+  font-size: 2rem;
+  text-align: center;
+}
+
 section.header-action .header-title {
   margin-top: 10px;
 }
@@ -280,5 +290,50 @@ section.header-action h2 {
 section.header-action h2 span {
   color: #ff8d00;
   text-decoration: underline;
+}
+
+section.header-action h3 {
+  margin-top: 10px;
+  font-size: 1.9em;
+  color: #fff;
+  text-align: center;
+}
+
+section.last-lost {
+  margin-top: 25px;
+}
+
+section.last-lost .instructions {
+  margin: 50px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+section.last-lost .instructions .item {
+  padding: 15px;
+  text-align: center;
+  width: 180px;
+  height: 180px;
+  border-radius: 100%;
+  border: 6px solid #3c4148;
+  overflow: hidden;
+}
+
+section.last-lost .instructions .item h3 {
+  font-size: 5em;
+  line-height: 100px;
+  color: #ff8d00;
+}
+
+section.last-lost .instructions .item p {
+  margin: 0 auto;
+  font-weight: bold;
+  font-size: 1.1em;
+  line-height: 18px;
 }
 /*# sourceMappingURL=style.css.map */
