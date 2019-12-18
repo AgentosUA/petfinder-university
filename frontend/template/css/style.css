@@ -299,6 +299,45 @@ section.header-action h3 {
   text-align: center;
 }
 
+section.header-action .search-form {
+  margin: 20px auto;
+  max-width: 780px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  text-align: center;
+}
+
+section.header-action .search-form select,
+section.header-action .search-form input {
+  margin: 0 auto;
+  padding: 8px;
+  color: #3c4148;
+  font-weight: bold;
+}
+
+section.header-action .search-form .search-button {
+  margin: 5px auto;
+  padding: 8px;
+  width: 100%;
+  background: #ff8d00;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: none;
+}
+
+section.header-action .search-form .search-button:hover {
+  cursor: pointer;
+  background: #fff;
+  color: #000;
+}
+
 section.last-lost {
   margin-top: 25px;
 }
