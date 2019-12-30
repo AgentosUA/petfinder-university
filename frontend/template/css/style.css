@@ -151,6 +151,10 @@ h2 {
   font-size: 2em;
 }
 
+p, button {
+  font-family: 'regular';
+}
+
 .wrapper {
   margin: 0 auto;
   width: 100%;
@@ -345,6 +349,39 @@ section.header-action .search-form .search-button:hover {
   cursor: pointer;
   background: #fff;
   color: #000;
+}
+
+section.header-action .call-to-action {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  max-width: 780px;
+}
+
+section.header-action .call-to-action button {
+  margin: 10px 0;
+  width: 250px;
+  height: 45px;
+  background: #ff8d00;
+  border: 2px solid #3c4148;
+  color: #fff;
+  font-weight: bold;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+section.header-action .call-to-action button:hover {
+  background: #3c4148;
+  border: 2px solid #ff8d00;
+  cursor: pointer;
+  -webkit-transition: .3s;
+  transition: .3s;
 }
 
 main section {
