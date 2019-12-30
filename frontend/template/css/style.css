@@ -271,7 +271,13 @@ section.top-nav .profile-nav a:hover {
 }
 
 section h2 {
+  margin: 8px auto;
   font-size: 2rem;
+  text-align: center;
+}
+
+section h3 {
+  font-size: 1.2rem;
   text-align: center;
 }
 
@@ -308,6 +314,8 @@ section.header-action .search-form {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -ms-flex-item-align: stretch;
+      align-self: stretch;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   text-align: center;
@@ -325,6 +333,7 @@ section.header-action .search-form .search-button {
   margin: 5px auto;
   padding: 8px;
   width: 100%;
+  height: 35px;
   background: #ff8d00;
   color: #fff;
   text-transform: uppercase;
@@ -338,11 +347,11 @@ section.header-action .search-form .search-button:hover {
   color: #000;
 }
 
-section.last-lost {
+main section {
   margin-top: 25px;
 }
 
-section.last-lost .instructions {
+section.instruction .instructions {
   margin: 50px auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -353,7 +362,7 @@ section.last-lost .instructions {
       justify-content: space-around;
 }
 
-section.last-lost .instructions .item {
+section.instruction .instructions .item {
   padding: 15px;
   text-align: center;
   width: 180px;
@@ -363,16 +372,67 @@ section.last-lost .instructions .item {
   overflow: hidden;
 }
 
-section.last-lost .instructions .item h3 {
+section.instruction .instructions .item h3 {
   font-size: 5em;
   line-height: 100px;
   color: #ff8d00;
 }
 
-section.last-lost .instructions .item p {
+section.instruction .instructions .item p {
   margin: 0 auto;
   font-weight: bold;
   font-size: 1.1em;
   line-height: 18px;
+}
+
+section.last-adverts .adverts {
+  margin: 25px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 100%;
+  min-height: 250px;
+}
+
+section.last-adverts .adverts .item {
+  margin: 8px;
+  position: relative;
+  width: 220px;
+  border: 2px solid #ff8d00;
+  height: 220px;
+  border-radius: 100%;
+  overflow: hidden;
+  text-align: center;
+  cursor: pointer;
+}
+
+section.last-adverts .adverts .item img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+section.last-adverts .adverts .item img:hover {
+  opacity: 0.1;
+}
+
+section.last-adverts .adverts .item button {
+  position: absolute;
+  left: 0;
+  top: 45%;
+  text-align: center;
+  width: 100%;
+  height: 35px;
+  z-index: -1;
+  font-weight: bold;
+  border: 2px solid #ff8d00;
+  background: #ff8d00;
+  color: #fff;
 }
 /*# sourceMappingURL=style.css.map */
