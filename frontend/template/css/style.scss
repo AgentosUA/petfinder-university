@@ -148,7 +148,8 @@ h2 {
   font-size: 2em;
 }
 
-p, button {
+p,
+button {
   font-family: 'regular';
 }
 
@@ -328,12 +329,12 @@ section.header-action {
       border: 2px solid #3c4148;
       color: #fff;
       font-weight: bold;
-      transition: .3s;
+      transition: 0.3s;
       &:hover {
         background: #3c4148;
         border: 2px solid #ff8d00;
         cursor: pointer;
-        transition: .3s;
+        transition: 0.3s;
       }
     }
   }
@@ -346,7 +347,6 @@ main section {
 }
 
 section.instruction {
-  
   .instructions {
     margin: 50px auto;
     display: flex;
@@ -384,7 +384,6 @@ section.last-adverts {
     width: 100%;
     min-height: 250px;
     .item {
-      
       margin: 8px;
       position: relative;
       width: 220px;
@@ -416,6 +415,40 @@ section.last-adverts {
         border: 2px solid #ff8d00;
         background: #ff8d00;
         color: #fff;
+      }
+    }
+  }
+}
+
+.footer {
+  margin: 25px auto 0 auto;
+  height: 100px;
+  background: #3c4148;
+  overflow: hidden;
+  .footer-content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    text-align: center;
+    .copyright {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 220px;
+      text-align: center;
+      justify-content: center;
+      color: #fff;
+      img {
+        width: 60px;
+        margin-right: 8px;
+      }
+    }
+    .social-icons {
+      position: absolute;
+      right: 0;
+      top: 45px;
+      a {
+        margin-left: 8px;
       }
     }
   }
