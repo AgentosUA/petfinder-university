@@ -282,7 +282,7 @@ section h2 {
 }
 
 section h3 {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   text-align: center;
 }
 
@@ -327,11 +327,25 @@ section.header-action .search-form {
 }
 
 section.header-action .search-form select,
-section.header-action .search-form input {
+section.header-action .search-form input, section.header-action .search-form select {
   margin: 0 auto;
-  padding: 8px;
+  padding: 10px;
+  height: 40px;
+  width: 120px;
+  font-size: 14px;
   color: #3c4148;
   font-weight: bold;
+  border: none;
+  background: #fff;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+section.header-action .search-form select:focus,
+section.header-action .search-form input:focus, section.header-action .search-form select:focus {
+  outline: none;
+  -webkit-box-shadow: 0 0 2px 2px #ff8d00;
+          box-shadow: 0 0 2px 2px #ff8d00;
 }
 
 section.header-action .search-form .search-button {
@@ -342,7 +356,7 @@ section.header-action .search-form .search-button {
   background: #ff8d00;
   color: #fff;
   text-transform: uppercase;
-  font-weight: bold;
+  font-size: 14px;
   border: none;
 }
 
@@ -372,7 +386,6 @@ section.header-action .call-to-action button {
   background: #ff8d00;
   border: 2px solid #3c4148;
   color: #fff;
-  font-weight: bold;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
@@ -495,6 +508,7 @@ section.last-adverts .adverts .item button {
 }
 
 .footer .footer-content .copyright {
+  margin-top: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -505,12 +519,21 @@ section.last-adverts .adverts .item button {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  color: #fff;
 }
 
 .footer .footer-content .copyright img {
   width: 60px;
   margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+.footer .footer-content .copyright h3 {
+  padding-top: 25px;
+}
+
+.footer .footer-content .copyright a, .footer .footer-content .copyright span {
+  color: #fff;
+  text-decoration: none;
 }
 
 .footer .footer-content .social-icons {
