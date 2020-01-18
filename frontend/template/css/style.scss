@@ -144,6 +144,12 @@ body {
   color: #3c4148;
 }
 
+hr {
+  width: 100%;
+  border: 0 solid rgba($color: #000000, $alpha: 0);
+  box-shadow: 0 0 0px 1px rgba($color: #000000, $alpha: 0.3);
+}
+
 h2 {
   font-size: 2em;
 }
@@ -299,7 +305,7 @@ section.header-action {
       width: 120px;
       font-size: 14px;
       color: #3c4148;
-      font-weight: bold;
+      font-weight: 300;
       border: none;
       background: #fff;
       box-sizing: border-box;
@@ -312,16 +318,18 @@ section.header-action {
       margin: 5px auto;
       padding: 8px;
       width: 100%;
-      height: 35px;
+      height: 45px;
       background: #ff8d00;
       color: #fff;
       text-transform: uppercase;
       font-size: 14px;
-      border: none;
+      border: 2px solid #3c4148;
+      transition: 0.3s;
       &:hover {
+        background: #3c4148;
+        border: 2px solid #ff8d00;
         cursor: pointer;
-        background: #fff;
-        color: #000;
+        transition: 0.3s;
       }
     }
   }
@@ -352,7 +360,8 @@ section.header-action {
 // Main
 
 main section {
-  margin-top: 25px;
+  margin: 25px auto;
+  padding-bottom: 25px;
 }
 
 section.instruction {
@@ -376,7 +385,7 @@ section.instruction {
       }
       p {
         margin: 0 auto;
-        font-weight: bold;
+        font-weight: 300;
         font-size: 1.1em;
         line-height: 18px;
       }
@@ -386,7 +395,6 @@ section.instruction {
 
 section.last-adverts {
   .adverts {
-    margin: 25px auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -420,7 +428,7 @@ section.last-adverts {
         width: 100%;
         height: 35px;
         z-index: -1;
-        font-weight: bold;
+        font-weight: 300;
         border: 2px solid #ff8d00;
         background: #ff8d00;
         color: #fff;
@@ -430,24 +438,24 @@ section.last-adverts {
 }
 
 section.collar {
-  .collar-description {
+  // .collar-description {
 
-  }
+  // }
 }
 
 .footer {
   margin: 25px auto 0 auto;
-  height: 100px;
+  height: 130px;
   background: #3c4148;
   overflow: hidden;
   .footer-content {
+    margin-top: 25px;
     position: relative;
     display: flex;
     justify-content: center;
     flex-wrap: nowrap;
     text-align: center;
     .copyright {
-      margin-top: 10px;
       display: flex;
       flex-wrap: wrap;
       max-width: 220px;
@@ -456,7 +464,7 @@ section.collar {
       img {
         width: 60px;
         margin-right: 8px;
-        margin-bottom: 8px;
+        margin-bottom: 4px;
       }
       h3 {
         padding-top: 25px;
@@ -469,7 +477,7 @@ section.collar {
     .social-icons {
       position: absolute;
       right: 0;
-      top: 45px;
+      top: 40px;
       a {
         margin-left: 8px;
       }

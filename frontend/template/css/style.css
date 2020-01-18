@@ -147,6 +147,13 @@ body {
   color: #3c4148;
 }
 
+hr {
+  width: 100%;
+  border: 0 solid rgba(0, 0, 0, 0);
+  -webkit-box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.3);
+}
+
 h2 {
   font-size: 2em;
 }
@@ -334,7 +341,7 @@ section.header-action .search-form input, section.header-action .search-form sel
   width: 120px;
   font-size: 14px;
   color: #3c4148;
-  font-weight: bold;
+  font-weight: 300;
   border: none;
   background: #fff;
   -webkit-box-sizing: border-box;
@@ -352,18 +359,22 @@ section.header-action .search-form .search-button {
   margin: 5px auto;
   padding: 8px;
   width: 100%;
-  height: 35px;
+  height: 45px;
   background: #ff8d00;
   color: #fff;
   text-transform: uppercase;
   font-size: 14px;
-  border: none;
+  border: 2px solid #3c4148;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 section.header-action .search-form .search-button:hover {
+  background: #3c4148;
+  border: 2px solid #ff8d00;
   cursor: pointer;
-  background: #fff;
-  color: #000;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 section.header-action .call-to-action {
@@ -399,7 +410,8 @@ section.header-action .call-to-action button:hover {
 }
 
 main section {
-  margin-top: 25px;
+  margin: 25px auto;
+  padding-bottom: 25px;
 }
 
 section.instruction .instructions {
@@ -431,13 +443,12 @@ section.instruction .instructions .item h3 {
 
 section.instruction .instructions .item p {
   margin: 0 auto;
-  font-weight: bold;
+  font-weight: 300;
   font-size: 1.1em;
   line-height: 18px;
 }
 
 section.last-adverts .adverts {
-  margin: 25px auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -481,7 +492,7 @@ section.last-adverts .adverts .item button {
   width: 100%;
   height: 35px;
   z-index: -1;
-  font-weight: bold;
+  font-weight: 300;
   border: 2px solid #ff8d00;
   background: #ff8d00;
   color: #fff;
@@ -489,12 +500,13 @@ section.last-adverts .adverts .item button {
 
 .footer {
   margin: 25px auto 0 auto;
-  height: 100px;
+  height: 130px;
   background: #3c4148;
   overflow: hidden;
 }
 
 .footer .footer-content {
+  margin-top: 25px;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -508,7 +520,6 @@ section.last-adverts .adverts .item button {
 }
 
 .footer .footer-content .copyright {
-  margin-top: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -524,7 +535,7 @@ section.last-adverts .adverts .item button {
 .footer .footer-content .copyright img {
   width: 60px;
   margin-right: 8px;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 .footer .footer-content .copyright h3 {
@@ -539,7 +550,7 @@ section.last-adverts .adverts .item button {
 .footer .footer-content .social-icons {
   position: absolute;
   right: 0;
-  top: 45px;
+  top: 40px;
 }
 
 .footer .footer-content .social-icons a {
