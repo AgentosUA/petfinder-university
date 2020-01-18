@@ -412,6 +412,7 @@ section.header-action .call-to-action button:hover {
 main section {
   margin: 25px auto;
   padding-bottom: 25px;
+  min-height: 500px;
 }
 
 section.instruction .instructions {
@@ -496,6 +497,87 @@ section.last-adverts .adverts .item button {
   border: 2px solid #ff8d00;
   background: #ff8d00;
   color: #fff;
+}
+
+section.login form {
+  margin: 100px auto;
+  text-align: center;
+  width: 100%;
+  max-width: 350px;
+}
+
+section.login form input {
+  margin: 15px auto;
+  padding: 8px;
+  width: 100%;
+  height: 25px;
+  color: #3c4148;
+  font-size: 14px;
+  background: #fff;
+  border: 1px solid #ff8d00;
+}
+
+section.login form input:focus {
+  outline: none;
+  -webkit-box-shadow: 0 0 2px 2px #ff8d00;
+          box-shadow: 0 0 2px 2px #ff8d00;
+}
+
+section.login form input::-webkit-input-placeholder {
+  color: #3c4148;
+  font-weight: 300;
+}
+
+section.login form input:-ms-input-placeholder {
+  color: #3c4148;
+  font-weight: 300;
+}
+
+section.login form input::-ms-input-placeholder {
+  color: #3c4148;
+  font-weight: 300;
+}
+
+section.login form input::placeholder {
+  color: #3c4148;
+  font-weight: 300;
+}
+
+section.login form .buttons {
+  margin: 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+section.login form .buttons a {
+  color: #ff8d00;
+  text-decoration: none;
+}
+
+section.login form .buttons a:hover {
+  color: #3c4148;
+}
+
+section.login form .buttons .sumbit {
+  width: 120px;
+  height: 35px;
+  color: #fff;
+  border: 2px solid #ff8d00;
+  background: #ff8d00;
+}
+
+section.login form .buttons .sumbit:hover {
+  background: #3c4148;
+  border: 2px solid #3c4148;
+  cursor: pointer;
 }
 
 .footer {
