@@ -334,7 +334,8 @@ section.header-action .search-form {
 }
 
 section.header-action .search-form select,
-section.header-action .search-form input, section.header-action .search-form select {
+section.header-action .search-form input,
+section.header-action .search-form select {
   margin: 0 auto;
   padding: 10px;
   height: 40px;
@@ -349,7 +350,8 @@ section.header-action .search-form input, section.header-action .search-form sel
 }
 
 section.header-action .search-form select:focus,
-section.header-action .search-form input:focus, section.header-action .search-form select:focus {
+section.header-action .search-form input:focus,
+section.header-action .search-form select:focus {
   outline: none;
   -webkit-box-shadow: 0 0 2px 2px #ff8d00;
           box-shadow: 0 0 2px 2px #ff8d00;
@@ -410,13 +412,11 @@ section.header-action .call-to-action button:hover {
 }
 
 main section {
-  margin: 25px auto;
-  padding-bottom: 25px;
-  min-height: 500px;
+  margin: 50px auto;
 }
 
 section.instruction .instructions {
-  margin: 50px auto;
+  margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -427,6 +427,7 @@ section.instruction .instructions {
 }
 
 section.instruction .instructions .item {
+  margin: 10px auto;
   padding: 15px;
   text-align: center;
   width: 180px;
@@ -624,7 +625,8 @@ section.login form .buttons .sumbit:hover {
   padding-top: 25px;
 }
 
-.footer .footer-content .copyright a, .footer .footer-content .copyright span {
+.footer .footer-content .copyright a,
+.footer .footer-content .copyright span {
   color: #fff;
   text-decoration: none;
 }

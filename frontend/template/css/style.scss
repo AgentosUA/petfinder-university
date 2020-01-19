@@ -298,7 +298,8 @@ section.header-action {
     flex-wrap: wrap;
     text-align: center;
     select,
-    input, select {
+    input,
+    select {
       margin: 0 auto;
       padding: 10px;
       height: 40px;
@@ -360,18 +361,17 @@ section.header-action {
 // Main
 
 main section {
-  margin: 25px auto;
-  padding-bottom: 25px;
-  min-height: 500px;
+  margin: 50px auto;
 }
 
 section.instruction {
   .instructions {
-    margin: 50px auto;
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     .item {
+      margin: 10px auto;
       padding: 15px;
       text-align: center;
       width: 180px;
@@ -523,7 +523,8 @@ section.login {
       h3 {
         padding-top: 25px;
       }
-      a, span {
+      a,
+      span {
         color: #fff;
         text-decoration: none;
       }
