@@ -505,6 +505,7 @@ section.login form {
   text-align: center;
   width: 100%;
   min-width: 150px;
+  max-width: 420px;
 }
 
 section.login form input {
