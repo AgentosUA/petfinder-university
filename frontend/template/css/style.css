@@ -120,7 +120,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: '';
+  content: "";
   content: none;
 }
 
@@ -130,19 +130,19 @@ table {
 }
 
 @font-face {
-  font-family: 'logo';
+  font-family: "logo";
   src: url(../fonts/logo.ttf);
 }
 
 @font-face {
-  font-family: 'regular';
+  font-family: "regular";
   src: url(../fonts/regular.otf);
 }
 
 body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: 'regular', Arial, Helvetica, sans-serif;
+  font-family: "regular", Arial, Helvetica, sans-serif;
   font-size: 14px;
   color: #3c4148;
 }
@@ -160,7 +160,7 @@ h2 {
 
 p,
 button {
-  font-family: 'regular';
+  font-family: "regular";
 }
 
 .wrapper {
@@ -210,7 +210,7 @@ section.top-nav .logo h1 {
   margin-left: 15px;
   line-height: 80px;
   font-size: 1.5em;
-  font-family: 'logo', Arial, Helvetica, sans-serif;
+  font-family: "logo", Arial, Helvetica, sans-serif;
 }
 
 section.top-nav .main-nav {
@@ -582,6 +582,80 @@ section.login form .buttons .sumbit:hover {
   background: #3c4148;
   border: 2px solid #3c4148;
   cursor: pointer;
+}
+
+section.search .search-block {
+  margin: 25px auto;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+section.search .search-result {
+  margin: 0 25px auto 0;
+  width: 100%;
+}
+
+section.search .search-result .item {
+  margin-bottom: 25px;
+  padding: 5px 8px;
+  border-bottom: 2px solid #3c4148;
+}
+
+section.search nav {
+  text-align: center;
+}
+
+section.search nav a {
+  display: inline-block;
+  padding: 4px;
+  border: 2px solid #ff8d00;
+  background: #ff8d00;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 300;
+}
+
+section.search .search-filter {
+  padding: 15px;
+  width: 340px;
+  border: 1px solid #ff8d00;
+}
+
+section.search .search-filter .search-inputs input,
+section.search .search-filter .search-inputs select {
+  margin: 8px auto;
+  border: 2px solid #3c4148;
+  width: 100%;
+  padding: 5px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+section.search .search-button {
+  margin: 5px auto;
+  padding: 7px;
+  width: 100%;
+  height: 30px;
+  background: #ff8d00;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 12px;
+  border: 2px solid #3c4148;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+section.search .search-button:hover {
+  background: #3c4148;
+  border: 2px solid #ff8d00;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .footer {

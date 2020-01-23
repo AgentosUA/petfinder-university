@@ -115,7 +115,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: '';
+  content: "";
   content: none;
 }
 table {
@@ -126,12 +126,12 @@ table {
 // fonts
 
 @font-face {
-  font-family: 'logo';
+  font-family: "logo";
   src: url(../fonts/logo.ttf);
 }
 
 @font-face {
-  font-family: 'regular';
+  font-family: "regular";
   src: url(../fonts/regular.otf);
 }
 
@@ -139,7 +139,7 @@ table {
 
 body {
   box-sizing: border-box;
-  font-family: 'regular', Arial, Helvetica, sans-serif;
+  font-family: "regular", Arial, Helvetica, sans-serif;
   font-size: 14px;
   color: #3c4148;
 }
@@ -156,7 +156,7 @@ h2 {
 
 p,
 button {
-  font-family: 'regular';
+  font-family: "regular";
 }
 
 .wrapper {
@@ -196,7 +196,7 @@ section.top-nav {
       margin-left: 15px;
       line-height: 80px;
       font-size: 1.5em;
-      font-family: 'logo', Arial, Helvetica, sans-serif;
+      font-family: "logo", Arial, Helvetica, sans-serif;
     }
   }
 
@@ -495,6 +495,67 @@ section.login {
           cursor: pointer;
         }
       }
+    }
+  }
+}
+
+section.search {
+  .search-block {
+    margin: 25px auto;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+  }
+  .search-result {
+    margin: 0 25px auto 0;
+    width: 100%;
+    .item {
+      margin-bottom: 25px;
+      padding: 5px 8px;
+      border-bottom: 2px solid #3c4148;
+    }
+  }
+  nav {
+    text-align: center;
+    a {
+      display: inline-block;
+      padding: 4px;
+      border: 2px solid #ff8d00;
+      background: #ff8d00;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 300;
+    }
+  }
+  .search-filter {
+    padding: 15px;
+    width: 340px;
+    border: 1px solid #ff8d00;
+    .search-inputs input,
+    .search-inputs select {
+      margin: 8px auto;
+      border: 2px solid #3c4148;
+      width: 100%;
+      padding: 5px;
+      box-sizing: border-box;
+    }
+  }
+  .search-button {
+    margin: 5px auto;
+    padding: 7px;
+    width: 100%;
+    height: 30px;
+    background: #ff8d00;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 12px;
+    border: 2px solid #3c4148;
+    transition: 0.3s;
+    &:hover {
+      background: #3c4148;
+      border: 2px solid #ff8d00;
+      cursor: pointer;
+      transition: 0.3s;
     }
   }
 }

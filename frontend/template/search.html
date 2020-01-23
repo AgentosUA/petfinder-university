@@ -67,8 +67,46 @@
     </header>
     <main>
       <div class="wrapper">
-        <section>
-          <h2>Search</h2>
+        <section class="search">
+          <h2>Результати пошуку</h2>
+          <nav>
+            <a href=""><</a>
+            <a href="">2</a>
+            <a href="">3</a>
+            <a href="">4</a>
+            <a href="">></a>
+          </nav>
+          <div class="search-block">
+            <div class="search-result">
+              <div class="item">
+                1
+              </div>
+            </div>
+            <div class="search-filter">
+              <h3>Фільтр</h3>
+
+              <div class="search-inputs">
+                <select name="" id="">
+                  <option value="all">Тип (усі)</option>
+                  <option value="cats">Коти</option>
+                  <option value="dogs">Собаки</option>
+                  <option value="other">Інші</option>
+                </select>
+                <select name="" id="">
+                  <option value="status">Стать (усі)</option>
+                  <option value="escaped">Він</option>
+                  <option value="founded">Вона</option>
+                </select>
+                <select name="" id="">
+                  <option value="status">Статус (усі)</option>
+                  <option value="escaped">Зниклі</option>
+                  <option value="founded">Знайдені</option>
+                </select>
+                <input type="number" placeholder="Вік" min="0" max="100" />
+              </div>
+              <button class="search-button">Застосувати</button>
+            </div>
+          </div>
         </section>
       </div>
     </main>
