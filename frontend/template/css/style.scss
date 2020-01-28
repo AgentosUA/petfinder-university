@@ -484,7 +484,8 @@ section.login {
         }
       }
       .sumbit {
-        width: 120px;
+        min-width: 120px;
+        max-width: 150px;
         height: 35px;
         color: #fff;
         border: 2px solid #ff8d00;
