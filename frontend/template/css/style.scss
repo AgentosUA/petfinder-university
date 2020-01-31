@@ -561,6 +561,78 @@ section.search {
   }
 }
 
+section.profile {
+  .profile-wrapper {
+    margin: 25px auto;
+    display: flex;
+  }
+
+  button {
+    margin: 8px auto;
+    width: 165px;
+    height: 35px;
+    background: #404e61;
+    color: #fff;
+    border: 2px solid #404e61;
+    text-align: center;
+    font-weight: 300;
+    transition: 0.3s;
+    &:hover {
+      transition: 0.3s;
+      color: #000;
+      background: #fff;
+      cursor: pointer;
+    }
+  }
+
+  .profile-nav {
+    display: flex;
+    flex-flow: column;
+  }
+
+  .profile {
+    margin-right: 25px;
+    padding: 8px;
+    text-align: center;
+    max-width: 250px;
+    overflow: hidden;
+    img { 
+      margin: 15px auto;
+      border-radius: 50%;
+      border: 4px solid #ff8d00;
+      max-width: 125px;
+    }
+    
+    .role {
+      color: #ff0000;
+      font-weight: 300;
+    }
+  }
+
+  .pets {
+    display: flex;
+    flex-flow: column;
+    .pet {
+      margin: 15px auto;
+      padding-bottom: 30px;
+      display: flex;
+      border-bottom: 2px solid #404e61;
+      .pet-nav {
+        margin-right: 15px;
+        img {
+          margin-top: 15px;
+          max-width: 220px;
+          border: 2px solid #ff8d00;
+          border-radius: 50%;
+        }
+      }
+      .pet-description {
+       line-height: 35px;
+      }
+    }
+  }
+}
+
 .footer {
   margin: 25px auto 0 auto;
   height: 130px;
