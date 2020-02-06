@@ -4,7 +4,7 @@
 </p>
 <b>Pet Finder Project</b> - це студентський проект, мета якого є реалізувати централізовану базу даних оголошень про зниклих тварин.
 Проект включає у собі REST API, React App, а також GPS-нашийник на базі Arduino.
-
+<hr>
 <b>Pet Finder Project</b> - is a student project whose main purpose is to implement a centralized database of missing animals.
 The project includes the REST API, React App, and an Arduino-based GPS collar
 
