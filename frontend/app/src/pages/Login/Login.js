@@ -4,17 +4,17 @@ class LoginPage extends Component {
   render() {
     return (
       <main>
-        <div class="wrapper">
-          <section class="login">
+        <div className="wrapper">
+          <section className="login">
             <h2>Авторизація</h2>
             <form action="">
               <input type="text" placeholder="Логін / пошта" required />
               <input type="password" placeholder="Пароль" required />
-              <div class="buttons">
+              <div className="buttons">
                 <span type="submit">
                   <a href="/restore">Забули пароль?</a>
                 </span>
-                <button class="sumbit" type="submit">
+                <button className="sumbit" type="submit">
                   Увійти
                 </button>
               </div>
