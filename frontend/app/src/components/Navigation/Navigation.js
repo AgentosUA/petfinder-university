@@ -9,8 +9,8 @@ class Navigation extends Component {
       <Wrapper>
         <nav className="main-nav">
           <NavLink to="/">Головна</NavLink>
-          <NavLink to="/search">Зниклі</NavLink>
-          <NavLink to="#">Знайдені</NavLink>
+          <NavLink to="/search?status=escaped">Зниклі</NavLink>
+          <NavLink to="/search?status=founded">Знайдені</NavLink>
           <NavLink to="/about">Про нас</NavLink>
         </nav>
         <nav className="profile-nav">

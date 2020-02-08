@@ -10,6 +10,7 @@ import Profile from './pages/Profile/Profile';
 import Login from './pages/Login/Login';
 import SignUp from './pages/SignUp/SignUp';
 import NotFoundPage from './pages/NotFound/NotFound';
+import SearchPage from './pages/Search/Search';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/profile" component={Profile} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUp} />
+        <Route path="/search" component={SearchPage} />
         <Route path="/:id" component={NotFoundPage} />
       </Switch>
       <Footer />
