@@ -7,14 +7,26 @@ import Wrapper from '../../components/Wrapper/Wrapper';
 
 class SearchPage extends Component {
   state = {
-    animals: []
+    animals: [],
+    url: window.location.href
   };
 
   componentDidMount() {
+    this.loadData();
+  }
+
+  componentDidUpdate() {
+    this.loadData();
+  }
+
+  loadData() {
+    if (!this.state.animals || this.state.url !== window.location.href);
+    const userParams = window.location.search;
+    console.log();
     axios
-      .get('/adverts')
+      .get('/adverts' + userParams)
       .then(result => {
-        console.log(result.data.result);
+        console.log(result.data.adverts);
       })
       .catch(err => console.log(err));
   }
@@ -41,7 +53,7 @@ class SearchPage extends Component {
                   <h3>Фільтр</h3>
                   <div className="search-inputs">
                     <select name="" id="">
-                      <option value="all">Тип (усі)</option>
+                      <option value="">Тип (усі)</option>
                       <option value="cats">Коти</option>
                       <option value="dogs">Собаки</option>
                       <option value="other">Інші</option>
