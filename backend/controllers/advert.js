@@ -1,11 +1,13 @@
 const Advert = require('../models/advert');
 
 exports.getAllAdverts = (req, res, next) => {
-  Advert.find()
+  const gender = req.query.gender;
+  console.log(gender);
+  Advert.find({ gender: gender })
     // .limit(15)
     .then(adverts => {
       res.status(200).json({
-        result: adverts
+        adverts: adverts
       });
       console.log(adverts);
     })
@@ -13,11 +15,12 @@ exports.getAllAdverts = (req, res, next) => {
       res.status(404).json({
         error: 'no adverts found'
       });
+      console.log(err);
     });
 };
 
 exports.postNewAdvert = (req, res, next) => {
-  // const profileId = req.userData.userId;
+  const profileId = req.userData.userId;
   const name = req.body.name;
   const age = req.body.age;
   const type = req.body.type;
@@ -35,8 +38,8 @@ exports.postNewAdvert = (req, res, next) => {
     breed: breed,
     status: status,
     description: description,
-    images: images
-    // owner: profileId
+    images: images,
+    owner: profileId
   });
   advert
     .save()
