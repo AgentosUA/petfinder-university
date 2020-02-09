@@ -12,13 +12,9 @@ class SearchPage extends Component {
 
   componentDidMount() {
     axios
-      .get('http://localhost:5000/adverts', {
-        headers: {
-          'Access-Control-Allow-Origin': '*'
-        }
-      })
+      .get('/adverts')
       .then(result => {
-        console.log(result);
+        console.log(result.data.result);
       })
       .catch(err => console.log(err));
   }
