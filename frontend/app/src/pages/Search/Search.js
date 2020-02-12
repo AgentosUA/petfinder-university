@@ -8,27 +8,34 @@ import Wrapper from '../../components/Wrapper/Wrapper';
 class SearchPage extends Component {
   state = {
     animals: [],
-    url: window.location.href
+    url: window.location.href,
+    isLoaded: false
   };
 
   componentDidMount() {
-    this.loadData();
+    if(!this.state.isLoaded) {
+      this.loadData();
+    }
+    
   }
 
-  componentDidUpdate() {
-    this.loadData();
+  componentDidUpdate(prevProps, prevState) {
+    if(prevState.url !== window.location.href && prevProps.animals !== this.state.animals) {
+      this.loadData();
+      console.log('update')
+    }
   }
 
   loadData() {
-    if (!this.state.animals || this.state.url !== window.location.href);
-    const userParams = window.location.search;
-    console.log();
-    axios
-      .get('/adverts' + userParams)
-      .then(result => {
-        console.log(result.data.adverts);
-      })
-      .catch(err => console.log(err));
+      const userParams = window.location.search;
+      console.log('LOL');
+      axios
+        .get('/adverts' + userParams)
+        .then(result => {
+          console.log(result.data.adverts);
+          this.setState({animals: result.data.adverts, url: window.location.href, isLoaded: true})
+        })
+        .catch(err => console.log(err));
   }
 
   render() {
