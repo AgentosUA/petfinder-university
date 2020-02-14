@@ -13,29 +13,35 @@ class SearchPage extends Component {
   };
 
   componentDidMount() {
-    if(!this.state.isLoaded) {
+    console.log('Mount');
+    if (!this.state.isLoaded) {
       this.loadData();
     }
-    
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if(prevState.url !== window.location.href && prevProps.animals !== this.state.animals) {
+    if (
+      prevState.url !== window.location.href &&
+      this.state.animals === prevState.animals
+    ) {
+      console.log('Update');
       this.loadData();
-      console.log('update')
     }
   }
 
   loadData() {
-      const userParams = window.location.search;
-      console.log('LOL');
-      axios
-        .get('/adverts' + userParams)
-        .then(result => {
-          console.log(result.data.adverts);
-          this.setState({animals: result.data.adverts, url: window.location.href, isLoaded: true})
-        })
-        .catch(err => console.log(err));
+    const userParams = window.location.search;
+    axios
+      .get('/adverts' + userParams)
+      .then(result => {
+        console.log(result.data.adverts);
+        this.setState({
+          animals: result.data.adverts,
+          url: window.location.href,
+          isLoaded: true
+        });
+      })
+      .catch(err => console.log(err));
   }
 
   render() {
