@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 import Wrapper from '../../components/Wrapper/Wrapper';
+import Advert from '../../components/Advert/Advert';
 
 class SearchPage extends Component {
   state = {
@@ -35,8 +36,11 @@ class SearchPage extends Component {
       .get('/adverts' + userParams)
       .then(result => {
         console.log(result.data.adverts);
+        const data = result.data.adverts.map(item => {
+          return <Advert key={item._id} src="test" name={item.name} />;
+        });
         this.setState({
-          animals: result.data.adverts,
+          animals: data,
           url: window.location.href,
           isLoaded: true
         });
@@ -59,9 +63,7 @@ class SearchPage extends Component {
                 <a href="/">Вперед</a>
               </nav>
               <div className="search-block">
-                <div className="search-result">
-                  <div className="item">1</div>
-                </div>
+                <div className="search-result">{this.state.animals}</div>
                 <div className="search-filter">
                   <h3>Фільтр</h3>
                   <div className="search-inputs">
