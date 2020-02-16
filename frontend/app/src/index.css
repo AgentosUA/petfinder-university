@@ -120,7 +120,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: '';
+  content: "";
   content: none;
 }
 
@@ -130,19 +130,19 @@ table {
 }
 
 @font-face {
-  font-family: 'logo';
-  src: url('./fonts/logo.ttf');
+  font-family: "logo";
+  src: url(./fonts/logo.ttf);
 }
 
 @font-face {
-  font-family: 'regular';
-  src: url('./fonts/regular.otf');
+  font-family: "regular";
+  src: url(./fonts/regular.otf);
 }
 
 body {
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  font-family: 'regular', Arial, Helvetica, sans-serif;
+          box-sizing: border-box;
+  font-family: "regular", Arial, Helvetica, sans-serif;
   font-size: 14px;
   color: #3c4148;
 }
@@ -151,7 +151,7 @@ hr {
   width: 100%;
   border: 0 solid rgba(0, 0, 0, 0);
   -webkit-box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.3);
 }
 
 h2 {
@@ -160,7 +160,7 @@ h2 {
 
 p,
 button {
-  font-family: 'regular';
+  font-family: "regular";
 }
 
 .wrapper {
@@ -181,8 +181,8 @@ section.top-nav {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 section.top-nav .logo {
@@ -210,7 +210,7 @@ section.top-nav .logo h1 {
   margin-left: 15px;
   line-height: 80px;
   font-size: 1.5em;
-  font-family: 'logo', Arial, Helvetica, sans-serif;
+  font-family: "logo", Arial, Helvetica, sans-serif;
 }
 
 section.top-nav .main-nav {
@@ -324,19 +324,19 @@ section.header-action .search-form {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -ms-flex-item-align: stretch;
-  align-self: stretch;
+      align-self: stretch;
   -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+      flex-wrap: wrap;
   text-align: center;
 }
 
 section.header-action .search-form select,
 section.header-action .search-form input,
 section.header-action .search-form select {
-  margin: 0 auto;
+  margin: 0 3px 0 auto;
   padding: 10px;
   height: 40px;
   width: 120px;
@@ -346,7 +346,7 @@ section.header-action .search-form select {
   border: none;
   background: #fff;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 section.header-action .search-form select:focus,
@@ -354,7 +354,7 @@ section.header-action .search-form input:focus,
 section.header-action .search-form select:focus {
   outline: none;
   -webkit-box-shadow: 0 0 2px 2px #ff8d00;
-  box-shadow: 0 0 2px 2px #ff8d00;
+          box-shadow: 0 0 2px 2px #ff8d00;
 }
 
 section.header-action .search-form .search-button {
@@ -385,10 +385,10 @@ section.header-action .call-to-action {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   max-width: 780px;
 }
 
@@ -421,9 +421,9 @@ section.instruction .instructions {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+      flex-wrap: wrap;
   -ms-flex-pack: distribute;
-  justify-content: space-around;
+      justify-content: space-around;
 }
 
 section.instruction .instructions .item {
@@ -455,9 +455,9 @@ section.last-adverts .adverts {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+      flex-wrap: wrap;
   -ms-flex-pack: distribute;
-  justify-content: space-around;
+      justify-content: space-around;
   width: 100%;
   min-height: 250px;
 }
@@ -518,13 +518,13 @@ section.login form input {
   background: #fff;
   border: 1px solid #ff8d00;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 section.login form input:focus {
   outline: none;
   -webkit-box-shadow: 0 0 2px 2px #ff8d00;
-  box-shadow: 0 0 2px 2px #ff8d00;
+          box-shadow: 0 0 2px 2px #ff8d00;
 }
 
 section.login form input::-webkit-input-placeholder {
@@ -554,11 +554,11 @@ section.login form .buttons {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 section.login form .buttons a {
@@ -592,8 +592,8 @@ section.search .search-block {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 section.search .search-result {
@@ -634,7 +634,7 @@ section.search .search-filter .search-inputs select {
   width: 100%;
   padding: 5px;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 section.search .search-button {
@@ -693,8 +693,8 @@ section.profile .profile-nav {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-flow: column;
-  flex-flow: column;
+      -ms-flex-flow: column;
+          flex-flow: column;
 }
 
 section.profile .profile {
@@ -723,8 +723,8 @@ section.profile .pets {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-flow: column;
-  flex-flow: column;
+      -ms-flex-flow: column;
+          flex-flow: column;
 }
 
 section.profile .pets .pet {
@@ -765,10 +765,10 @@ section.profile .pets .pet .pet-description {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -ms-flex-wrap: nowrap;
-  flex-wrap: nowrap;
+      flex-wrap: nowrap;
   text-align: center;
 }
 
@@ -777,12 +777,12 @@ section.profile .pets .pet .pet-description {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+      flex-wrap: wrap;
   max-width: 220px;
   text-align: center;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .footer .footer-content .copyright img {
