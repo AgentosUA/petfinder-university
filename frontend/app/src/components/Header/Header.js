@@ -113,7 +113,7 @@ class Header extends Component {
                     padding: 0
                   }}
                 >
-                  <button className="search-button">Застосувати</button>
+                  <button className="search-button">Шукати</button>
                 </NavLink>
               </div>
               <div className="call-to-action">
