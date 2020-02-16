@@ -1,10 +1,9 @@
 const Advert = require('../models/advert');
 
 exports.getAllAdverts = (req, res, next) => {
-  const gender = req.query.gender;
-  console.log(gender);
-  Advert.find({ gender: gender })
-    .limit()
+  const status = req.query.status;
+  Advert.find( {status: status})
+    .limit(5)
     .then(adverts => {
       res.status(200).json({
         adverts: adverts
