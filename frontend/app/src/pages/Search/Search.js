@@ -15,16 +15,11 @@ class SearchPage extends Component {
 
   componentDidMount() {
     console.log('Mount');
-    if (!this.state.isLoaded) {
-      this.loadData();
-    }
+    this.loadData();
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (
-      prevState.url !== window.location.href &&
-      this.state.animals === prevState.animals
-    ) {
+    if (prevState.url !== window.location.href) {
       console.log('Update');
       this.loadData();
     }
