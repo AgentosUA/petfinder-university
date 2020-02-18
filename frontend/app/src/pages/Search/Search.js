@@ -63,18 +63,18 @@ class SearchPage extends Component {
                   <h3>Фільтр</h3>
                   <div className="search-inputs">
                     <select name="" id="">
-                      <option value="">Тип (усі)</option>
+                      <option value="all">Тип (усі)</option>
                       <option value="cats">Коти</option>
                       <option value="dogs">Собаки</option>
                       <option value="other">Інші</option>
                     </select>
                     <select name="" id="">
-                      <option value="status">Стать (усі)</option>
+                      <option value="all">Стать (усі)</option>
                       <option value="escaped">Він</option>
                       <option value="founded">Вона</option>
                     </select>
                     <select name="" id="">
-                      <option value="status">Статус (усі)</option>
+                      <option value="all">Статус (усі)</option>
                       <option value="escaped">Зниклі</option>
                       <option value="founded">Знайдені</option>
                     </select>

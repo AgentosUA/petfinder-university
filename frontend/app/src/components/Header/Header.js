@@ -78,7 +78,7 @@ class Header extends Component {
                     id=""
                     onChange={this.setSearchParams}
                   >
-                    <option value="status">Статус (усі)</option>
+                    <option value="all">Статус (усі)</option>
                     <option value="escaped">Зниклі</option>
                     <option value="founded">Знайдені</option>
                   </select>

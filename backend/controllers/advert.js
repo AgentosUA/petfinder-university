@@ -1,8 +1,26 @@
 const Advert = require('../models/advert');
 
 exports.getAllAdverts = (req, res, next) => {
-  const status = req.query.status;
-  Advert.find( {status: status})
+  let query = {};
+  let type = req.query.type;
+  let gender = req.query.gender;
+  let status = req.query.status;
+  // let city = req.query.city;
+
+  if(status !== 'all') {
+    query.status = status;
+  }
+  if(type !== 'all') {
+    query.type = type;
+  }
+  if(gender !== 'all') {
+    query.gender = gender;
+  }
+  // if(status !== 'all') {
+  //   query.status = status;
+  // }
+  
+  Advert.find(query)
     .limit(5)
     .then(adverts => {
       res.status(200).json({
