@@ -58,8 +58,8 @@ class Header extends Component {
                     onChange={this.setSearchParams}
                   >
                     <option value="all">Тип (усі)</option>
-                    <option value="cats">Коти</option>
-                    <option value="dogs">Собаки</option>
+                    <option value="cat">Коти</option>
+                    <option value="dog">Собаки</option>
                     <option value="other">Інші</option>
                   </select>
                   <select

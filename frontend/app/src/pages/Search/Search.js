@@ -94,8 +94,8 @@ class SearchPage extends Component {
                     onChange={this.setSearchParams}
                   >
                     <option value="all">Тип (усі)</option>
-                    <option value="cats">Коти</option>
-                    <option value="dogs">Собаки</option>
+                    <option value="cat">Коти</option>
+                    <option value="dog">Собаки</option>
                     <option value="other">Інші</option>
                   </select>
                   <select
@@ -140,7 +140,7 @@ class SearchPage extends Component {
                     this.state.old
                   }>
                     <button className="search-button" to="/">
-                      Застосувати
+                      Шукати
                     </button>
                   </NavLink>
                 </div>
