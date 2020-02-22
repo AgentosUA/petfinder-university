@@ -1,4 +1,6 @@
 const Advert = require('../models/advert');
+const multer = require('multer');
+// const upload = multer({ dest: '/uploads/' });
 
 exports.getAllAdverts = (req, res, next) => {
   let query = {};
@@ -7,19 +9,19 @@ exports.getAllAdverts = (req, res, next) => {
   let status = req.query.status;
   // let city = req.query.city;
 
-  if(status !== 'all') {
+  if (status !== 'all') {
     query.status = status;
   }
-  if(type !== 'all') {
+  if (type !== 'all') {
     query.type = type;
   }
-  if(gender !== 'all') {
+  if (gender !== 'all') {
     query.gender = gender;
   }
   // if(status !== 'all') {
   //   query.status = status;
   // }
-  
+
   Advert.find(query)
     .limit(5)
     .then(adverts => {
@@ -45,7 +47,7 @@ exports.postNewAdvert = (req, res, next) => {
   const breed = req.body.breed;
   const status = req.body.status;
   const description = req.body.description;
-  const images = req.body.images;
+  const image = req.file.path;
 
   const advert = new Advert({
     name: name,
@@ -55,7 +57,7 @@ exports.postNewAdvert = (req, res, next) => {
     breed: breed,
     status: status,
     description: description,
-    images: images,
+    image: image,
     owner: profileId
   });
   advert

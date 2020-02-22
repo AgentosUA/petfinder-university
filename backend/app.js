@@ -4,6 +4,13 @@ const mongoose = require('mongoose');
 const errorController404 = require('./controllers/error');
 const bodyParser = require('body-parser');
 
+// MongoDB:
+
+mongoose.connect('mongodb://localhost:27017/petfinder', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+
 // Routes:
 
 const profileRoutes = require('./routes/profile.js');
@@ -28,15 +35,11 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use('/uploads', express.static('uploads'));
 app.use(profileRoutes);
 app.use(advertRoutes);
 app.use(authRoutes);
 
 app.use('/', errorController404.error404);
-
-mongoose.connect('mongodb://localhost:27017/petfinder', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
 
 module.exports = app;

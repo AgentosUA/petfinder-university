@@ -9,7 +9,7 @@ const advertSchema = new Schema({
   breed: { type: String },
   status: { type: String, required: true },
   description: { type: String },
-  images: { type: [] }
+  image: { type: String, required: true }
 });
 
 module.exports = mongoose.model('Advert', advertSchema);
