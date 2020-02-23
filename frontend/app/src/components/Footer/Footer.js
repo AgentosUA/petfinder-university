@@ -20,7 +20,7 @@ class Footer extends Component {
                 <NavLink to="/">Pet Finder</NavLink>
               </h3>
               <br />
-              <span>© 2019 Pet Finder Project</span>
+              <span>© 2020 Pet Finder Project</span>
             </div>
             <div className="social-icons">
               <a href="http://github.com/AgentosUA/petfinder">
