@@ -8,8 +8,16 @@ class LoginPage extends Component {
           <section className="login">
             <h2>Авторизація</h2>
             <form action="">
-              <input type="text" placeholder="Логін / пошта" required />
-              <input type="password" placeholder="Пароль" required />
+              <label for="login">Пошта</label>
+              <input type="text" name="login" placeholder="Пошта" required />
+              <label for="password">Пароль</label>
+              <input
+                type="password"
+                name="password"
+                placeholder="Пароль"
+                required
+              />
+
               <div className="buttons">
                 <span type="submit">
                   <a href="/restore">Забули пароль?</a>
