@@ -115,7 +115,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: "";
+  content: '';
   content: none;
 }
 table {
@@ -126,12 +126,12 @@ table {
 // fonts
 
 @font-face {
-  font-family: "logo";
+  font-family: 'logo';
   src: url(./fonts/logo.ttf);
 }
 
 @font-face {
-  font-family: "regular";
+  font-family: 'regular';
   src: url(./fonts/regular.otf);
 }
 
@@ -139,7 +139,7 @@ table {
 
 body {
   box-sizing: border-box;
-  font-family: "regular", Arial, Helvetica, sans-serif;
+  font-family: 'regular', Arial, Helvetica, sans-serif;
   font-size: 14px;
   color: #3c4148;
 }
@@ -156,7 +156,7 @@ h2 {
 
 p,
 button {
-  font-family: "regular";
+  font-family: 'regular';
 }
 
 .wrapper {
@@ -196,7 +196,7 @@ section.top-nav {
       margin-left: 15px;
       line-height: 80px;
       font-size: 1.5em;
-      font-family: "logo", Arial, Helvetica, sans-serif;
+      font-family: 'logo', Arial, Helvetica, sans-serif;
     }
   }
 
@@ -438,13 +438,14 @@ section.last-adverts {
   }
 }
 
-section.collar {
-  // .collar-description {
+// section.collar {
+//   // .collar-description {
 
-  // }
-}
+//   // }
+// }
 
-section.login {
+section.login,
+section.add-advert {
   form {
     margin: 100px auto;
     text-align: center;
@@ -470,22 +471,77 @@ section.login {
         font-weight: 300;
       }
     }
-    .buttons {
-      margin: 0 auto;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      a {
-        color: #ff8d00;
-        text-decoration: none;
-        &:hover {
-          color: #3c4148;
+  }
+  section.login {
+    form {
+      .buttons {
+        margin: 0 auto;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        a {
+          color: #ff8d00;
+          text-decoration: none;
+          &:hover {
+            color: #3c4148;
+          }
+        }
+        .sumbit {
+          min-width: 120px;
+          max-width: 150px;
+          height: 35px;
+          color: #fff;
+          border: 2px solid #ff8d00;
+          background: #ff8d00;
+          &:hover {
+            background: #3c4148;
+            border: 2px solid #3c4148;
+            cursor: pointer;
+          }
         }
       }
+    }
+  }
+}
+
+section.add-advert {
+  form {
+    margin: 100px auto;
+    text-align: center;
+    width: 100%;
+    min-width: 150px;
+    max-width: 420px;
+    label {
+      font-size: 18px;
+      display: flex;
+    }
+
+    input,
+    textarea,
+    select {
+      margin: 15px auto;
+      padding-left: 5px;
+      width: 100%;
+      height: 35px;
+      color: #3c4148;
+      font-size: 14px;
+      background: #fff;
+      border: 1px solid #ff8d00;
+      box-sizing: border-box;
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 2px 2px #ff8d00;
+      }
+      &::placeholder {
+        color: #3c4148;
+        font-weight: 300;
+      }
+    }
+    .buttons {
       .sumbit {
         min-width: 120px;
-        max-width: 150px;
+        width: 100%;
         height: 35px;
         color: #fff;
         border: 2px solid #ff8d00;
@@ -596,13 +652,13 @@ section.profile {
     text-align: center;
     max-width: 250px;
     overflow: hidden;
-    img { 
+    img {
       margin: 15px auto;
       border-radius: 50%;
       border: 4px solid #ff8d00;
       max-width: 125px;
     }
-    
+
     .role {
       color: #ff0000;
       font-weight: 300;
@@ -627,7 +683,7 @@ section.profile {
         }
       }
       .pet-description {
-       line-height: 35px;
+        line-height: 35px;
       }
     }
   }

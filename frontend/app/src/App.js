@@ -11,6 +11,7 @@ import Login from './pages/Login/Login';
 import SignUp from './pages/SignUp/SignUp';
 import NotFoundPage from './pages/NotFound/NotFound';
 import SearchPage from './pages/Search/Search';
+import PostAdvert from './pages/PostAdvert/PostAdvert';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUp} />
         <Route path="/search" component={SearchPage} />
+        <Route path="/advert/add" component={PostAdvert} />
         <Route path="/:id" component={NotFoundPage} />
       </Switch>
       <Footer />

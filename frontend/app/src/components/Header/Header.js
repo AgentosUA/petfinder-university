@@ -117,7 +117,9 @@ class Header extends Component {
                 </NavLink>
               </div>
               <div className="call-to-action">
-                <button>Подати оголошення</button>
+                <NavLink to="/advert/add">
+                  <button>Подати оголошення</button>
+                </NavLink>
                 <button>Придбати нашийник</button>
               </div>
             </section>
