@@ -8,9 +8,9 @@ class LoginPage extends Component {
           <section className="login">
             <h2>Авторизація</h2>
             <form action="">
-              <label for="login">Пошта</label>
+              <label htmlFor="login">Пошта</label>
               <input type="text" name="login" placeholder="Пошта" required />
-              <label for="password">Пароль</label>
+              <label htmlFor="password">Пароль</label>
               <input
                 type="password"
                 name="password"
