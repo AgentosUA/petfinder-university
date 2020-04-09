@@ -13,11 +13,11 @@ The project includes the REST API, React App, and an Arduino-based GPS collar
 
 ## .env File
 
-DB_URL=адресаКластеруПісляПаролюAtlas
-DB_USER=користувачБД
-DB_PASSWORD=парольБД
-secretTokenKey=КлючДляJWT
-PORT=порт
+- DB_URL=адресаКластеруПісляПаролюAtlas
+- DB_USER=користувачБД
+- DB_PASSWORD=парольБД
+- secretTokenKey=КлючДляJWT
+- PORT=порт
 
 ## Особливості | Features
 
