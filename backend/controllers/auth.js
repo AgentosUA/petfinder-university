@@ -10,14 +10,14 @@ exports.login = (req, res, next) => {
     .then(user => {
       if (user.length < 1) {
         return res.status(401).json({
-          message: 'Auth failed'
+          message: 'Помилка авторизації'
         });
       }
 
       bcrypt.compare(req.body.password, user.password, (err, result) => {
         if (err) {
           return res.status(401).json({
-            message: 'Auth failed'
+            message: 'Помилка авторизації'
           });
         }
 
@@ -27,9 +27,9 @@ exports.login = (req, res, next) => {
               email: user.email,
               userId: user.id
             },
-            'secret',
+            process.env.secretTokenKey,
             {
-              expiresIn: '1h'
+              expiresIn: '5h'
             }
           );
 
@@ -39,14 +39,14 @@ exports.login = (req, res, next) => {
         }
 
         res.status(401).json({
-          message: 'Auth failed'
+          message: 'Помилка авторизації'
         });
       });
     })
     .catch(err => {
       console.log(err);
       res.status(409).json({
-        error: 'Wrong data'
+        error: 'Помилка авторизації'
       });
     });
 };
@@ -68,12 +68,12 @@ exports.signup = (req, res, next) => {
         .save()
         .then(result => {
           res.status(201).json({
-            message: 'User succsessfully created!'
+            message: 'Користувач успішно зареєстрований!'
           });
         })
         .catch(err => {
           res.status(409).json({
-            error: 'User already exists'
+            error: 'Користувач з такою поштою вже існує'
           });
         });
     }
