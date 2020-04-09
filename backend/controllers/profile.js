@@ -19,25 +19,19 @@ exports.getProfile = (req, res, next) => {
 
 exports.postPet = (req, res, next) => {
   const profileId = req.userData.userId;
-  const name = req.body.name;
-  const age = req.body.age;
-  const type = req.body.type;
-  const gender = req.body.gender;
-  const breed = req.body.breed;
-  const atHome = req.body.atHome;
-  const description = req.body.description;
-  const images = req.body.images;
+  console.log(req.userData);
+  const { name, age, type, gender, breed, atHome, description, images } = req.body;
 
   const pet = new Pet({
-    name: name,
-    age: age,
-    type: type,
-    gender: gender,
-    breed: breed,
-    atHome: atHome,
-    description: description,
-    images: images,
-    owner: profileId
+    name,
+    age,
+    type,
+    gender,
+    breed,
+    atHome,
+    description,
+    images,
+    owner: 'profileId'
   });
   pet
     .save()

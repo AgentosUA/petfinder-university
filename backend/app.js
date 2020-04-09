@@ -6,10 +6,14 @@ const bodyParser = require('body-parser');
 
 // MongoDB:
 
-mongoose.connect('mongodb://localhost:27017/petfinder', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
+mongoose.connect(
+  'mongodb+srv://' + process.env.DB_USER + ':' + process.env.DB_PASSWORD + process.env.DB_URL,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true
+  }
+);
 
 // Routes:
 
@@ -24,14 +28,8 @@ app.use(bodyParser.json());
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader(
-    'Access-Control-Allow-Methods',
-    'OPTIONS, GET, POST, PUT, PATCH, DELETE'
-  );
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'Content-Type, Authorization, Origin'
-  );
+  res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET, POST, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, Origin');
   next();
 });
 
