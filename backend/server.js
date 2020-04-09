@@ -3,7 +3,6 @@ const http = require('http');
 const mongoose = require('mongoose');
 const app = require('./app');
 
-const port = 5000;
 const server = http.createServer(app);
 
 mongoose
@@ -17,7 +16,7 @@ mongoose
   )
   .then((result) => {
     console.log('Connected to DB');
-    server.listen(port);
-    console.log('Server started!');
+    server.listen(process.env.PORT);
+    console.log('Server started on port ' + process.env.PORT);
   })
-  .catch((err) => console.log(err));
+  .catch((err) => console.log('Server failed to start. Maybe .env file is missing? \n'));
