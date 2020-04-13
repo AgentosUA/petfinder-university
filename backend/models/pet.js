@@ -10,7 +10,7 @@ const userSchema = new Schema({
   atHome: { type: Boolean, required: true },
   description: { type: String },
   images: { type: [] },
-  owner: { type: String, required: true }
+  owner: { type: mongoose.Types.ObjectId, required: true, ref: 'User' },
 });
 
 module.exports = mongoose.model('Pet', userSchema);

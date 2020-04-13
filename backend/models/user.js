@@ -4,25 +4,27 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
   name: {
     type: String,
-    required: true
+    required: true,
   },
   email: {
     type: String,
     required: true,
     unique: true,
     lowercase: true,
-    match: /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
+    match: /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i,
     // validate: [{ validator: value => isEmail(value), msg: 'Invalid email.' }]
   },
   password: {
     type: String,
-    required: true
+    required: true,
   },
   pets: [
     {
-      petId: { type: String }
-    }
-  ]
+      type: mongoose.Types.ObjectId,
+      required: true,
+      ref: 'Pet',
+    },
+  ],
 });
 
 module.exports = mongoose.model('User', userSchema);
