@@ -8,7 +8,7 @@ const HttpError = require('../util/httpError');
 exports.getProfile = async (req, res, next) => {
   const id = req.params.id;
   try {
-    const user = await User.findOne({ _id: id });
+    const user = await User.findOne({ _id: id }).populate('pets');
 
     if (!user) {
       return res.status(404).json({
@@ -64,13 +64,50 @@ exports.postPet = async (req, res, next) => {
   }
 };
 
-exports.removePet = (req, res, next) => {};
+exports.deletePet = async (req, res, next) => {
+  const { id } = req.params;
 
-exports.patchProfile = (req, res, next) => {
-  const id = req.params.id;
-  const { name, email, password } = req.body;
+  try {
+    const pet = await Pet.findById(id).populate('owner');
+    if (pet.owner !== req.userId) {
+      return next(new HttpError('Ви не можете видяти чужу тваринку', 401));
+    }
+    if (!pet) {
+      return next(new HttpError('Такої тваринки не існує', 404));
+    }
 
-  res.status(201).json({
-    message: 'hello ' + id + ', from controller',
-  });
+    const sess = await mongoose.startSession();
+    sess.startTransaction();
+    await pet.remove({ session: sess });
+    await pet.owner.pets.pull(pet);
+    await pet.owner.save({ session: sess });
+    await sess.commitTransaction();
+    res.status(200).json({
+      message: 'Тваринку успішно видалено з профілю',
+    });
+  } catch (err) {
+    console.log(err);
+    return next(new HttpError('Помилка на сервері, спробуйте ще раз.', 500));
+  }
+};
+
+exports.patchProfile = async (req, res, next) => {
+  const { userId } = req.userData;
+  const { name } = req.body;
+  try {
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.json({});
+    }
+
+    user.name = name;
+    await user.save();
+    res.status(200).json({
+      message: 'Дані профілю успішно оновлено',
+    });
+  } catch (err) {
+    console.log(err);
+    return next(new HttpError('Помилка на сервері, спробуйте ще раз.', 500));
+  }
 };

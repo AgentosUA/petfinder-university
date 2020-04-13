@@ -35,34 +35,23 @@ exports.getAllAdverts = async (req, res, next) => {
   }
 };
 
-exports.getAdvert = (req, res, next) => {
-  const profileId = req.userData.userId;
-  const { name, age, type, gender, breed, status, description, image } = req.body;
+exports.getAdvert = async (req, res, next) => {
+  const id = req.params.id;
+  try {
+    const advert = await Advert.findById(id).populate('creator', 'id name');
+    if (!advert || advert === null) {
+      return res.status(404).json({
+        message: 'Оголошення не знайдено!',
+      });
+    }
 
-  const advert = new Advert({
-    name,
-    age,
-    type,
-    gender,
-    breed,
-    status,
-    description,
-    image,
-    owner: profileId,
-  });
-  advert
-    .save()
-    .then((result) => {
-      res.status(201).json({
-        message: 'Оголошення успішно додано!',
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({
-        error: 'Не вдалося додати оголошення!',
-      });
+    return res.status(200).json({
+      advert,
     });
+  } catch (err) {
+    console.log(err);
+    return next(new HttpError('Сталася помилка на сервері, спробуйте ще раз.', 500));
+  }
 };
 
 exports.postNewAdvert = async (req, res, next) => {
