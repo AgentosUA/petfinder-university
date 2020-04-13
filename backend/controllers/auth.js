@@ -4,52 +4,40 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/user.js');
 const HttpError = require('../util/httpError');
 
-exports.login = (req, res, next) => {
-  let id = req.params.id;
-  User.findOne({ email: req.body.email })
-    .exec()
-    .then((user) => {
-      if (user.length < 1) {
-        return res.status(401).json({
-          message: 'Помилка авторизації',
-        });
-      }
-
-      bcrypt.compare(req.body.password, user.password, (err, result) => {
-        if (err) {
-          return res.status(401).json({
-            message: 'Помилка авторизації',
-          });
-        }
-
-        if (result) {
-          const token = jwt.sign(
-            {
-              email: user.email,
-              userId: user.id,
-            },
-            process.env.secretTokenKey,
-            {
-              expiresIn: '5h',
-            }
-          );
-
-          return res.status(200).json({
-            token: token,
-          });
-        }
-
-        res.status(401).json({
-          message: 'Помилка авторизації',
-        });
+exports.login = async (req, res, next) => {
+  try {
+    const user = await User.findOne({ email: req.body.email });
+    if (user.length < 1) {
+      return res.status(401).json({
+        message: 'Помилка авторизації',
       });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(409).json({
-        error: 'Помилка авторизації',
+    }
+
+    const compare = await bcrypt.compare(req.body.password, user.password);
+
+    if (compare) {
+      const token = jwt.sign(
+        {
+          email: user.email,
+          userId: user.id,
+        },
+        process.env.secretTokenKey,
+        {
+          expiresIn: '5h',
+        }
+      );
+
+      return res.status(200).json({
+        token: token,
       });
+    }
+
+    res.status(401).json({
+      message: 'Помилка авторизації',
     });
+  } catch (error) {
+    return next(HttpError('Помилка на сервері, спробуйте ще раз', 500));
+  }
 };
 
 exports.signup = async (req, res, next) => {
