@@ -1,7 +1,9 @@
 const express = require('express');
 const app = express();
-const errorController404 = require('./controllers/error');
+
 const bodyParser = require('body-parser');
+
+const HttpError = require('./util/httpError');
 
 // Routes:
 
@@ -26,6 +28,14 @@ app.use(profileRoutes);
 app.use(advertRoutes);
 app.use(authRoutes);
 
-app.use('/', errorController404.error404);
+// Error handler:
+
+app.use((error, req, res, next) => {
+  if (res.headerSent) {
+    return next(error);
+  }
+  res.status(error.code || 500);
+  res.json({ message: error.message || 'Невідома помилка на сервері! Спробуйте ще раз!' });
+});
 
 module.exports = app;
