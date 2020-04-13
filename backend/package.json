@@ -1,26 +1,27 @@
 {
-	"name": "petfinder-rest-api",
-	"version": "1.0.0",
-	"description": "Petfinder rest api for Pet Finder Project",
-	"main": "server.js",
-	"scripts": {
-		"start": "nodemon server.js"
-	},
-	"keywords": [
-		"rest",
-		"api",
-		"petfinder"
-	],
-	"author": "Agentos",
-	"license": "ISC",
-	"dependencies": {
-		"bcryptjs": "^2.4.3",
-		"body-parser": "^1.19.0",
-		"dotenv": "^8.2.0",
-		"express": "^4.17.1",
-		"jsonwebtoken": "^8.5.1",
-		"mongoose": "^5.7.11",
-		"multer": "^1.4.2",
-		"nodemon": "^2.0.2"
-	}
+  "name": "petfinder-rest-api",
+  "version": "1.0.0",
+  "description": "Rest api for Pet Finder Project",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "keywords": [
+    "rest",
+    "api",
+    "petfinder"
+  ],
+  "author": "Agentos",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.4.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.7.11",
+    "multer": "^1.4.2",
+    "nodemon": "^2.0.2"
+  }
 }
