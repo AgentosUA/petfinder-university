@@ -12,5 +12,6 @@ router.post(
   [body('name', 'descrption').notEmpty()],
   advertController.postNewAdvert
 );
+router.delete('/advert/:id', checkAuth, advertController.deleteAdvert);
 
 module.exports = router;
