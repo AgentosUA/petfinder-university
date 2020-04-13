@@ -7,9 +7,9 @@ const userSchema = new Schema({
   type: { type: String, required: true },
   gender: { type: String },
   breed: { type: String },
-  atHome: { type: Boolean, required: true },
   description: { type: String },
-  images: { type: [] },
+  images: { type: [String] },
+  gps: { type: String },
   owner: { type: mongoose.Types.ObjectId, required: true, ref: 'User' },
 });
 

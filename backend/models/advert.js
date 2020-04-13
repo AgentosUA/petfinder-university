@@ -3,13 +3,13 @@ const Schema = mongoose.Schema;
 
 const advertSchema = new Schema({
   name: { type: String, required: true },
-  age: { type: Number },
   type: { type: String, required: true },
+  status: { type: String, required: true },
   gender: { type: String },
   breed: { type: String },
-  status: { type: String, required: true },
   description: { type: String },
-  image: { type: String, required: true }
+  images: { type: [String] },
+  creator: { type: mongoose.Types.ObjectId, required: true, ref: 'User' },
 });
 
 module.exports = mongoose.model('Advert', advertSchema);
