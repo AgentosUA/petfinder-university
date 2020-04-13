@@ -25,6 +25,13 @@ const userSchema = new Schema({
       ref: 'Pet',
     },
   ],
+  adverts: [
+    {
+      type: mongoose.Types.ObjectId,
+      required: true,
+      ref: 'Advert',
+    },
+  ],
 });
 
 module.exports = mongoose.model('User', userSchema);
