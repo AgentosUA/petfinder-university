@@ -5,20 +5,24 @@ const Pet = require('../models/pet');
 
 const HttpError = require('../util/httpError');
 
-exports.getProfile = (req, res, next) => {
-  let id = req.params.id;
-  User.findOne({ _id: id })
-    .then((user) => {
-      res.status(200).json({
-        username: user.name,
-        pets: user.pets,
-      });
-    })
-    .catch((err) => {
-      res.status(404).json({
+exports.getProfile = async (req, res, next) => {
+  const id = req.params.id;
+  try {
+    const user = await User.findOne({ _id: id });
+
+    if (!user) {
+      return res.status(404).json({
         message: 'Профіль не знайдено!',
       });
+    }
+
+    res.status(200).json({
+      username: user.name,
+      pets: user.pets,
     });
+  } catch (err) {
+    return next(new HttpError('Упс, щось пішло не так!', 500));
+  }
 };
 
 exports.postPet = async (req, res, next) => {

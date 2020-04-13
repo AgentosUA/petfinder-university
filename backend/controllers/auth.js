@@ -1,6 +1,8 @@
 const bcrypt = require('bcryptjs');
-const User = require('../models/user.js');
 const jwt = require('jsonwebtoken');
+
+const User = require('../models/user.js');
+const HttpError = require('../util/httpError');
 
 exports.login = (req, res, next) => {
   let id = req.params.id;
@@ -50,32 +52,29 @@ exports.login = (req, res, next) => {
     });
 };
 
-exports.signup = (req, res, next) => {
-  bcrypt.hash(req.body.password, 10, (err, hash) => {
-    if (err) {
-      return res.status(500).json({
-        error: err,
+exports.signup = async (req, res, next) => {
+  const { name, email, password } = req.body;
+  try {
+    let checkUser = await User.find({ email });
+    if (checkUser.length > 0) {
+      return res.status(403).json({
+        message: 'Такий користувач вже існує',
       });
-    } else {
-      const user = new User({
-        name: req.body.name,
-        email: req.body.email,
-        password: hash,
-        pets: [],
-      });
-
-      user
-        .save()
-        .then((result) => {
-          res.status(201).json({
-            message: 'Користувач успішно зареєстрований!',
-          });
-        })
-        .catch((err) => {
-          res.status(409).json({
-            error: 'Користувач з такою поштою вже існує',
-          });
-        });
     }
-  });
+    const hash = await bcrypt.hash(password, 10);
+
+    const user = new User({
+      name,
+      email,
+      password: hash,
+      pets: [],
+    });
+
+    await user.save();
+    res.status(201).json({
+      message: 'Користувач успішно зареєстрований',
+    });
+  } catch {
+    return next(new HttpError('Невідома помилка, спробуйте ще раз', 500));
+  }
 };
