@@ -1,4 +1,3 @@
-const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const User = require('../models/user.js');
 const jwt = require('jsonwebtoken');
@@ -7,17 +6,17 @@ exports.login = (req, res, next) => {
   let id = req.params.id;
   User.findOne({ email: req.body.email })
     .exec()
-    .then(user => {
+    .then((user) => {
       if (user.length < 1) {
         return res.status(401).json({
-          message: 'Помилка авторизації'
+          message: 'Помилка авторизації',
         });
       }
 
       bcrypt.compare(req.body.password, user.password, (err, result) => {
         if (err) {
           return res.status(401).json({
-            message: 'Помилка авторизації'
+            message: 'Помилка авторизації',
           });
         }
 
@@ -25,28 +24,28 @@ exports.login = (req, res, next) => {
           const token = jwt.sign(
             {
               email: user.email,
-              userId: user.id
+              userId: user.id,
             },
             process.env.secretTokenKey,
             {
-              expiresIn: '5h'
+              expiresIn: '5h',
             }
           );
 
           return res.status(200).json({
-            token: token
+            token: token,
           });
         }
 
         res.status(401).json({
-          message: 'Помилка авторизації'
+          message: 'Помилка авторизації',
         });
       });
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err);
       res.status(409).json({
-        error: 'Помилка авторизації'
+        error: 'Помилка авторизації',
       });
     });
 };
@@ -55,25 +54,26 @@ exports.signup = (req, res, next) => {
   bcrypt.hash(req.body.password, 10, (err, hash) => {
     if (err) {
       return res.status(500).json({
-        error: err
+        error: err,
       });
     } else {
       const user = new User({
         name: req.body.name,
         email: req.body.email,
-        password: hash
+        password: hash,
+        pets: [],
       });
 
       user
         .save()
-        .then(result => {
+        .then((result) => {
           res.status(201).json({
-            message: 'Користувач успішно зареєстрований!'
+            message: 'Користувач успішно зареєстрований!',
           });
         })
-        .catch(err => {
+        .catch((err) => {
           res.status(409).json({
-            error: 'Користувач з такою поштою вже існує'
+            error: 'Користувач з такою поштою вже існує',
           });
         });
     }
