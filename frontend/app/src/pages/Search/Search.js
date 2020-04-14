@@ -20,7 +20,6 @@ const SearchPage = (props) => {
         setTitle('Завантажуємо...');
         setIsLoaded(false);
         let response = await axios.get('/adverts' + window.location.search);
-        console.log('ЛООООЛ' + response);
         if (response.data.adverts.length) {
           setIsLoaded(true);
           const data = response.data.adverts.map((item) => {
@@ -29,6 +28,8 @@ const SearchPage = (props) => {
               <Advert
                 key={item._id}
                 src={item.images[0]}
+                status={item.status}
+                gender={item.gender}
                 name={item.name}
                 breed={item.breed}
                 description={item.description}
