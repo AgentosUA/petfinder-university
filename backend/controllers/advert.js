@@ -1,6 +1,8 @@
+const mongoose = require('mongoose');
 const { validationResult } = require('express-validator');
 
 const Advert = require('../models/advert');
+const User = require('../models/user');
 const HttpError = require('../util/httpError');
 
 exports.getAllAdverts = async (req, res, next) => {
@@ -61,7 +63,7 @@ exports.postNewAdvert = async (req, res, next) => {
   }
 
   const profileId = req.userData.userId;
-  const { name, age, type, gender, breed, status, description, image } = req.body;
+  const { name, type, gender, breed, status, description, image } = req.body;
 
   const advert = new Advert({
     name,
@@ -76,12 +78,79 @@ exports.postNewAdvert = async (req, res, next) => {
   });
 
   try {
-    await advert.save();
+    const user = await User.findById(profileId);
+    const sess = await mongoose.startSession();
+    sess.startTransaction();
+    await user.adverts.push(advert);
+    await advert.save({ session: sess });
+    await user.save({ session: sess });
+    await sess.commitTransaction();
+
     res.status(201).json({
       message: 'Оголошення успішно додано!',
     });
   } catch (err) {
     console.log(err);
     return next(new HttpError('Сталася помилка на сервері. Спробуйте ще раз.'), 500);
+  }
+};
+
+exports.patchAdvert = async (req, res, next) => {
+  const validErrors = validationResult(req);
+  if (!validErrors.isEmpty()) {
+    return next(new HttpError('Невдалося змінити оголошення, схоже щось ввели не так'), 422);
+  }
+
+  const { id } = req.params;
+  const profileId = req.userData.userId;
+  const { name, type, gender, breed, status, description, image } = req.body;
+
+  try {
+    const advert = await Advert.findById(id);
+    if (advert.creator != profileId) {
+      return next(new HttpError('Ви не можете змінити чуже оголошення!'), 422);
+    }
+    advert.name = name;
+    advert.type = type;
+    advert.gender = gender;
+    advert.breed = breed;
+    advert.status = status;
+    advert.description = description;
+    advert.image = image;
+    await advert.save();
+    res.status(200).json({
+      message: 'Оголошення успішно відредаговано!',
+    });
+  } catch (err) {
+    console.log(err);
+    return next(new HttpError('Сталася помилка на сервері. Спробуйте ще раз.'), 500);
+  }
+};
+
+exports.deleteAdvert = async (req, res, next) => {
+  const { userId } = req.userData;
+  const { id } = req.params;
+  try {
+    const advert = await Advert.findById(id).populate('creator', 'id adverts');
+    if (!advert) {
+      return next(new HttpError('Такого оголошення не існує', 404));
+    }
+
+    if (advert.creator.id !== userId) {
+      return next(new HttpError('Ви не можете видаляти чуже оголошення', 401));
+    }
+
+    const sess = await mongoose.startSession();
+    sess.startTransaction();
+    await advert.creator.adverts.pull(advert);
+    await advert.remove({ session: sess });
+    await advert.creator.save({ session: sess });
+    await sess.commitTransaction();
+    res.status(200).json({
+      message: 'Оголошення успішно видалено!',
+    });
+  } catch (err) {
+    console.log(err);
+    return next(new HttpError('Помилка на сервері, спробуйте ще раз.', 500));
   }
 };

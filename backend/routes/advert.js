@@ -12,6 +12,12 @@ router.post(
   [body('name', 'descrption').notEmpty()],
   advertController.postNewAdvert
 );
+router.patch(
+  '/advert/:id',
+  checkAuth,
+  [body('name', 'descrption').notEmpty()],
+  advertController.patchAdvert
+);
 router.delete('/advert/:id', checkAuth, advertController.deleteAdvert);
 
 module.exports = router;
