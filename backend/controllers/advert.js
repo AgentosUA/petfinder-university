@@ -6,7 +6,8 @@ const User = require('../models/user');
 const HttpError = require('../util/httpError');
 
 exports.getAllAdverts = async (req, res, next) => {
-  const { status, type, gender, page } = req.query;
+  const { status, type, gender } = req.query;
+  let { page } = req.query;
   const query = {};
   const limit = 10;
   let skipCount;
@@ -23,6 +24,8 @@ exports.getAllAdverts = async (req, res, next) => {
 
   if (page > 1 && page !== undefined) {
     skipCount = page * limit - limit;
+  } else {
+    page = 1;
   }
   skipCount = 0;
   console.log(query);
@@ -39,6 +42,7 @@ exports.getAllAdverts = async (req, res, next) => {
     res.status(200).json({
       adverts,
       count,
+      page,
     });
   } catch (err) {
     console.log(err);

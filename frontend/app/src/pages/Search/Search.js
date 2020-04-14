@@ -5,21 +5,23 @@ import axios from 'axios';
 import Advert from '../../components/Advert/Advert';
 
 const SearchPage = (props) => {
-  const [adverts, setAdverts] = useState([]);
+  const [adverts, setAdverts] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [type, setType] = useState('all');
   const [gender, setGender] = useState('all');
   const [status, setStatus] = useState('all');
-  const [error, setError] = useState({ status: false, message: '' });
-  const [query, setQuery] = useState(window.location.search);
+  const [title, setTitle] = useState('Завантажуємо');
+  const defaultQuery = `?status=${status}&gender=${gender}&type=${type}`;
+  const [query, setQuery] = useState(defaultQuery);
 
   const getAdverts = async () => {
-    if (!isLoaded || query !== window.location.search) {
+    if (!adverts || !isLoaded) {
       try {
-        console.log(query);
-        console.log(window.location.search);
-        let response = await axios.get('/adverts' + query);
-        if (response.status === 200) {
+        setTitle('Завантажуємо...');
+        setIsLoaded(false);
+        let response = await axios.get('/adverts' + window.location.search);
+        console.log('ЛООООЛ' + response);
+        if (response.data.adverts.length) {
           setIsLoaded(true);
           const data = response.data.adverts.map((item) => {
             console.log(item.images[0]);
@@ -34,51 +36,47 @@ const SearchPage = (props) => {
             );
           });
           setAdverts(data);
+          setTitle('Результати пошуку');
         } else {
           setIsLoaded(true);
+          setTitle('За вашим запитом нічого не знайдено');
         }
       } catch (err) {
         console.log(err);
-        setError(true);
+        setIsLoaded(true);
+        setTitle('За вашим запитом нічого не знайдено');
       }
     }
   };
 
   useEffect(() => {
-    getAdverts();
-  }, [query]);
+    setQuery(defaultQuery);
+  }, [type, gender, status]);
+
+  useEffect(() => {
+    if (!isLoaded) {
+      getAdverts();
+    }
+  }, [adverts]);
 
   const setSearchParams = (e) => {
     const paramName = e.target.name;
     switch (paramName) {
       case 'type':
         setType(e.target.value);
-        setQuery(window.location.search);
+        setQuery(defaultQuery);
         break;
       case 'gender':
         setGender(e.target.value);
-        setQuery(window.location.search);
+        setQuery(defaultQuery);
         break;
       case 'status':
         setStatus(e.target.value);
-        setQuery(window.location.search);
+        setQuery(defaultQuery);
         break;
       default:
+        setQuery(defaultQuery);
         break;
-    }
-  };
-
-  const title = () => {
-    if (!isLoaded) {
-      return 'Завантажуємо..';
-    }
-
-    if (isLoaded && !error.status) {
-      return 'Результати пошуку';
-    }
-    if (isLoaded && adverts.length < 1) {
-      console.log('LOL');
-      return 'Не знайдено жодного оголошення';
     }
   };
 
@@ -86,7 +84,7 @@ const SearchPage = (props) => {
     <main>
       <div className="wrapper">
         <section className="search">
-          <h2>{title()}</h2>
+          <h2>{title}</h2>
           <nav>
             <a href="/">Назад</a>
             <a href="/">2</a>
@@ -115,16 +113,15 @@ const SearchPage = (props) => {
                   <option value="escaped">Зниклі</option>
                   <option value="founded">Знайдені</option>
                 </select>
-                <input
-                  name="old"
-                  type="number"
-                  placeholder="Вік"
-                  min="0"
-                  max="100"
-                  onChange={setSearchParams}
-                />
+                <input name="old" type="number" placeholder="Вік" min="0" max="100" />
               </div>
-              <NavLink to={'/search?type=' + type + '&gender=' + gender + '&status=' + status}>
+              <NavLink
+                to={'/search' + query}
+                onClick={() => {
+                  setAdverts([]);
+                  setIsLoaded(false);
+                }}
+              >
                 <button className="search-button">Шукати</button>
               </NavLink>
             </div>
