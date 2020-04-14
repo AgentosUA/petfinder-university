@@ -416,7 +416,6 @@ section.last-adverts {
         top: 0;
         left: 0;
         width: 100%;
-        height: 100%;
         &:hover {
           opacity: 0.1;
         }
@@ -587,6 +586,13 @@ section.search {
       margin-bottom: 25px;
       padding: 5px 8px;
       border-bottom: 2px solid #3c4148;
+      display: flex;
+
+      img {
+        margin-right: 25px;
+        width: 300px;
+        border-radius: 25px;
+      }
     }
   }
   nav {

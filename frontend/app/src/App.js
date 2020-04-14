@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 
 import Header from './components/Header/Header';
@@ -16,17 +16,19 @@ import PostAdvert from './pages/PostAdvert/PostAdvert';
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Switch>
-        <Route path="/" component={Home} exact />
-        <Route path="/profile" component={Profile} />
-        <Route path="/login" component={Login} />
-        <Route path="/signup" component={SignUp} />
-        <Route path="/search" component={SearchPage} />
-        <Route path="/advert/add" component={PostAdvert} />
-        <Route path="/:id" component={NotFoundPage} />
-      </Switch>
-      <Footer />
+      <BrowserRouter>
+        <Header />
+        <Switch>
+          <Route path="/" component={Home} exact />
+          <Route path="/profile" component={Profile} />
+          <Route path="/login" component={Login} />
+          <Route path="/signup" component={SignUp} />
+          <Route path="/search" component={SearchPage} />
+          <Route path="/advert/add" component={PostAdvert} />
+          <Route path="/:id" component={NotFoundPage} />
+        </Switch>
+        <Footer />
+      </BrowserRouter>
     </div>
   );
 }
