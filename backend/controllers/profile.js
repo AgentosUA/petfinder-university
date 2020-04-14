@@ -27,7 +27,7 @@ exports.getProfile = async (req, res, next) => {
 
 exports.postPet = async (req, res, next) => {
   const profileId = req.userData.userId;
-  const { name, age, type, gender, breed, atHome, description, images } = req.body;
+  const { name, type, gender, breed, atHome, description, images } = req.body;
 
   const pet = new Pet({
     name,
@@ -64,16 +64,45 @@ exports.postPet = async (req, res, next) => {
   }
 };
 
+exports.patchPet = async (req, res, next) => {
+  const { userId } = req.userData;
+  const { id } = req.params;
+  const { name, type, gender, breed, atHome, description, images } = req.body;
+  try {
+    const pet = await Pet.findById(id);
+    if (pet.owner != userId) {
+      return next(new HttpError('Ви не можете редагувати чужих тварин.', 401));
+    }
+
+    pet.name = name;
+    pet.type = type;
+    pet.gender = gender;
+    pet.breed = breed;
+    pet.atHome = atHome;
+    pet.description = description;
+    pet.images = images;
+    await pet.save();
+    res.status(200).json({
+      message: 'Інформацію успішно відредаговано!',
+    });
+  } catch (err) {
+    console.log(err);
+    return next(new HttpError('Помилка на сервері, спробуйте ще раз.', 500));
+  }
+};
+
 exports.deletePet = async (req, res, next) => {
+  const { userId } = req.userData;
   const { id } = req.params;
 
   try {
-    const pet = await Pet.findById(id).populate('owner');
-    if (pet.owner !== req.userId) {
-      return next(new HttpError('Ви не можете видяти чужу тваринку', 401));
-    }
+    const pet = await Pet.findById(id).populate('owner', '_id pets');
     if (!pet) {
       return next(new HttpError('Такої тваринки не існує', 404));
+    }
+
+    if (pet.owner.id !== userId) {
+      return next(new HttpError('Ви не можете видаляти чужу тваринку', 401));
     }
 
     const sess = await mongoose.startSession();
@@ -98,13 +127,15 @@ exports.patchProfile = async (req, res, next) => {
     const user = await User.findById(userId);
 
     if (!user) {
-      return res.json({});
+      return res.status(404).json({
+        message: 'Користувача не знайдено.',
+      });
     }
 
     user.name = name;
     await user.save();
     res.status(200).json({
-      message: 'Дані профілю успішно оновлено',
+      message: 'Дані профілю успішно оновлено.',
     });
   } catch (err) {
     console.log(err);
