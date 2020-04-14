@@ -36,7 +36,7 @@ exports.login = async (req, res, next) => {
       message: 'Помилка авторизації',
     });
   } catch (error) {
-    return next(HttpError('Помилка на сервері, спробуйте ще раз', 500));
+    return next(new HttpError('Помилка на сервері, спробуйте ще раз', 500));
   }
 };
 

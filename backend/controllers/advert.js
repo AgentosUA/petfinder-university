@@ -72,17 +72,16 @@ exports.postNewAdvert = async (req, res, next) => {
   }
 
   const profileId = req.userData.userId;
-  const { name, type, gender, breed, status, description, image } = req.body;
+  const { name, type, gender, breed, status, description, images } = req.body;
 
   const advert = new Advert({
     name,
-    age,
     type,
     gender,
     breed,
     status,
     description,
-    image,
+    images,
     creator: profileId,
   });
 
