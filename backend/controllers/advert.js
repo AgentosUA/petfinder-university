@@ -28,7 +28,7 @@ exports.getAllAdverts = async (req, res, next) => {
     page = 1;
   }
   skipCount = 0;
-  console.log(query);
+  console.log(query); // temp check while building react app
   const adverts = await Advert.find(query).skip(skipCount).limit(limit);
 
   try {
