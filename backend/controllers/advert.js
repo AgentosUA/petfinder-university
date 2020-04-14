@@ -6,33 +6,42 @@ const User = require('../models/user');
 const HttpError = require('../util/httpError');
 
 exports.getAllAdverts = async (req, res, next) => {
-  let { type, gender, status } = req.query;
+  const { status, type, gender, page } = req.query;
+  const query = {};
+  const limit = 10;
+  let skipCount;
 
-  if (status !== 'all') {
+  if (status !== 'all' && status !== undefined && status !== '') {
     query.status = status;
   }
-  if (type !== 'all') {
+  if (type !== 'all' && type !== undefined && type !== '') {
     query.type = type;
   }
-  if (gender !== 'all') {
+  if (gender !== 'all' && gender !== undefined && gender !== '') {
     query.gender = gender;
   }
 
-  const adverts = await Advert.find(query).limit(5);
+  if (page > 1 && page !== undefined) {
+    skipCount = page * limit - limit;
+  }
+  skipCount = 0;
+  console.log(query);
+  const adverts = await Advert.find(query).skip(skipCount).limit(limit);
 
   try {
-    if (!adverts) {
+    if (!adverts || adverts.length < 1) {
       return res.status(404).json({
         message: 'Оголошень не знайдено',
       });
     }
 
-    const count = adverts.length();
+    const count = adverts.length;
     res.status(200).json({
       adverts,
       count,
     });
-  } catch {
+  } catch (err) {
+    console.log(err);
     return next(new HttpError('Виникла помилка під час пошуку оголошень, спробуйте ще раз.', 500));
   }
 };
