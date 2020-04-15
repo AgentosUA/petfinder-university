@@ -5,8 +5,6 @@ import Logo from '../Logo/Logo';
 import Navigation from '../Navigation/Navigation';
 
 const Header = () => {
-  // const [adverts, setAdverts] = useState([]);
-  // const [isLoaded, setIsLoaded] = useState(false);
   const [type, setType] = useState('all');
   const [gender, setGender] = useState('all');
   const [status, setStatus] = useState('all');

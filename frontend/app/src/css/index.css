@@ -1,0 +1,86 @@
+@font-face {
+  font-family: 'Title';
+  src: url('../fonts/title.otf');
+}
+
+@font-face {
+  font-family: 'Logo';
+  src: url('../fonts/logo.ttf');
+}
+
+@font-face {
+  font-family: 'Regular';
+  src: url('../fonts/regular.ttf');
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-family: 'Regular', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.wrapper {
+  margin: 0 auto;
+  padding: 12px 20px;
+  width: 100%;
+  max-width: 1600px;
+  overflow: hidden;
+}
+
+main {
+  min-height: 850px;
+}
+
+.container .content-title {
+  margin: 50px auto;
+  font-size: 32px;
+  font-family: 'Title';
+  font-weight: 600;
+  color: #3c4148;
+  text-align: center;
+}
+
+.content-section {
+  margin: 25px auto 35px auto;
+  border-bottom: 2px solid #000;
+  padding-bottom: 25px;
+}
+
+.content-section:last-child {
+  border: none;
+}
+
+.orange {
+  color: #ff8d00;
+}
+
+a {
+  text-decoration: none;
+}
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-family: 'Title';
+  font-size: 24px;
+}
+
+h3 {
+  font-family: 'Title';
+  font-size: 18px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}

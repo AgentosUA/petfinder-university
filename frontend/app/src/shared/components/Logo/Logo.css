@@ -1,0 +1,25 @@
+.logo-wrapper {
+  margin: 0 auto;
+  display: flex;
+  width: 230px;
+  align-items: center;
+}
+
+.logo__link {
+  text-decoration: none;
+}
+
+.logo__title {
+  margin-left: 10px;
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Logo';
+  text-shadow: 2px 3px black;
+}
+
+.logo {
+  margin: 0 auto;
+  width: 75px;
+  border-radius: 100%;
+  box-shadow: 0 0 4px 0 black;
+}

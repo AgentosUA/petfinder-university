@@ -139,6 +139,11 @@ table {
   src: url(./fonts/regular.otf);
 }
 
+@font-face {
+  font-family: "regular";
+  src: url(./fonts/regular.otf);
+}
+
 body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;

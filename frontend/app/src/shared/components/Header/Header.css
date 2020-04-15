@@ -1,0 +1,13 @@
+.main-header {
+  margin: 0;
+  padding: 0;
+  height: 100px;
+  width: 100%;
+  background: #3c4148;
+  overflow: hidden;
+}
+
+.main-header .wrapper {
+  display: flex;
+  justify-content: space-between;
+}

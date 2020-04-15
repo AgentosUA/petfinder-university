@@ -1,0 +1,16 @@
+.header__search__form {
+  margin: 20px auto;
+  max-width: 780px;
+}
+
+.header__search__form select {
+  margin: 0 3px 10px auto;
+  padding: 10px;
+  height: 40px;
+  width: 120px;
+  font-size: 12px;
+  color: #3c4148;
+  font-weight: 300;
+  border: none;
+  background: #fff;
+}

@@ -1,0 +1,25 @@
+.footer {
+  width: 100%;
+  background: #3c4148;
+}
+
+.footer .wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer .logo__link {
+  margin-left: auto;
+}
+
+.footer__social-icons {
+  margin-left: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.footer__social-icons img {
+  margin: 0 4px;
+}
