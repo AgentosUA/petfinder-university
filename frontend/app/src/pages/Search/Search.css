@@ -18,7 +18,10 @@
 
 .search-inputs {
   position: fixed;
-  overflow: hidden;
+}
+
+.search-inputs .react-datepicker-wrapper {
+  display: block;
 }
 
 .search-inputs input,

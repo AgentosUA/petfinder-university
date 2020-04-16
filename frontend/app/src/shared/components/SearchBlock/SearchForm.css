@@ -3,7 +3,8 @@
   max-width: 780px;
 }
 
-.header__search__form select {
+.header__search__form select,
+.header__search__form input {
   margin: 0 3px 10px auto;
   padding: 10px;
   height: 40px;

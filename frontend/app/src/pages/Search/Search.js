@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from 'react';
+import DatePicker from 'react-datepicker';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 
 import Wrapper from '../../shared/components/Wrapper/Wrapper';
 import Section from '../../shared/components/Section/Section';
 import Advert from '../../shared/components/Advert/Advert';
+import Button from '../../shared/components/UI/Button/Button';
 
+import 'react-datepicker/dist/react-datepicker.css';
 import './Search.css';
 
 const Search = (props) => {
+  const [startDate, setStartDate] = useState(null);
+
   const [adverts, setAdverts] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [type, setType] = useState('all');
@@ -27,7 +32,6 @@ const Search = (props) => {
         if (response.data.adverts.length) {
           setIsLoaded(true);
           const data = response.data.adverts.map((item) => {
-            console.log(item.images[0]);
             return (
               <Advert
                 key={item._id}
@@ -107,6 +111,15 @@ const Search = (props) => {
                 <option value="escaped">Зниклі</option>
                 <option value="founded">Знайдені</option>
               </select>
+              <DatePicker
+                selected={startDate}
+                placeholderText="Оберіть дату"
+                dateFormat="dd/MM/yyyy"
+                isClearable
+                strictParsing
+                todayButton="Сьогодні"
+                onChange={(date) => setStartDate(date)}
+              />
               <NavLink
                 to={'/search' + query}
                 onClick={() => {
@@ -119,6 +132,15 @@ const Search = (props) => {
             </div>
           </div>
         </Section>
+        {adverts != null ? (
+          <Section title="Не знайшли кого шукали?">
+            <NavLink to="/advert/new">
+              <Button text="Додати оголошення" styles="main" />
+            </NavLink>
+          </Section>
+        ) : (
+          ''
+        )}
       </Wrapper>
     </main>
   );

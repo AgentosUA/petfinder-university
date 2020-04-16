@@ -1,13 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import DatePicker from 'react-datepicker';
 import { NavLink } from 'react-router-dom';
 
 import Button from '../UI/Button/Button';
+import 'react-datepicker/dist/react-datepicker.css';
 import './SearchForm.css';
 
 const Form = () => {
   const [type, setType] = useState('all');
   const [gender, setGender] = useState('all');
   const [status, setStatus] = useState('all');
+  const [startDate, setStartDate] = useState(null);
+
+  useEffect(() => console.log(startDate), [startDate]);
 
   const setSearchParams = (e) => {
     const paramName = e.target.name;
@@ -43,7 +48,16 @@ const Form = () => {
         <option value="escaped">Зниклі</option>
         <option value="founded">Знайдені</option>
       </select>
-      <NavLink to={`/search?type=${type}&gender=${gender}&status=${status}`}>
+      <DatePicker
+        selected={startDate}
+        placeholderText="Оберіть дату"
+        dateFormat="dd/MM/yyyy"
+        isClearable
+        strictParsing
+        todayButton="Сьогодні"
+        onChange={(date) => setStartDate(date)}
+      />
+      <NavLink to={`/search?type=${type}&gender=${gender}&status=${status}&date=${startDate}`}>
         <Button text="Шукати" styles="main" />
       </NavLink>
     </form>
