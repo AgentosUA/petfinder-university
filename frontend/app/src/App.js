@@ -11,12 +11,8 @@ function App() {
       <BrowserRouter>
         <Header />
         <Switch>
-          <Route path="/" exact component={Home}>
-            {Home}
-          </Route>
-          <Route path="/search" component={Search}>
-            {Search}
-          </Route>
+          <Route path="/" exact component={Home} />
+          <Route path="/search" component={Search} />
         </Switch>
         <Footer />
       </BrowserRouter>
