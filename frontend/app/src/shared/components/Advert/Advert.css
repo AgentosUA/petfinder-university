@@ -1,11 +1,29 @@
 .advert {
   margin: 8px 8px 8px 0;
-  display: block;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-items: center;
   width: 300px;
-  height: 400px;
+  min-height: 480px;
+  height: auto;
   border-bottom: 2px solid #3c4148;
   border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
   overflow: hidden;
+}
+
+.advert__text {
+  margin-bottom: auto;
+  max-height: 200px;
+  overflow: auto;
+}
+
+.advert a {
+  display: block;
+  width: 100%;
+  margin-top: auto;
 }
 
 .advert span {
@@ -20,14 +38,17 @@
   font-family: Tahoma;
   font-weight: 300;
   line-height: 15px;
+  overflow: hidden;
 }
 
 .advert h3 {
-  margin: 15px auto;
+  width: 100%;
+  margin-bottom: auto;
   text-align: center;
 }
 
 .advert img {
+  margin-bottom: auto;
   object-fit: cover;
   width: 100%;
   height: 200px;

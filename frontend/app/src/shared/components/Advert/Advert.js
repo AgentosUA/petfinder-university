@@ -1,6 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
+
+import Button from '../UI/Button/Button';
 
 import './Advert.css';
+import { NavLink } from 'react-router-dom';
 
 const Advert = (props) => {
   let breed;
@@ -41,21 +44,26 @@ const Advert = (props) => {
     <div className="advert">
       <img src={props.src} alt={props.name} />
       <h3>{props.name}</h3>
-
-      <p>
-        <span>Стать: </span>
-        {gender}
-      </p>
-      <p>
-        <span>Статус: </span>
-        {status}
-      </p>
-      {breed}
-      <p>
-        <span>Опис: </span>
-        {props.description}
-      </p>
-      <br />
+      <div className="advert__text">
+        <p>
+          <span>Стать: </span>
+          {gender}
+        </p>
+        <p>
+          <span>Статус: </span>
+          {status}
+        </p>
+        {breed}
+        <p>
+          <span>Дата: </span>
+          <br />
+          {/* {props.description} */}
+          {/* loremloremloremloremloremloremloremloremloremloremloremloremlorem */}
+        </p>
+      </div>
+      <NavLink to="/" className="">
+        <Button styles="main" text="Переглянути" className="test" />
+      </NavLink>
     </div>
   );
 };
