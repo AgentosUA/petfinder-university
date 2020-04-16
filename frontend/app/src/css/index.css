@@ -52,25 +52,6 @@ main {
   min-height: 850px;
 }
 
-.container .content-title {
-  margin: 50px auto;
-  font-size: 32px;
-  font-family: 'Title';
-  font-weight: 600;
-  color: #3c4148;
-  text-align: center;
-}
-
-.content-section {
-  margin: 25px auto 35px auto;
-  border-bottom: 2px solid #000;
-  padding-bottom: 25px;
-}
-
-.content-section:last-child {
-  border: none;
-}
-
 .orange {
   color: #ff8d00;
 }
