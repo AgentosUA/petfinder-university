@@ -19,7 +19,7 @@ const SearchBlock = () => {
         </NavLink>
         <SearchForm />
         <div className="header__search_call-to-action">
-          <Button text="Подати оголошення" styles="main" />
+          <Button text="Створити оголошення" styles="main" />
           <Button text="Придбати нашийник" styles="main" />
         </div>
       </Wrapper>
