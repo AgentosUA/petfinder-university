@@ -12,7 +12,7 @@ const Form = () => {
   const [status, setStatus] = useState('all');
   const [startDate, setStartDate] = useState(null);
 
-  useEffect(() => console.log(startDate), [startDate]);
+  // useEffect(() => console.log(startDate), [startDate]);
 
   const setSearchParams = (e) => {
     const paramName = e.target.name;
@@ -58,7 +58,7 @@ const Form = () => {
         onChange={(date) => setStartDate(date)}
       />
       <NavLink to={`/search?type=${type}&gender=${gender}&status=${status}&date=${startDate}`}>
-        <Button text="Шукати" styles="main" />
+        <Button type="button" text="Шукати" styles="main" />
       </NavLink>
     </form>
   );
