@@ -5,6 +5,7 @@ import Header from './shared/components/Header/Header';
 import Home from './pages/Home/Home';
 import Search from './pages/Search/Search';
 import Footer from './shared/components/Footer/Footer';
+import SignUp from './pages/SignUp/SignUp';
 function App() {
   return (
     <div className="App">
@@ -13,6 +14,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/search" component={Search} />
+          <Route path="/signup" component={SignUp} />
         </Switch>
         <Footer />
       </BrowserRouter>
