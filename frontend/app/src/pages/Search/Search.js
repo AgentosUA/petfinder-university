@@ -133,8 +133,8 @@ const Search = (props) => {
           </div>
         </Section>
         {adverts != null && adverts.length > 0 ? (
-          <Section title="Не знайшли кого шукали?" subtitle="Час створити оголошення!">
-            <NavLink to="/advert/new">
+          <Section title="Не знайшли кого шукали?" subtitle="Час створити оголошення!" flex>
+            <NavLink to="/adverts/new">
               <Button text="Додати оголошення" styles="second" />
             </NavLink>
           </Section>

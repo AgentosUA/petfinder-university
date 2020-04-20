@@ -65,3 +65,8 @@ a {
   justify-content: center;
   text-align: center;
 }
+
+.react-datepicker__input-container,
+.react-datepicker__input-container input {
+  width: 100%;
+}
