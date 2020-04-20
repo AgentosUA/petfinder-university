@@ -7,8 +7,6 @@ import Section from '../../shared/components/Section/Section';
 import Button from '../../shared/components/UI/Button/Button';
 import Form from '../../shared/components/UI/Form/Form';
 
-import '../../shared/components/UI/Button/Button.css';
-
 const Login = (props) => {
   const [email, setEmail] = useState(null);
   const [name, setName] = useState(null);
@@ -35,7 +33,7 @@ const Login = (props) => {
     }
   };
 
-  const PostSignUp = async (e) => {
+  const PostLogin = async (e) => {
     e.preventDefault();
     console.log('Logged in!');
     const data = JSON.stringify({
@@ -74,7 +72,7 @@ const Login = (props) => {
             <NavLink to="/forget" className="ask">
               Забули пароль?
             </NavLink>
-            <Button styles="main" type="submit" text="Вхід" submit={PostSignUp} />
+            <Button styles="main" type="submit" text="Увійти" submit={PostLogin} />
           </Form>
         </Section>
       </Wrapper>
