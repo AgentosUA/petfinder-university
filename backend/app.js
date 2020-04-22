@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 
 const bodyParser = require('body-parser');
+const morgan = require('morgan');
 
 const HttpError = require('./util/httpError');
 
@@ -12,7 +13,7 @@ const advertRoutes = require('./routes/advert.js');
 const authRoutes = require('./routes/auth.js');
 
 // Configuration:
-
+app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 

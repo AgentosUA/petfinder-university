@@ -23,5 +23,8 @@
     "mongoose": "^5.7.11",
     "multer": "^1.4.2",
     "nodemon": "^2.0.2"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0"
   }
 }
