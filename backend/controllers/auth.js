@@ -62,7 +62,8 @@ exports.signup = async (req, res, next) => {
     res.status(201).json({
       message: 'Користувач успішно зареєстрований',
     });
-  } catch {
+  } catch (err) {
+    console.log(err);
     return next(new HttpError('Невідома помилка, спробуйте ще раз', 500));
   }
 };
