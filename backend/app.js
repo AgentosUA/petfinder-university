@@ -4,8 +4,6 @@ const app = express();
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 
-const HttpError = require('./util/httpError');
-
 // Routes:
 
 const profileRoutes = require('./routes/profile.js');

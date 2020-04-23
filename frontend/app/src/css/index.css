@@ -60,6 +60,15 @@ a {
   text-decoration: none;
 }
 
+b {
+  font-weight: 600;
+}
+
+ul, ol {
+  margin: 0 auto 10px auto;
+  padding-left: 45px;
+}
+
 .center {
   display: flex;
   justify-content: center;
