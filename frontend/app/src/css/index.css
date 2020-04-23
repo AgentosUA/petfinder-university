@@ -75,6 +75,13 @@ ol {
   padding-left: 45px;
 }
 
+.center-wrap {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
 .center {
   display: flex;
   justify-content: center;

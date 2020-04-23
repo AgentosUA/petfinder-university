@@ -10,12 +10,10 @@ const Home = () => {
     <main className="container">
       <SearchBlock />
       <Wrapper>
-        <Section title="Досить зволікати, настав час шукати!">
-          <div className="center">
-            <CircleCard title="1" text="Зареєструйся на сайті" />
-            <CircleCard title="2" text="Створіть оголошення" />
-            <CircleCard title="3" text="Поверніть улюбленця додому :)" />
-          </div>
+        <Section title="Досить зволікати, настав час шукати!" flex>
+          <CircleCard title="1" text="Зареєструйся на сайті" />
+          <CircleCard title="2" text="Створіть оголошення" />
+          <CircleCard title="3" text="Поверніть улюбленця додому :)" />
         </Section>
       </Wrapper>
     </main>
