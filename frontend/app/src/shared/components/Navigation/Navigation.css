@@ -9,6 +9,7 @@
   padding: 10px 20px;
   display: block;
   border: 2px solid #3c4148;
+  background: #3c4148;
   color: #fff;
   text-decoration: none;
   font-family: 'Title';
@@ -19,4 +20,5 @@
 .navigation__link:hover {
   border: 2px solid #ff8d00;
   transition: 0.3s;
+  cursor: pointer;
 }

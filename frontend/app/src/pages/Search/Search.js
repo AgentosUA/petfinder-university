@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import DatePicker from 'react-datepicker';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
@@ -7,6 +7,8 @@ import Wrapper from '../../shared/components/Wrapper/Wrapper';
 import Section from '../../shared/components/Section/Section';
 import Advert from '../../shared/components/Advert/Advert';
 import Button from '../../shared/components/UI/Button/Button';
+
+import { AuthContext } from '../../shared/context/auth-context';
 
 import 'react-datepicker/dist/react-datepicker.css';
 import './Search.css';
@@ -88,6 +90,49 @@ const Search = (props) => {
         break;
     }
   };
+
+  const auth = useContext(AuthContext);
+
+  let askToCreate;
+
+  if (auth.isLoggedIn) {
+    askToCreate = (
+      <React.Fragment>
+        {adverts != null && adverts.length > 0 ? (
+          <Section
+            title="Не знайшли кого шукали?"
+            subtitle="Час створити оголошення!"
+            flex
+          >
+            <NavLink to="/adverts/new">
+              <Button text="Додати оголошення" styles="second" />
+            </NavLink>
+          </Section>
+        ) : (
+          ''
+        )}
+      </React.Fragment>
+    );
+  } else {
+    askToCreate = (
+      <React.Fragment>
+        {adverts != null && adverts.length > 0 ? (
+          <Section
+            title="Не знайшли кого шукали?"
+            subtitle="Зареєструйтеся та створіть оголошення!"
+            flex
+          >
+            <NavLink to="/signup">
+              <Button text="Реєстрація" styles="second" />
+            </NavLink>
+          </Section>
+        ) : (
+          ''
+        )}
+      </React.Fragment>
+    );
+  }
+
   return (
     <main className="container">
       <Wrapper>
@@ -132,15 +177,7 @@ const Search = (props) => {
             </div>
           </div>
         </Section>
-        {adverts != null && adverts.length > 0 ? (
-          <Section title="Не знайшли кого шукали?" subtitle="Час створити оголошення!" flex>
-            <NavLink to="/adverts/new">
-              <Button text="Додати оголошення" styles="second" />
-            </NavLink>
-          </Section>
-        ) : (
-          ''
-        )}
+        {askToCreate}
       </Wrapper>
     </main>
   );

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 
@@ -6,6 +6,8 @@ import Wrapper from '../../shared/components/Wrapper/Wrapper';
 import Section from '../../shared/components/Section/Section';
 import Button from '../../shared/components/UI/Button/Button';
 import Form from '../../shared/components/UI/Form/Form';
+
+import { AuthContext } from '../../shared/context/auth-context';
 
 const Login = (props) => {
   const [email, setEmail] = useState(null);
@@ -33,19 +35,30 @@ const Login = (props) => {
     }
   };
 
+  const auth = useContext(AuthContext);
+
   const PostLogin = async (e) => {
     e.preventDefault();
-    console.log('Logged in!');
-    const data = JSON.stringify({
-      email,
-      password,
-    });
-    const res = await axios.post('http://localhost:5000/login', data, {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    console.log(res);
+
+    try {
+      const data = JSON.stringify({
+        email,
+        password,
+      });
+      const res = await axios.post('http://localhost:5000/login', data, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      if (res.status === 200) {
+        console.log('Logged in!');
+        auth.login();
+      } else {
+        console.log('not 200!');
+      }
+    } catch (error) {
+      console.log('Error from TryCatch: ' + error);
+    }
   };
 
   return (
@@ -72,7 +85,12 @@ const Login = (props) => {
             <NavLink to="/forget" className="ask">
               Забули пароль?
             </NavLink>
-            <Button styles="main" type="submit" text="Увійти" submit={PostLogin} />
+            <Button
+              styles="main"
+              type="submit"
+              text="Увійти"
+              submit={PostLogin}
+            />
           </Form>
         </Section>
       </Wrapper>

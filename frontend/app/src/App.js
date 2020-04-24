@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
 import Header from './shared/components/Header/Header';
 import Home from './pages/Home/Home';
@@ -23,8 +23,28 @@ const App = () => {
     setIsLoggedIn(false);
   }, []);
 
+  let routes;
+  if (isLoggedIn) {
+    routes = (
+      <Switch>
+        <Route path="/adverts/new" component={AddAdvert} />
+        <Redirect to="/" />
+      </Switch>
+    );
+  } else {
+    routes = (
+      <Switch>
+        <Route path="/signup" exact component={SignUp} />
+        <Route path="/login" exact component={Login} />
+        <Redirect to="/login" />
+      </Switch>
+    );
+  }
+
   return (
-    <AuthContext.Provider value={{ isLoggedIn: isLoggedIn, login }}>
+    <AuthContext.Provider
+      value={{ isLoggedIn: isLoggedIn, login: login, logout: logout }}
+    >
       <div className="App">
         <BrowserRouter>
           <Header />
@@ -32,9 +52,7 @@ const App = () => {
             <Route path="/" exact component={Home} />
             <Route path="/about" component={About} />
             <Route path="/search" component={Search} />
-            <Route path="/signup" component={SignUp} />
-            <Route path="/login" component={Login} />
-            <Route path="/adverts/new" component={AddAdvert} />
+            {routes}
           </Switch>
           <Footer />
         </BrowserRouter>

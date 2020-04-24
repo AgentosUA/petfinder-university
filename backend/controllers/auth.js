@@ -23,11 +23,12 @@ exports.login = async (req, res, next) => {
         },
         process.env.secretTokenKey,
         {
-          expiresIn: '5h',
+          expiresIn: '1h',
         }
       );
 
       return res.status(200).json({
+        status: 200,
         token: token,
       });
     }
