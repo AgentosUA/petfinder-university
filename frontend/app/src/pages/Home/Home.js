@@ -12,8 +12,8 @@ const Home = () => {
       <Wrapper>
         <Section title="Досить зволікати, настав час шукати!" flex>
           <CircleCard title="1" text="Зареєструйся на сайті" />
-          <CircleCard title="2" text="Створіть оголошення" />
-          <CircleCard title="3" text="Поверніть улюбленця додому :)" />
+          <CircleCard title="2" text="Створи оголошення" />
+          <CircleCard title="3" text="Поверни улюбленця додому :)" />
         </Section>
       </Wrapper>
     </main>

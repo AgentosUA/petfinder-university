@@ -119,9 +119,12 @@ const Search = (props) => {
         {adverts != null && adverts.length > 0 ? (
           <Section
             title="Не знайшли кого шукали?"
-            subtitle="Зареєструйтеся та створіть оголошення!"
+            subtitle="Увійдіть, щоб створити оголошення!"
             flex
           >
+            <NavLink to="/login">
+              <Button text="Вхід" styles="second" />
+            </NavLink>
             <NavLink to="/signup">
               <Button text="Реєстрація" styles="second" />
             </NavLink>

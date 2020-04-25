@@ -65,7 +65,7 @@ const AddAdvert = (props) => {
               <option value="dog">Собаки</option>
               <option value="other">Інші</option>
             </select>
-            <label htmlFor="gender">Гендер</label>
+            <label htmlFor="gender">Стать</label>
             <select name="gender" id="" onChange={setInputDataToState}>
               <option value="all">Стать (усі)</option>
               <option value="he">Він</option>
@@ -88,7 +88,12 @@ const AddAdvert = (props) => {
               todayButton="Сьогодні"
               onChange={(date) => setStartDate(date)}
             />
-            <Button styles="main" type="submit" text="Увійти" submit={PostSignUp} />
+            <Button
+              styles="main"
+              type="submit"
+              text="Увійти"
+              submit={PostSignUp}
+            />
           </Form>
         </Section>
       </Wrapper>
