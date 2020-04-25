@@ -1,0 +1,52 @@
+.profile-block__title {
+  margin: 8px auto;
+  text-align: center;
+}
+
+.profile__user {
+  display: block;
+  width: 320px;
+  overflow: hidden;
+}
+
+.user__avatar {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 100%;
+  box-shadow: 0 0 6px 0 #000;
+}
+
+.user__edit {
+  margin: 8px auto;
+  width: 100%;
+}
+
+.profile__adverts {
+  margin-left: 25px;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+}
+
+.profile-adverts__list {
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.profile-adverts__item {
+  width: 250px;
+}
+
+.profile__left-block {
+}
+
+.advert__avatar {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 100%;
+  box-shadow: 0 0 6px 0 #000;
+}
