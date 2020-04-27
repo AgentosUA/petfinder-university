@@ -16,12 +16,16 @@ import { AuthContext } from './shared/context/auth-context';
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const login = useCallback(() => {
+  const login = useCallback((token, userId) => {
     setIsLoggedIn(true);
+    localStorage.setItem('token', token);
+    localStorage.setItem('userId', userId);
   }, []);
 
   const logout = useCallback(() => {
     setIsLoggedIn(false);
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
   }, []);
 
   let routes;
