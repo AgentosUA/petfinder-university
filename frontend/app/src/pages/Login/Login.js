@@ -51,8 +51,7 @@ const Login = (props) => {
         },
       });
       if (res.status === 200) {
-        console.log('Logged in!');
-        auth.login();
+        auth.login(res.data.token, res.data.userId);
       } else {
         console.log('not 200!');
       }
