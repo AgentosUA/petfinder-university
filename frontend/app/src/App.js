@@ -33,7 +33,7 @@ const App = () => {
     routes = (
       <Switch>
         <Route path="/adverts/new" component={AddAdvert} />
-
+        <Route path="/profile" component={Profile} />
         <Redirect to="/" />
       </Switch>
     );
@@ -58,7 +58,7 @@ const App = () => {
             <Route path="/" exact component={Home} />
             <Route path="/about" component={About} />
             <Route path="/search" component={Search} />
-            <Route path="/profile" component={Profile} />
+
             {routes}
           </Switch>
           <Footer />
