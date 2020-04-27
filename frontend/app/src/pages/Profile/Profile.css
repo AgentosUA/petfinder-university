@@ -32,15 +32,24 @@
 .profile-adverts__list {
   margin: 10px auto;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   flex-wrap: wrap;
 }
 
 .profile-adverts__item {
-  width: 250px;
+  margin: 25px auto;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-radius: 25px;
+  background: #f5f5f5;
 }
 
 .profile__left-block {
+  margin: 0 40px;
+  width: 300px;
 }
 
 .advert__avatar {
