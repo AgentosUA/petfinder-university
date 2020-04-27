@@ -8,7 +8,7 @@ const HttpError = require('../util/httpError');
 exports.getProfile = async (req, res, next) => {
   const id = req.params.id;
   try {
-    const user = await User.findOne({ _id: id }).populate('pets');
+    const user = await User.findOne({ _id: id }).populate('adverts');
 
     if (!user) {
       return res.status(404).json({
@@ -18,7 +18,7 @@ exports.getProfile = async (req, res, next) => {
 
     res.status(200).json({
       username: user.name,
-      pets: user.pets,
+      adverts: user.adverts,
     });
   } catch (err) {
     return next(new HttpError('Упс, щось пішло не так!', 500));
