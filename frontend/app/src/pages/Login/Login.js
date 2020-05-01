@@ -7,6 +7,8 @@ import Section from '../../shared/components/Section/Section';
 import Button from '../../shared/components/UI/Button/Button';
 import Form from '../../shared/components/UI/Form/Form';
 
+import Modal from '../../shared/components/UI/Modal/Modal';
+
 import { AuthContext } from '../../shared/context/auth-context';
 
 const Login = (props) => {
@@ -14,6 +16,7 @@ const Login = (props) => {
   const [name, setName] = useState(null);
   const [password, setPassword] = useState(null);
   const [repassword, setRePassword] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
   const setInputDataToState = (e) => {
     const dataType = e.target.name;
@@ -33,6 +36,10 @@ const Login = (props) => {
       default:
         break;
     }
+  };
+
+  const closeModalHandler = () => {
+    setShowModal(false);
   };
 
   const auth = useContext(AuthContext);
@@ -57,11 +64,19 @@ const Login = (props) => {
       }
     } catch (error) {
       console.log('Error from TryCatch: ' + error);
+      setShowModal(true);
     }
   };
 
   return (
     <main className="container">
+      <Modal
+        show={showModal}
+        onCancel={closeModalHandler}
+        title="Помилка авторизації!"
+        subtitle="h3"
+        text="Lol"
+      ></Modal>
       <Wrapper>
         <Section title="Вхід" className="search-container" flex>
           <Form className="login-form">
