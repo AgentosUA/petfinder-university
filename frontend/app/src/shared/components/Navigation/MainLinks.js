@@ -5,16 +5,22 @@ import { NavLink } from 'react-router-dom';
 const MainLinks = () => {
   return (
     <React.Fragment>
-      <NavLink className="navigation__link" to="/">
+      <NavLink className="navigation__link mobile-hide" to="/">
         Головна
       </NavLink>
-      <NavLink className="navigation__link" to="/search?type=all&gender=all&status=escaped">
+      <NavLink
+        className="navigation__link mobile-hide"
+        to="/search?type=all&gender=all&status=escaped"
+      >
         Зниклі
       </NavLink>
-      <NavLink className="navigation__link" to="/search?type=all&gender=all&status=founded">
+      <NavLink
+        className="navigation__link mobile-hide"
+        to="/search?type=all&gender=all&status=founded"
+      >
         Знайдені
       </NavLink>
-      <NavLink className="navigation__link" to="/about">
+      <NavLink className="navigation__link mobile-hide" to="/about">
         Про нас
       </NavLink>
     </React.Fragment>

@@ -7,11 +7,11 @@ import MainLinks from '../Navigation/MainLinks.js';
 import AuthLinks from '../Navigation/AuthLinks.js';
 import './Header.css';
 
-const Header = () => {
+const Header = (props) => {
   return (
     <header className="main-header">
       <Wrapper>
-        <Logo alt="logo" />
+        <Logo alt="logo" sidebarHandler={props.sidebarHandler} />
         <Navigation>
           <MainLinks />
         </Navigation>

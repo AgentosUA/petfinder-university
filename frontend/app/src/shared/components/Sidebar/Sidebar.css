@@ -1,0 +1,16 @@
+#sidebar {
+  position: relative;
+  margin: 0;
+}
+
+.sidebar {
+  position: absolute;
+  padding: 25px;
+  left: 0;
+  top: 0;
+  width: 30%;
+  height: 100%;
+  background: #fff;
+  z-index: 100000;
+  display: none;
+}

@@ -8,6 +8,9 @@ const Logo = (props) => {
   return (
     <NavLink className="logo__link" to="/">
       <div className="logo-wrapper">
+        <button className="sidebar-button" onClick={props.sidebarHandler}>
+          #
+        </button>
         <img className="logo" src={logo} alt={props.alt} />
         <h1 className="logo__title">Pet Finder</h1>
       </div>

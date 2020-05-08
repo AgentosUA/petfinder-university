@@ -12,9 +12,11 @@ import Profile from './pages/Profile/Profile';
 import About from './pages/About/About';
 
 import { AuthContext } from './shared/context/auth-context';
+import Sidebar from './shared/components/Sidebar/Sidebar';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [showSidebar, setShowSidebar] = useState(false);
 
   const login = useCallback((token, userId) => {
     setIsLoggedIn(true);
@@ -27,6 +29,14 @@ const App = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('userId');
   }, []);
+
+  const showSidebarHandler = () => {
+    if (showSidebar) {
+      setShowSidebar(false);
+    } else {
+      setShowSidebar(true);
+    }
+  };
 
   let routes;
   if (isLoggedIn) {
@@ -53,12 +63,12 @@ const App = () => {
     >
       <div className="App">
         <BrowserRouter>
-          <Header />
+          <Header sidebarHandler={showSidebarHandler} />
+          <Sidebar show={showSidebar} onCancel={showSidebarHandler} />
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/about" component={About} />
             <Route path="/search" component={Search} />
-
             {routes}
           </Switch>
           <Footer />

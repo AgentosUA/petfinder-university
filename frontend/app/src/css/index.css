@@ -95,3 +95,23 @@ ol {
 .react-datepicker__input-container input {
   width: 100%;
 }
+
+/* Media */
+
+.mobile-hide {
+  display: block;
+}
+
+.mobile-show {
+  display: none;
+}
+
+@media screen and (max-width: 1300px) {
+  .mobile-hide {
+    display: none;
+  }
+
+  .mobile-show {
+    display: block;
+  }
+}
