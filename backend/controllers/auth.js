@@ -7,7 +7,7 @@ const HttpError = require('../util/httpError');
 exports.login = async (req, res, next) => {
   try {
     const user = await User.findOne({ email: req.body.email });
-    if (user.length < 1) {
+    if (!user || user.length < 1) {
       return res.status(401).json({
         message: 'Помилка авторизації',
       });
@@ -34,10 +34,11 @@ exports.login = async (req, res, next) => {
       });
     }
 
-    res.status(401).json({
+    return res.status(401).json({
       message: 'Помилка авторизації',
     });
   } catch (error) {
+    console.log(error);
     return next(new HttpError('Помилка на сервері, спробуйте ще раз', 500));
   }
 };
