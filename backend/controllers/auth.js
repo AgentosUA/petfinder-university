@@ -48,8 +48,9 @@ exports.signup = async (req, res, next) => {
   try {
     let checkUser = await User.find({ email });
     if (checkUser.length > 0) {
-      return res.status(403).json({
+      return res.status(401).json({
         message: 'Такий користувач вже існує',
+        status: 401,
       });
     }
     const hash = await bcrypt.hash(password, 10);
