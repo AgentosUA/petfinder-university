@@ -4,10 +4,13 @@
   flex-wrap: wrap;
   position: fixed;
   padding: 25px 15px;
-  top: 10%;
-  left: 40%;
-  min-width: 250px;
-  min-height: 140px;
+  margin: auto;
+  top: 30%;
+  left: 0;
+  right: 0;
+  width: 450px;
+  min-height: 150px;
+  height: auto;
   background: #fff;
   border-radius: 25px;
   z-index: 1000;
