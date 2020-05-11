@@ -13,9 +13,7 @@ import { AuthContext } from '../../shared/context/auth-context';
 
 const Login = (props) => {
   const [email, setEmail] = useState(null);
-  const [name, setName] = useState(null);
   const [password, setPassword] = useState(null);
-  const [repassword, setRePassword] = useState(null);
   const [showModal, setShowModal] = useState(false);
 
   const setInputDataToState = (e) => {
@@ -24,14 +22,8 @@ const Login = (props) => {
       case 'email':
         setEmail(e.target.value);
         break;
-      case 'name':
-        setName(e.target.value);
-        break;
       case 'password':
         setPassword(e.target.value);
-        break;
-      case 'repassword':
-        setRePassword(e.target.value);
         break;
       default:
         break;
