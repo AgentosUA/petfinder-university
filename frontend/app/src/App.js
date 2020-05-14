@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
 import Header from './shared/components/Header/Header';
@@ -17,18 +17,55 @@ import Sidebar from './shared/components/Sidebar/Sidebar';
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false);
+  const [tokenExpirationDate, setTokenExpirationDate] = useState();
 
-  const login = useCallback((token, userId) => {
+  let logoutTimer;
+
+  const login = useCallback((token, userId, expirationDate) => {
+    const tokenExpirationDate =
+      expirationDate || new Date(new Date().getTime() + 3600000);
     setIsLoggedIn(true);
-    localStorage.setItem('token', token);
-    localStorage.setItem('userId', userId);
+    setTokenExpirationDate(tokenExpirationDate);
+    localStorage.setItem(
+      'userData',
+      JSON.stringify({
+        userId: userId,
+        token: token,
+        expiration: tokenExpirationDate.toISOString(),
+      })
+    );
   }, []);
 
   const logout = useCallback(() => {
     setIsLoggedIn(false);
-    localStorage.removeItem('token');
-    localStorage.removeItem('userId');
+    setTokenExpirationDate(null);
+    localStorage.removeItem('userData');
   }, []);
+
+  useEffect(() => {
+    if (tokenExpirationDate) {
+      const remainingTime =
+        tokenExpirationDate.getTime() - new Date().getTime();
+      logoutTimer = setTimeout(logout, remainingTime);
+    } else {
+      clearTimeout(logoutTimer);
+    }
+  }, [logout, tokenExpirationDate]);
+
+  useEffect(() => {
+    const storedData = JSON.parse(localStorage.getItem('userData'));
+    if (
+      storedData &&
+      storedData.token &&
+      new Date(storedData.expiration) > new Date()
+    ) {
+      login(
+        storedData.token,
+        storedData.userId,
+        new Date(storedData.expiration)
+      );
+    }
+  }, [login]);
 
   const showSidebarHandler = () => {
     if (showSidebar) {

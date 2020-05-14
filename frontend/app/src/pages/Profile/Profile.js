@@ -16,9 +16,8 @@ const Profile = () => {
 
   const fetchProfile = async () => {
     try {
-      let response = await axios.get(
-        '/profile/' + localStorage.getItem('userId')
-      );
+      const userId = JSON.parse(localStorage.getItem('userData')).userId;
+      let response = await axios.get('/profile/' + userId);
       const data = response.data;
       const adverts = data.adverts.map((item) => {
         return (
