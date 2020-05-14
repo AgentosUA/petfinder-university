@@ -35,9 +35,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 830px;
+  max-width: 780px;
 }
 
 .header__search_call-to-action button {
-  margin: 0 25px;
+  /* padding: 0 15px; */
+}
+
+.header__search_call-to-action a {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.header__search_call-to-action a:first-of-type {
+  margin: 0 35px 0 0;
 }

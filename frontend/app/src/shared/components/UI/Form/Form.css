@@ -6,6 +6,10 @@
   max-width: 420px;
 }
 
+.main-form .react-datepicker-wrapper {
+  width: 100%;
+}
+
 .main-form label {
   margin: 0 auto;
   color: #3c4148;

@@ -78,6 +78,13 @@ ol {
   padding-left: 45px;
 }
 
+.menu-icon {
+  margin: 0 20px 0 auto;
+  color: #fff;
+  font-size: 24px;
+  display: none;
+}
+
 .center-wrap {
   display: flex;
   justify-content: center;
@@ -89,6 +96,10 @@ ol {
   display: flex;
   justify-content: center;
   text-align: center;
+}
+
+.full-width {
+  width: 100%;
 }
 
 .react-datepicker__input-container,

@@ -11,7 +11,7 @@ const Header = (props) => {
   return (
     <header className="main-header">
       <Wrapper>
-        <Logo alt="logo" sidebarHandler={props.sidebarHandler} />
+        <Logo alt="logo" sideButton sidebarHandler={props.sidebarHandler} />
         <Navigation>
           <MainLinks />
         </Navigation>
