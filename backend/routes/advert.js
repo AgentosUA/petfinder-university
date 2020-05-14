@@ -9,7 +9,7 @@ router.get('/advert/:id', advertController.getAdvert);
 router.post(
   '/advert/new',
   checkAuth,
-  [body('name', 'descrption').notEmpty()],
+  [body('name', 'description').notEmpty()],
   advertController.postNewAdvert
 );
 router.patch(
