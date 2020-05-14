@@ -7,47 +7,49 @@ import Wrapper from '../../shared/components/Wrapper/Wrapper';
 import Section from '../../shared/components/Section/Section';
 import Button from '../../shared/components/UI/Button/Button';
 import Form from '../../shared/components/UI/Form/Form';
+import ImagePicker from '../../shared/components/UI/ImagePicker/ImagePicker';
 
 import 'react-datepicker/dist/react-datepicker.css';
 
 const AddAdvert = (props) => {
   const [startDate, setStartDate] = useState(null);
 
-  const [email, setEmail] = useState(null);
+  const [type, setType] = useState(null);
   const [name, setName] = useState(null);
-  const [password, setPassword] = useState(null);
-  const [repassword, setRePassword] = useState(null);
+  const [gender, setGender] = useState(null);
 
   const setInputDataToState = (e) => {
     const dataType = e.target.name;
     switch (dataType) {
-      case 'email':
-        setEmail(e.target.value);
+      case 'type':
+        setType(e.target.value);
         break;
       case 'name':
         setName(e.target.value);
         break;
-      case 'password':
-        setPassword(e.target.value);
-        break;
-      case 'repassword':
-        setRePassword(e.target.value);
+      case 'gender':
+        setGender(e.target.value);
         break;
       default:
         break;
     }
   };
 
+  const pickedHandler = (e) => {};
+
   const PostSignUp = async (e) => {
     e.preventDefault();
     console.log('Logged in!');
     const data = JSON.stringify({
-      email,
-      password,
+      type,
+      gender,
+      name,
     });
-    const res = await axios.post('http://localhost:5000/login', data, {
+    const res = await axios.post('http://localhost:5000/advert/new', data, {
       headers: {
         'Content-Type': 'application/json',
+        'Authorization:':
+          'Bearer' + JSON.parse(localStorage.getItem('userData')).token,
       },
     });
     console.log(res);
@@ -88,10 +90,12 @@ const AddAdvert = (props) => {
               todayButton="Сьогодні"
               onChange={(date) => setStartDate(date)}
             />
+            <label htmlFor="image">Зображення</label>
+            <ImagePicker />
             <Button
               styles="main"
               type="submit"
-              text="Увійти"
+              text="Створити оголошення"
               submit={PostSignUp}
             />
           </Form>
