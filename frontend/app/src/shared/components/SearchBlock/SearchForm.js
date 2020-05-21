@@ -12,7 +12,9 @@ const Form = () => {
   const [status, setStatus] = useState('all');
   const [startDate, setStartDate] = useState(null);
 
-  // useEffect(() => console.log(startDate), [startDate]);
+  useEffect(() => {
+    console.log(new Date(startDate).getUTCDate() + 1);
+  }, [startDate]);
 
   const setSearchParams = (e) => {
     const paramName = e.target.name;
@@ -52,12 +54,16 @@ const Form = () => {
         selected={startDate}
         placeholderText="Оберіть дату"
         dateFormat="dd/MM/yyyy"
-        isClearable
+        // isClearable
         strictParsing
         todayButton="Сьогодні"
         onChange={(date) => setStartDate(date)}
       />
-      <NavLink to={`/search?type=${type}&gender=${gender}&status=${status}&date=${startDate}`}>
+      <NavLink
+        to={`/search?type=${type}&gender=${gender}&status=${status}${
+          startDate ? '&date=' + startDate.getUTCDate() + 1 : ''
+        }`}
+      >
         <Button type="button" text="Шукати" styles="main" />
       </NavLink>
     </form>

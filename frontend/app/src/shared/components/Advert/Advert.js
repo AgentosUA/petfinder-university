@@ -31,7 +31,7 @@ const Advert = (props) => {
 
   switch (props.status) {
     case 'escaped':
-      status = 'Зникі';
+      status = 'Зниклі';
       break;
     case 'founded':
       status = 'Знайдені';
@@ -56,9 +56,7 @@ const Advert = (props) => {
         {breed}
         <p>
           <span>Дата: </span>
-          <br />
-          {/* {props.description} */}
-          {/* loremloremloremloremloremloremloremloremloremloremloremloremlorem */}
+          {props.date}
         </p>
       </div>
       <NavLink to="/" className="">
