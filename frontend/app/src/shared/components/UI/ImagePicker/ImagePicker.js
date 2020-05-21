@@ -37,6 +37,7 @@ const ImagePicker = (props) => {
   return (
     <div className="image-picker">
       <input
+        id="formImage"
         ref={filePickerRef}
         type="file"
         required

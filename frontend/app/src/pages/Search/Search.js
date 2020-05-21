@@ -30,19 +30,20 @@ const Search = (props) => {
       try {
         setTitle('Завантажуємо...');
         setIsLoaded(false);
-        let response = await axios.get('/adverts' + window.location.search);
+        let response = await axios.get(
+          'http://localhost:5000/adverts' + window.location.search
+        );
         if (response.data.adverts.length) {
           setIsLoaded(true);
           const data = response.data.adverts.map((item) => {
             return (
               <Advert
                 key={item._id}
-                src={item.images[0]}
+                src={item.images}
                 status={item.status}
                 gender={item.gender}
                 name={item.name}
-                breed={item.breed}
-                description={item.description}
+                date={item.date}
               />
             );
           });

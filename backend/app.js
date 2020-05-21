@@ -1,6 +1,8 @@
+const fs = require('fs');
+const path = require('path');
+
 const express = require('express');
 const app = express();
-
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 
@@ -15,10 +17,18 @@ app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.use('/uploads/images', express.static(path.join('uploads', 'images')));
+
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET, POST, PUT, PATCH, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, Origin');
+  res.setHeader(
+    'Access-Control-Allow-Methods',
+    'OPTIONS, GET, POST, PUT, PATCH, DELETE'
+  );
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'Content-Type, Authorization, Origin'
+  );
   next();
 });
 
@@ -30,11 +40,18 @@ app.use(authRoutes);
 // Error handler:
 
 app.use((error, req, res, next) => {
+  if (req.file) {
+    fs.unlink(req.file.path, (err) => {
+      console.log(err);
+    });
+  }
   if (res.headerSent) {
     return next(error);
   }
   res.status(error.code || 500);
-  res.json({ message: error.message || 'Невідома помилка на сервері! Спробуйте ще раз!' });
+  res.json({
+    message: error.message || 'Невідома помилка на сервері! Спробуйте ще раз!',
+  });
 });
 
 module.exports = app;

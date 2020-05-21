@@ -46,7 +46,12 @@ exports.getAllAdverts = async (req, res, next) => {
     });
   } catch (err) {
     console.log(err);
-    return next(new HttpError('Виникла помилка під час пошуку оголошень, спробуйте ще раз.', 500));
+    return next(
+      new HttpError(
+        'Виникла помилка під час пошуку оголошень, спробуйте ще раз.',
+        500
+      )
+    );
   }
 };
 
@@ -65,27 +70,32 @@ exports.getAdvert = async (req, res, next) => {
     });
   } catch (err) {
     console.log(err);
-    return next(new HttpError('Сталася помилка на сервері, спробуйте ще раз.', 500));
+    return next(
+      new HttpError('Сталася помилка на сервері, спробуйте ще раз.', 500)
+    );
   }
 };
 
 exports.postNewAdvert = async (req, res, next) => {
   const validErrors = validationResult(req);
   if (!validErrors.isEmpty()) {
-    return next(new HttpError('Невдалося додати оголошення, схоже щось забули ввести'), 422);
+    return next(
+      new HttpError('Невдалося додати оголошення, схоже щось забули ввести'),
+      422
+    );
   }
 
   const profileId = req.userData.userId;
-  const { name, type, gender, breed, status, description, images } = req.body;
-
+  const { name, type, gender, status, description, date } = req.body;
+  console.log(req.file.path);
   const advert = new Advert({
     name,
     type,
     gender,
-    breed,
     status,
     description,
-    images,
+    date,
+    images: 'http://localhost:5000/' + req.file.path,
     creator: profileId,
   });
 
@@ -103,19 +113,25 @@ exports.postNewAdvert = async (req, res, next) => {
     });
   } catch (err) {
     console.log(err);
-    return next(new HttpError('Сталася помилка на сервері. Спробуйте ще раз.'), 500);
+    return next(
+      new HttpError('Сталася помилка на сервері. Спробуйте ще раз.'),
+      500
+    );
   }
 };
 
 exports.patchAdvert = async (req, res, next) => {
   const validErrors = validationResult(req);
   if (!validErrors.isEmpty()) {
-    return next(new HttpError('Невдалося змінити оголошення, схоже щось ввели не так'), 422);
+    return next(
+      new HttpError('Невдалося змінити оголошення, схоже щось ввели не так'),
+      422
+    );
   }
 
   const { id } = req.params;
   const profileId = req.userData.userId;
-  const { name, type, gender, breed, status, description, image } = req.body;
+  const { name, type, gender, status, description, image } = req.body;
 
   try {
     const advert = await Advert.findById(id);
@@ -125,7 +141,6 @@ exports.patchAdvert = async (req, res, next) => {
     advert.name = name;
     advert.type = type;
     advert.gender = gender;
-    advert.breed = breed;
     advert.status = status;
     advert.description = description;
     advert.image = image;
@@ -135,7 +150,10 @@ exports.patchAdvert = async (req, res, next) => {
     });
   } catch (err) {
     console.log(err);
-    return next(new HttpError('Сталася помилка на сервері. Спробуйте ще раз.'), 500);
+    return next(
+      new HttpError('Сталася помилка на сервері. Спробуйте ще раз.'),
+      500
+    );
   }
 };
 

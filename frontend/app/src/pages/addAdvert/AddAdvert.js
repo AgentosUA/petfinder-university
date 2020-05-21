@@ -35,24 +35,25 @@ const AddAdvert = (props) => {
     }
   };
 
-  const pickedHandler = (e) => {};
+  // const pickedHandler = (e) => {};
 
-  const PostSignUp = async (e) => {
+  const PostNewAdvert = async (e) => {
     e.preventDefault();
-    console.log('Logged in!');
-    const data = JSON.stringify({
-      type,
-      gender,
-      name,
-    });
-    const res = await axios.post('http://localhost:5000/advert/new', data, {
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization:':
-          'Bearer' + JSON.parse(localStorage.getItem('userData')).token,
-      },
-    });
-    console.log(res);
+    let formData = new FormData();
+    formData.set('type', type);
+    formData.set('gender', gender);
+    formData.set('name', name);
+    formData.append('image', name);
+    const myImage = document.getElementById('formImage');
+    console.log(myImage.target.value);
+    // const res = await axios.post('http://localhost:5000/advert/new', formData, {
+    //   headers: {
+    //     'Content-Type': 'multipart/form-data',
+    //     'Authorization:':
+    //       'Bearer' + JSON.parse(localStorage.getItem('userData')).token,
+    //   },
+    // });
+    // console.log(res);
   };
 
   return (
@@ -96,7 +97,7 @@ const AddAdvert = (props) => {
               styles="main"
               type="submit"
               text="Створити оголошення"
-              submit={PostSignUp}
+              submit={PostNewAdvert}
             />
           </Form>
         </Section>

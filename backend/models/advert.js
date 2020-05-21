@@ -6,9 +6,9 @@ const advertSchema = new Schema({
   type: { type: String, required: true },
   status: { type: String, required: true },
   gender: { type: String },
-  breed: { type: String },
+  date: { type: String },
   description: { type: String },
-  images: { type: [String] },
+  images: { type: String, required: true },
   creator: { type: mongoose.Types.ObjectId, required: true, ref: 'User' },
 });
 
