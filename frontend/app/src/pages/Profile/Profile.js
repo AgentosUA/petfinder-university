@@ -17,14 +17,14 @@ const Profile = () => {
   const fetchProfile = async () => {
     try {
       const userId = JSON.parse(localStorage.getItem('userData')).userId;
-      let response = await axios.get('/profile/' + userId);
+      let response = await axios.get('http://localhost:5000/profile/' + userId);
       const data = response.data;
       const adverts = data.adverts.map((item) => {
         return (
           <AdvertItem
             key={item._id}
             name={item.name}
-            image={item.images[0]}
+            image={item.images}
             status={item.status}
             gender={item.gender}
             type={item.type}
