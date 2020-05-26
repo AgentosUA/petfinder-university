@@ -9,6 +9,7 @@ import SignUp from './pages/SignUp/SignUp';
 import Login from './pages/Login/Login';
 import AddAdvert from './pages/addAdvert/AddAdvert';
 import Profile from './pages/Profile/Profile';
+import Advert from './pages/Advert/Advert';
 import About from './pages/About/About';
 
 import { AuthContext } from './shared/context/auth-context';
@@ -106,6 +107,7 @@ const App = () => {
             <Route path="/" exact component={Home} />
             <Route path="/about" component={About} />
             <Route path="/search" component={Search} />
+            <Route path="/advert/:id" component={Advert} />
             {routes}
           </Switch>
           <Footer />

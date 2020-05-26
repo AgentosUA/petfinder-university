@@ -39,8 +39,10 @@ const Search = (props) => {
             return (
               <Advert
                 key={item._id}
+                id={item._id}
                 src={item.images}
                 status={item.status}
+                type={item.type}
                 gender={item.gender}
                 name={item.name}
                 date={item.date}
