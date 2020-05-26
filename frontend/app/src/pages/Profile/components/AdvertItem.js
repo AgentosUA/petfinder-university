@@ -13,13 +13,11 @@ const AdvertItem = (props) => {
           text="Редагувати"
           onClick={props.editAdvertHandler}
         />
-        <Button
-          classNames="button-second user__edit"
-          text="Видалити"
-          onClick={props.deleteAdvertHandler}
-        />
+        <button className="button-second user__edit" onClick={props.delete}>
+          Видалити
+        </button>
       </div>
-      <div className="item__description">
+      {/* <div className="item__description">
         <span>Тип:</span>
         <span>{props.type}</span>
         <span>Стать:</span>
@@ -28,7 +26,7 @@ const AdvertItem = (props) => {
         <span>{props.status}</span>
         <span>Опис:</span>
         <p>{props.description}</p>
-      </div>
+      </div> */}
     </div>
   );
 };
