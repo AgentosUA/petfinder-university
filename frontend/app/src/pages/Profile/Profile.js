@@ -14,6 +14,34 @@ const Profile = () => {
   const [adverts, setAdverts] = useState(null);
   const [username, setUsername] = useState('Завантажую...');
 
+  const deleteAdvertHandler = (e) => {
+    const advertId = e.target.id;
+    console.log(advertId);
+    console.log(e.target.parentNode);
+    // try {
+    //   const advertId = e.target.id;
+    //   console.log(advertId);
+    //   let response = await axios.delete('http://localhost:5000/advert/' + advertId);
+    //   const data = response.data;
+    //   const adverts = data.adverts.map((item) => {
+    //     return (
+    //       <AdvertItem
+    //         key={item._id}
+    //         id={item._id}
+    //         name={item.name}
+    //         image={item.images}
+    //         status={item.status}
+    //         gender={item.gender}
+    //         type={item.type}
+    //         onDelete={deleteAdvertHandler}
+    //       />
+    //     );
+    //   });
+    // } catch (err) {
+    //   console.log(err);
+    // }
+  };
+
   const fetchProfile = async () => {
     try {
       const userId = JSON.parse(localStorage.getItem('userData')).userId;
@@ -28,6 +56,7 @@ const Profile = () => {
             status={item.status}
             gender={item.gender}
             type={item.type}
+            delete={deleteAdvertHandler}
           />
         );
       });
