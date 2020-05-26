@@ -17,6 +17,7 @@ const Advert = (props) => {
   }
   let gender;
   let status;
+  let type;
   switch (props.gender) {
     case 'he':
       gender = 'Він';
@@ -40,11 +41,27 @@ const Advert = (props) => {
       status = 'Невідомо';
       break;
   }
+
+  switch (props.type) {
+    case 'cat':
+      type = 'Коти';
+      break;
+    case 'dog':
+      type = 'Собаки';
+      break;
+    default:
+      type = 'Невідомо';
+      break;
+  }
   return (
     <div className="advert">
       <img src={props.src} alt={props.name} />
       <h3>{props.name}</h3>
       <div className="advert__text">
+        <p>
+          <span>Тип: </span>
+          {type}
+        </p>
         <p>
           <span>Стать: </span>
           {gender}
@@ -59,7 +76,7 @@ const Advert = (props) => {
           {props.date}
         </p>
       </div>
-      <NavLink to="/" className="">
+      <NavLink to={`/advert/${props.id}`} className="">
         <Button styles="main" text="Переглянути" className="test" />
       </NavLink>
     </div>
