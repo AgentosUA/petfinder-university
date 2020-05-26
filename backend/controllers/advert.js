@@ -87,7 +87,11 @@ exports.postNewAdvert = async (req, res, next) => {
 
   const profileId = req.userData.userId;
   const { name, type, gender, status, description, date } = req.body;
-  console.log(req.file.path);
+  if (!req.file.path) {
+    return res.status(401).json({
+      message: 'Відстутнє зображення!',
+    });
+  }
   const advert = new Advert({
     name,
     type,
