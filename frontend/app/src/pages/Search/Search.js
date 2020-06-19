@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import DatePicker from 'react-datepicker';
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 
 import Wrapper from '../../shared/components/Wrapper/Wrapper';
@@ -20,7 +20,6 @@ const Search = ({ match, location }) => {
   const [startDate, setStartDate] = useState(null);
 
   const [adverts, setAdverts] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
   const [type, setType] = useState('all');
   const [gender, setGender] = useState('all');
   const [status, setStatus] = useState('all');
@@ -33,8 +32,6 @@ const Search = ({ match, location }) => {
     try {
       setTitle('Завантажуємо...');
       setCurrentPage(urlParams.get('page'));
-      setIsLoaded(false);
-
       setAdverts(null);
       let response = await axios.get(
         'http://localhost:5000/adverts' + window.location.search
@@ -57,15 +54,12 @@ const Search = ({ match, location }) => {
         });
         setLimit(response.data.limit);
         setAdverts(data);
-        setIsLoaded(true);
         setTitle('Результати пошуку');
         setTotalCount(response.data.count);
       } else {
-        setIsLoaded(true);
         setTitle('За вашим запитом нічого не знайдено');
       }
     } catch (error) {
-      setIsLoaded(true);
       setTitle('За вашим запитом нічого не знайдено');
     }
   };

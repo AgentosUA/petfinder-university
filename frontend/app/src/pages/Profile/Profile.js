@@ -82,6 +82,7 @@ const Profile = () => {
             <img
               className="user__avatar"
               src="https://post.healthline.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg"
+              alt="user avatar"
             />
             <Button classNames="button-main user__edit" text="Редагувати" />
             <Button
