@@ -10,13 +10,13 @@ const MainLinks = () => {
       </NavLink>
       <NavLink
         className="navigation__link mobile-hide"
-        to="/search?type=all&gender=all&status=escaped"
+        to="/search?type=all&gender=all&status=escaped&page=1"
       >
         Зниклі
       </NavLink>
       <NavLink
         className="navigation__link mobile-hide"
-        to="/search?type=all&gender=all&status=founded"
+        to="/search?type=all&gender=all&status=founded&page=1"
       >
         Знайдені
       </NavLink>

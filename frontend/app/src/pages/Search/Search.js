@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import DatePicker from 'react-datepicker';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 import Wrapper from '../../shared/components/Wrapper/Wrapper';
@@ -12,8 +12,11 @@ import { AuthContext } from '../../shared/context/auth-context';
 
 import 'react-datepicker/dist/react-datepicker.css';
 import './Search.css';
+import Pagination from './Pagination';
 
-const Search = (props) => {
+const Search = ({ match, location }) => {
+  let urlParams = new URLSearchParams(window.location.search);
+
   const [startDate, setStartDate] = useState(null);
 
   const [adverts, setAdverts] = useState(null);
@@ -21,75 +24,69 @@ const Search = (props) => {
   const [type, setType] = useState('all');
   const [gender, setGender] = useState('all');
   const [status, setStatus] = useState('all');
+  const [totalCount, setTotalCount] = useState(0);
+  const [limit, setLimit] = useState(1);
+  const [currentPage, setCurrentPage] = useState(urlParams.get('page'));
   const [title, setTitle] = useState('Завантажуємо');
-  const defaultQuery = `?status=${status}&gender=${gender}&type=${type}`;
-  const [query, setQuery] = useState(defaultQuery);
 
   const getAdverts = async () => {
-    if (!adverts || !isLoaded) {
-      try {
-        setTitle('Завантажуємо...');
-        setIsLoaded(false);
-        let response = await axios.get(
-          'http://localhost:5000/adverts' + window.location.search
-        );
-        if (response.data.adverts.length) {
-          setIsLoaded(true);
-          const data = response.data.adverts.map((item) => {
-            return (
-              <Advert
-                key={item._id}
-                id={item._id}
-                src={item.images}
-                status={item.status}
-                type={item.type}
-                gender={item.gender}
-                name={item.name}
-                date={item.date}
-              />
-            );
-          });
-          setAdverts(data);
-          setTitle('Результати пошуку');
-        } else {
-          setIsLoaded(true);
-          setTitle('За вашим запитом нічого не знайдено');
-        }
-      } catch (err) {
-        console.log(err);
+    try {
+      setTitle('Завантажуємо...');
+      setCurrentPage(urlParams.get('page'));
+      setIsLoaded(false);
+
+      setAdverts(null);
+      let response = await axios.get(
+        'http://localhost:5000/adverts' + window.location.search
+      );
+
+      if (response.data.adverts.length > 0) {
+        const data = response.data.adverts.map((item) => {
+          return (
+            <Advert
+              key={item._id}
+              id={item._id}
+              src={item.images}
+              status={item.status}
+              type={item.type}
+              gender={item.gender}
+              name={item.name}
+              date={item.date}
+            />
+          );
+        });
+        setLimit(response.data.limit);
+        setAdverts(data);
+        setIsLoaded(true);
+        setTitle('Результати пошуку');
+        setTotalCount(response.data.count);
+      } else {
         setIsLoaded(true);
         setTitle('За вашим запитом нічого не знайдено');
       }
+    } catch (error) {
+      setIsLoaded(true);
+      setTitle('За вашим запитом нічого не знайдено');
     }
   };
 
   useEffect(() => {
-    setQuery(defaultQuery);
-  }, [type, gender, status]);
-
-  useEffect(() => {
-    if (!isLoaded) {
-      getAdverts();
-    }
-  }, [adverts]);
+    getAdverts();
+  }, [location, currentPage]);
 
   const setSearchParams = (e) => {
     const paramName = e.target.name;
     switch (paramName) {
       case 'type':
         setType(e.target.value);
-        setQuery(defaultQuery);
         break;
       case 'gender':
         setGender(e.target.value);
-        setQuery(defaultQuery);
         break;
       case 'status':
         setStatus(e.target.value);
-        setQuery(defaultQuery);
         break;
       default:
-        setQuery(defaultQuery);
         break;
     }
   };
@@ -146,6 +143,14 @@ const Search = (props) => {
           <div className="search-results">{adverts}</div>
           <div className="filter-block">
             <div className="search-inputs">
+              <Pagination
+                currentPage={currentPage}
+                totalCount={totalCount}
+                status={status}
+                gender={gender}
+                type={type}
+                limit={limit}
+              />
               <select name="type" id="" onChange={setSearchParams}>
                 <option value="all">Тип (усі)</option>
                 <option value="cat">Коти</option>
@@ -172,11 +177,7 @@ const Search = (props) => {
                 onChange={(date) => setStartDate(date)}
               />
               <NavLink
-                to={'/search' + query}
-                onClick={() => {
-                  setAdverts([]);
-                  setIsLoaded(false);
-                }}
+                to={`/search?status=${status}&gender=${gender}&type=${type}&page=${currentPage}`}
               >
                 <button className="search-button">Шукати</button>
               </NavLink>

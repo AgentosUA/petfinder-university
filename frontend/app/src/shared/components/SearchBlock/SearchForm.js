@@ -62,7 +62,7 @@ const Form = () => {
       <NavLink
         to={`/search?type=${type}&gender=${gender}&status=${status}${
           startDate ? '&date=' + startDate.getUTCDate() + 1 : ''
-        }`}
+        }&page=1`}
       >
         <Button type="button" text="Шукати" styles="main" />
       </NavLink>

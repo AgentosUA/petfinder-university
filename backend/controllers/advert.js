@@ -7,9 +7,9 @@ const HttpError = require('../util/httpError');
 
 exports.getAllAdverts = async (req, res, next) => {
   const { status, type, gender } = req.query;
-  let { page } = req.query;
+  let { page } = req.query || 1;
   const query = {};
-  const limit = 10;
+  const limit = 5;
   let skipCount;
 
   if (status !== 'all' && status !== undefined && status !== '') {
@@ -27,22 +27,24 @@ exports.getAllAdverts = async (req, res, next) => {
   } else {
     page = 1;
   }
-  skipCount = 0;
+
   console.log(query); // temp check while building react app
   const adverts = await Advert.find(query).skip(skipCount).limit(limit);
-
+  
   try {
     if (!adverts || adverts.length < 1) {
       return res.status(404).json({
         message: 'Оголошень не знайдено',
+        status: 404
       });
     }
-
-    const count = adverts.length;
+    const count = await Advert.countDocuments(query);
     res.status(200).json({
       adverts,
       count,
+      limit,
       page,
+      status: 200
     });
   } catch (err) {
     console.log(err);
@@ -62,11 +64,13 @@ exports.getAdvert = async (req, res, next) => {
     if (!advert || advert === null) {
       return res.status(404).json({
         message: 'Оголошення не знайдено!',
+        status: 404
       });
     }
 
     return res.status(200).json({
       advert,
+      status: 2000
     });
   } catch (err) {
     console.log(err);
