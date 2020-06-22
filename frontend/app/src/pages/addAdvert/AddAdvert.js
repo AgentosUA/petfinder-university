@@ -49,7 +49,7 @@ const AddAdvert = (props) => {
 
   const [type, setType] = useState('cat');
   const [name, setName] = useState(null);
-  const [gender, setGender] = useState(null);
+  const [gender, setGender] = useState('he');
   const [status, setStatus] = useState('escaped');
 
   const [showModal, setShowModal] = useState(false);
@@ -102,11 +102,8 @@ const AddAdvert = (props) => {
         }
       );
       if (res.status === 201) {
-        setStatus('');
-        setStatus('');
         setModalMessage('Оголошення успішно створено!');
         setShowModal(true);
-
         return;
       } else {
         setModalMessage('Не всі поля були задані!');

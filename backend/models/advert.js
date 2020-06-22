@@ -8,7 +8,7 @@ const advertSchema = new Schema({
   gender: { type: String },
   date: { type: String },
   description: { type: String },
-  images: { type: String, required: true },
+  images: { type: String },
   creator: { type: mongoose.Types.ObjectId, required: true, ref: 'User' },
 });
 

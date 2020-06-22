@@ -4,6 +4,7 @@ const path = require('path');
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const fileUpload = require('express-fileupload');
 const morgan = require('morgan');
 
 // Routes:
@@ -16,6 +17,7 @@ const authRoutes = require('./routes/auth.js');
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(fileUpload());
 
 app.use('/uploads/images', express.static(path.join('uploads', 'images')));
 

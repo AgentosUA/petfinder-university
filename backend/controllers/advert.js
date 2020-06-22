@@ -1,4 +1,7 @@
 const mongoose = require('mongoose');
+const axios = require('axios');
+const FormData = require('form-data');
+
 const { validationResult } = require('express-validator');
 
 const Advert = require('../models/advert');
@@ -9,7 +12,7 @@ exports.getAllAdverts = async (req, res, next) => {
   const { status, type, gender } = req.query;
   let { page } = req.query || 1;
   const query = {};
-  const limit = 5;
+  const limit = 8;
   let skipCount;
 
   if (status !== 'all' && status !== undefined && status !== '') {
@@ -30,12 +33,12 @@ exports.getAllAdverts = async (req, res, next) => {
 
   console.log(query); // temp check while building react app
   const adverts = await Advert.find(query).skip(skipCount).limit(limit);
-  
+
   try {
     if (!adverts || adverts.length < 1) {
       return res.status(404).json({
         message: 'Оголошень не знайдено',
-        status: 404
+        status: 404,
       });
     }
     const count = await Advert.countDocuments(query);
@@ -44,7 +47,7 @@ exports.getAllAdverts = async (req, res, next) => {
       count,
       limit,
       page,
-      status: 200
+      status: 200,
     });
   } catch (err) {
     console.log(err);
@@ -64,13 +67,13 @@ exports.getAdvert = async (req, res, next) => {
     if (!advert || advert === null) {
       return res.status(404).json({
         message: 'Оголошення не знайдено!',
-        status: 404
+        status: 404,
       });
     }
 
     return res.status(200).json({
       advert,
-      status: 2000
+      status: 2000,
     });
   } catch (err) {
     console.log(err);
@@ -91,11 +94,38 @@ exports.postNewAdvert = async (req, res, next) => {
 
   const profileId = req.userData.userId;
   const { name, type, gender, status, description, date } = req.body;
-  if (!req.file.path) {
+
+  if (!req.files) {
     return res.status(401).json({
       message: 'Відстутнє зображення!',
     });
   }
+
+  let imageURL;
+  try {
+    let formData = new FormData();
+    formData.append('image', req.files.image.data);
+    imageURL = await axios({
+      url: 'https://api.imgur.com/3/upload',
+      method: 'POST',
+      data: formData,
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        'Authorization': `Client-ID ${process.env.imgurID}`,
+        ...formData.getHeaders(),
+      },
+    });
+    imageURL = imageURL.data.data.link;
+  } catch (error) {
+    console.log(error);
+    return next(
+      new HttpError(
+        'Сталася помилка під час роботи сервісу зображень. Спробуйте ще раз!'
+      ),
+      500
+    );
+  }
+
   const advert = new Advert({
     name,
     type,
@@ -103,10 +133,9 @@ exports.postNewAdvert = async (req, res, next) => {
     status,
     description,
     date,
-    images: 'http://localhost:5000/' + req.file.path,
+    images: imageURL,
     creator: profileId,
   });
-
   try {
     const user = await User.findById(profileId);
     const sess = await mongoose.startSession();
