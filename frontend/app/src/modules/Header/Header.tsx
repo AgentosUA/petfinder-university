@@ -1,15 +1,16 @@
 import React from 'react';
-import { connect, useDispatch, useSelector } from 'react-redux';
+import { connect } from 'react-redux';
+import { Wrapper } from '../../components';
 
 const Header: React.FC = (props: any) => {
 
   return (
     <React.Fragment>
-      <h2>{props.title} hello world</h2>
-      <input
-        onChange={props.changeTitle}
-        placeholder="Type something to change title"
-      />
+      <header className="header">
+        <Wrapper>
+          
+        </Wrapper>
+      </header>
     </React.Fragment>
   );
 };
@@ -22,7 +23,7 @@ const mapStateToProps = (state: any) => {
 
 const mapDispatchToProps = (dispatch: any) => {
   return {
-    changeTitle: (e: any) => dispatch({ type: 'UPDATE_TITLE', payload: e.target.value })
+    changeTitle: (e: React.ChangeEvent<HTMLInputElement>) => dispatch({ type: 'UPDATE_TITLE', payload: e.target.value })
   }
 }
 

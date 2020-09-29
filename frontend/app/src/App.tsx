@@ -1,6 +1,7 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
-import Header from './modules/header/header';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Header from './modules/Header/Header';
+import Home from './modules/Home/Home';
 
 function App() {
   return (
@@ -8,7 +9,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <Switch>
-          {/* <Route path="/" exact component={Home} /> */}
+          <Route path="/" exact component={Home} />
         </Switch>
       </BrowserRouter>
     </div>
