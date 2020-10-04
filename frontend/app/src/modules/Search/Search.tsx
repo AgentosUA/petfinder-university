@@ -2,12 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Wrapper } from '../../components';
 
-const Home: React.FC = () => {
+import './Search.scss'
+
+const Search: React.FC = () => {
 
   return (
-    <section className="home-section">
+    <section className="search-section">
       <Wrapper>
-        <h2>Test</h2>
+        <h2>Pet Finder project</h2>
+
       </Wrapper>
     </section>
   );
@@ -25,4 +28,4 @@ const mapDispatchToProps = (dispatch: any) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Search);

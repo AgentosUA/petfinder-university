@@ -1,14 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Wrapper } from '../../components';
+import { Wrapper, Logo, Navigation, AuthNav } from '../../components';
+import './Header.scss';
 
-const Header: React.FC = (props: any) => {
+const Header: React.FC = () => {
 
   return (
     <React.Fragment>
       <header className="header">
         <Wrapper>
-          
+          <Logo />
+          <Navigation />
+          <AuthNav />
         </Wrapper>
       </header>
     </React.Fragment>
