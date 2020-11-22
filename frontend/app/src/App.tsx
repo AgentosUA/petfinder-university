@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Header from './modules/Header/Header';
-import Home from './modules/Home/Home';
+import { Header, Home } from './modules';
 import { Search } from './modules/Search/Search';
 
 function App() {
