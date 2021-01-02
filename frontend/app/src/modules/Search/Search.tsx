@@ -8,11 +8,13 @@ import styles from './Search.module.scss'
 const Search: React.FC = () => {
   return (
     <Section theme='dark'>
-      <div className={styles.titleSection}>
-        <h2 className={styles.title}>Pet Finder</h2>
-        <p className={styles.description}>База ваших улюбленців!</p>
+      <div className={styles.searchWrapper}>
+        <div className={styles.titleSection}>
+          <h2 className={styles.title}>Pet Finder</h2>
+          <p className={styles.description}>Пошук ваших улюбленців!</p>
+        </div>
+        <SearchForm />
       </div>
-      <SearchForm />
     </Section>
   );
 };

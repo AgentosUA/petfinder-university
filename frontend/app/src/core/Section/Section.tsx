@@ -3,8 +3,9 @@ import { Wrapper } from '../Wrapper';
 import styles from './Section.module.scss';
 
 export type SectionProps = {
-  theme?: string
-  display?: string
+  theme?: string,
+  display?: string,
+  style?: string,
 };
 
 export const Section: FC<SectionProps> = (props) => {
