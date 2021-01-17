@@ -16,3 +16,9 @@ export const statusType = [
   { value: 'escaped', label: 'Зник', color: '#00B8D9' },
   { value: 'founded', label: 'Знайдено', color: '#00B8D9' }
 ];
+
+export const city = [
+  { value: 'all', label: 'Місто (Усі)', color: '#00B8D9', isFixed: true },
+  { value: 'Львів', label: 'Львів', color: '#00B8D9' },
+  { value: 'Луцьк', label: 'Луцьк', color: '#00B8D9' }
+];

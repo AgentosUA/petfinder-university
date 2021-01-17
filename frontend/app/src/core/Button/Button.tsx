@@ -2,13 +2,12 @@ import React from 'react';
 import './Button.scss';
 
 type ButtonProps = {
-  
+
   text: string,
-  theme?: string,
+  theme?: 'primary' | 'secondary',
+  type?: 'button' | 'submit' | 'reset' | undefined
 }
 
-type spreadProps = JSX.IntrinsicElements["button"];
-
-export const Button: React.FC<ButtonProps & spreadProps> = (props, { text, theme }) => {
-  return (<button {...props} className={`button ${theme ? theme : 'primary'}`}>{text}</button>);
+export const Button: React.FC<ButtonProps> = ({ theme, text, type }) => {
+  return (<button type={type} className={`button ${theme ? theme : 'primary'}`}>{text}</button>);
 }

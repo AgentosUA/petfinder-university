@@ -2,8 +2,9 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Header, Home } from './modules';
 import { Search } from './modules/Search/Search';
+import './App.css';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <BrowserRouter>

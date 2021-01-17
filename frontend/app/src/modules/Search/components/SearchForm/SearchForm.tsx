@@ -1,7 +1,7 @@
 import { useFormik } from 'formik';
 import React, { useState } from 'react';
 import Select from 'react-select';
-import { animalType, genderType, statusType } from './data'
+import { animalType, genderType, statusType, city } from './data'
 import DatePicker, { registerLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css"
 import styles from './SearchForm.module.scss';
@@ -82,8 +82,15 @@ const SearchForm: React.FC = () => {
         onChange={date => setSelectedDate(date)}
         className={styles.dataInput} 
       />
+      <Select
+        defaultValue={city[0]}
+        name='city'
+        styles={customStyles}
+        options={city}
+        isSearchable={false}
+      />
       {/* <input type="date" name="" id="" onChange={(data) => console.log(data.target.value)} /> */}
-      <Button type='submit' text='Шукати' />
+      <Button type='submit' text='Шукати' theme='primary' />
     </form>
   );
 };

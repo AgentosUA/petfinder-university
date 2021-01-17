@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Section } from '../../core';
+import { Button, Section } from '../../core';
 import { SearchForm } from './components/SearchForm';
 
 import styles from './Search.module.scss'
@@ -14,6 +14,10 @@ const Search: React.FC = () => {
           <p className={styles.description}>Пошук ваших улюбленців!</p>
         </div>
         <SearchForm />
+        <div className={styles.frontButtons}>
+          <Button type='submit' text='Шукати' theme='primary' />
+          <Button type='submit' text='Шукати' theme='primary' />
+        </div>
       </div>
     </Section>
   );
