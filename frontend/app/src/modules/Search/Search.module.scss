@@ -32,7 +32,11 @@
 }
 
 .frontButtons {
+  margin: 0 auto 25px auto;
   width: 100%;
   display: flex;
   justify-content: space-between;
+  button {
+    max-width: 248px;
+  }
 }

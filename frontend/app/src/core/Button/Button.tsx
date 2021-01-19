@@ -2,12 +2,17 @@ import React from 'react';
 import './Button.scss';
 
 type ButtonProps = {
-
-  text: string,
   theme?: 'primary' | 'secondary',
-  type?: 'button' | 'submit' | 'reset' | undefined
+  type?: 'button' | 'submit' | 'reset' | undefined,
+  uppercase?: boolean
 }
 
-export const Button: React.FC<ButtonProps> = ({ theme, text, type }) => {
-  return (<button type={type} className={`button ${theme ? theme : 'primary'}`}>{text}</button>);
+export const Button: React.FC<ButtonProps> = ({ theme, children, type, uppercase }) => {
+  return (
+    <button
+      type={type}
+      className={`button ${theme ? theme : 'primary'} ${uppercase && 'uppercase'}`}>
+      {children}
+    </button>
+  );
 }

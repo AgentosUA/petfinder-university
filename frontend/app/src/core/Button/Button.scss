@@ -1,7 +1,6 @@
 .button {
-  margin: 0 auto;
-  padding: 0 20px;
   width: 100%;
+  padding: 0 14px;
   height: 40px;
   text-align: center;
   border: none;
@@ -13,12 +12,17 @@
   background: #FF8E00;
   border: 2px solid #FF8E00;
   color: #fff;
+  font-family: 'Regular', Arial, Helvetica, sans-serif;
   font-weight: 600;
-  font-size: 14px;
-  transition: .3s;
-  
+  font-size: 12px;
+  letter-spacing: 0.8px;
+  transition: .3s;  
   &:hover {
     background: none;
     transition: .3s;
   }
+}
+
+.uppercase {
+  text-transform: uppercase;
 }

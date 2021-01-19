@@ -1,21 +1,28 @@
-import { useFormik } from 'formik';
 import React, { useState } from 'react';
-import Select from 'react-select';
-import { animalType, genderType, statusType, city } from './data'
+import { useHistory } from 'react-router-dom'
+import { useFormik } from 'formik';
 import DatePicker, { registerLocale } from "react-datepicker";
+import { animalType, genderType, statusType, city } from './data'
+import Select from 'react-select';
+
 import "react-datepicker/dist/react-datepicker.css"
 import styles from './SearchForm.module.scss';
 
 import uk from 'date-fns/locale/uk';
 import { Button } from '../../../../core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
+
 registerLocale('uk', uk)
 
 const SearchForm: React.FC = () => {
+  const history = useHistory();
+
   const customStyles = {
     control: (base: any) => ({
       ...base,
       borderRadius: 0,
-      margin: '0 5px 15px 5px',
+      margin: '0 5px auto 0',
       width: '140px',
       height: '40px',
     }),
@@ -37,29 +44,32 @@ const SearchForm: React.FC = () => {
     indicatorSeparator: () => ({ display: 'none' }),
   };
 
-  const onSubmit = () => {
-    console.log('test');
-  };
-
-  const formik = useFormik({
+  const form = useFormik({
     initialValues: {
       type: 'all',
       status: 'all',
-      gender: 'all'
+      gender: 'all',
+      date: new Date().toUTCString(),
+      city: 'all'
     },
-    onSubmit
+    enableReinitialize: true,
+    onSubmit: (values) => {
+      console.log(values);
+      history.push(`/search?type=${values.type}&status=${values.status}&gender=${values.gender}&date=${values.date}&city=${values.city}`);
+    }
   })
 
   const [selectedDate, setSelectedDate] = useState(new Date()) as any;
 
   return (
-    <form onSubmit={formik.handleSubmit} className={styles.form}>
+    <form onSubmit={form.handleSubmit} className={styles.form}>
       <Select
         defaultValue={animalType[0]}
         name='type'
         styles={customStyles}
         options={animalType}
         isSearchable={false}
+        onChange={(value) => { form.setFieldValue('type', value?.value); }}
       />
       <Select
         defaultValue={statusType[0]}
@@ -80,17 +90,19 @@ const SearchForm: React.FC = () => {
         locale={uk}
         selected={selectedDate}
         onChange={date => setSelectedDate(date)}
-        className={styles.dataInput} 
+        className={styles.dataInput}
       />
       <Select
         defaultValue={city[0]}
         name='city'
         styles={customStyles}
         options={city}
-        isSearchable={false}
+        isSearchable
+        noOptionsMessage={() => 'Не знайдено'}
       />
-      {/* <input type="date" name="" id="" onChange={(data) => console.log(data.target.value)} /> */}
-      <Button type='submit' text='Шукати' theme='primary' />
+      <Button type='submit' theme='primary' uppercase>
+        Шукати <FontAwesomeIcon icon={faSearch} />
+      </Button>
     </form>
   );
 };

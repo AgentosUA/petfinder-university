@@ -2,16 +2,50 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: 'Title';
+  src: url('./assets/fonts/title.otf');
+}
+
+@font-face {
+  font-family: 'Logo';
+  src: url('./assets/fonts/logo.ttf');
+}
+
+@font-face {
+  font-family: 'Regular';
+  src: url('./assets/fonts/regular.ttf');
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  font-family: 'Regular', 'Helvetica Neue', sans-serif;
+  position: relative;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1 {
+  font-size: 32px;
 }
+
+h2 {
+  font-family: 'Title';
+  font-size: 24px;
+}
+
+h3 {
+  font-family: 'Title';
+  font-size: 18px;
+}
+
+.react-datepicker__input-container,
+.react-datepicker__input-container input {
+  /* width: 100%; */
+  height: 40px
+}
+
