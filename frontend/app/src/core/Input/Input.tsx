@@ -6,10 +6,11 @@ type InputProps = {
   name: string,
   type: 'text' | 'number' | 'phone' | 'textarea' | 'password',
   theme?: 'dark' | 'light'
-  placeholder?: string
+  placeholder?: string,
+  onChange?: any
 }
 
-const Input: React.FC<InputProps> = ({ name, theme, type, placeholder }) => {
+const Input: React.FC<InputProps> = ({ name, theme, type, placeholder, onChange }) => {
   if (type === 'textarea') return <textarea name={name} className={theme === 'dark' ? styles.dark : styles.light} />
 
   return (
@@ -19,6 +20,7 @@ const Input: React.FC<InputProps> = ({ name, theme, type, placeholder }) => {
       placeholder={placeholder || ''}
       className={theme === 'dark' ? styles.dark : styles.light}
       autoComplete='on'
+      onChange={onChange}
       />
   );
 };
