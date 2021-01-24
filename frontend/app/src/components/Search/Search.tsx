@@ -15,8 +15,8 @@ const Search: React.FC = () => {
         </div>
         <SearchForm />
         <div className={styles.frontButtons}>
-          <Button type='submit' theme='primary' uppercase>Створити оголошення</Button>
-          <Button type='submit' theme='primary' uppercase>Хочу нашийник</Button>
+          <Button to='/' type='button' theme='primary' uppercase>Створити оголошення</Button>
+          <Button to='/' type='button' theme='primary' uppercase>Хочу нашийник</Button>
         </div>
       </div>
     </Section>

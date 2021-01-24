@@ -40,3 +40,15 @@
     max-width: 248px;
   }
 }
+
+.frontButtons {
+  margin: 0 auto 25px auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  a {
+    line-height: 36px;
+    text-decoration: none;
+    max-width: 248px;
+  }
+}

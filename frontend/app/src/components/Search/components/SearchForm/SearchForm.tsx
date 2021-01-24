@@ -17,6 +17,7 @@ registerLocale('uk', uk)
 
 const SearchForm: React.FC = () => {
   const history = useHistory();
+  const [selectedDate, setSelectedDate] = useState(null) as any;
 
   const customStyles = {
     control: (base: any) => ({
@@ -49,27 +50,24 @@ const SearchForm: React.FC = () => {
       type: 'all',
       status: 'all',
       gender: 'all',
-      date: new Date().toUTCString(),
+      date: selectedDate,
       city: 'all'
     },
     enableReinitialize: true,
     onSubmit: (values) => {
-      console.log(values);
-      history.push(`/search?type=${values.type}&status=${values.status}&gender=${values.gender}&date=${values.date}&city=${values.city}`);
+      history.push(`/search?type=${values.type}&status=${values.status}&gender=${values.gender}&date=${selectedDate}&city=${values.city}`);
     }
   })
 
-  const [selectedDate, setSelectedDate] = useState(new Date()) as any;
-
   return (
-    <form onSubmit={form.handleSubmit} className={styles.form}>
+    <form className={styles.form} onSubmit={(e) => { e.preventDefault(); form.handleSubmit() }}>
       <Select
         defaultValue={animalType[0]}
         name='type'
         styles={customStyles}
         options={animalType}
         isSearchable={false}
-        onChange={(value) => { form.setFieldValue('type', value?.value); }}
+        onChange={(value) => form.setFieldValue('type', value?.value)}
       />
       <Select
         defaultValue={statusType[0]}
@@ -77,6 +75,7 @@ const SearchForm: React.FC = () => {
         styles={customStyles}
         options={statusType}
         isSearchable={false}
+        onChange={(value) => form.setFieldValue('status', value?.value)}
       />
       <Select
         defaultValue={genderType[0]}
@@ -84,13 +83,7 @@ const SearchForm: React.FC = () => {
         styles={customStyles}
         options={genderType}
         isSearchable={false}
-      />
-      <DatePicker
-        dateFormat="dd/MM/yyyy"
-        locale={uk}
-        selected={selectedDate}
-        onChange={date => setSelectedDate(date)}
-        className={styles.dataInput}
+        onChange={(value) => form.setFieldValue('gender', value?.value)}
       />
       <Select
         defaultValue={city[0]}
@@ -99,6 +92,16 @@ const SearchForm: React.FC = () => {
         options={city}
         isSearchable
         noOptionsMessage={() => 'Не знайдено'}
+        onChange={(value) => form.setFieldValue('city', value?.value)}
+      />
+      <DatePicker
+        dateFormat="dd/MM/yyyy"
+        locale={uk}
+        selected={selectedDate}
+        onChange={(value) => setSelectedDate(value)}
+        className={styles.dataInput}
+        placeholderText='Оберіть дату'
+
       />
       <Button type='submit' theme='primary' uppercase>
         Шукати <FontAwesomeIcon icon={faSearch} />

@@ -1,3 +1,3 @@
-export * from './Header';
-export * from './Search';
 export * from './Home';
+export * from './NotFound';
+export * from './Login'
