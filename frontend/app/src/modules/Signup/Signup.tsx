@@ -51,7 +51,7 @@ const Logout: React.FC = () => {
         <div className={styles.extraOptions}>
           <NavLink to='/login'>Вже маєте обліковий запис?</NavLink>
         </div>
-        <Button type='submit' theme='secondary' disabled={Boolean(form.errors.login && form.errors.password)} uppercase>Увійти</Button>
+        <Button type='submit' theme='secondary' disabled={Boolean(form.errors.login && form.errors.password)} uppercase>Реєстрація</Button>
       </form>
     </Section>
   );

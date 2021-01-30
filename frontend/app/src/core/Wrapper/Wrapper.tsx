@@ -1,4 +1,12 @@
 import React from 'react';
 import styles from './Wrapper.module.scss';
 
-export const Wrapper: React.FC = (props) => (<div className={styles.wrapper}>{props.children}</div>);
+type WrapperProps = {
+  display?: 'block' | 'flex'
+}
+
+export const Wrapper: React.FC<WrapperProps> = ({display, children}) => (
+<div className={`${styles.wrapper} ${display === 'block' ? styles.wrapperBlock : styles.wrapperFlex}`}>
+  {children}
+</div>
+);

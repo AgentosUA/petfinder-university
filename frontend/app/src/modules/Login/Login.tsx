@@ -37,8 +37,8 @@ const Login: React.FC = () => {
         {form.errors.password && form.touched.password ? <span className={styles.errorMessage}>{form.errors.password}</span> : null}
         <Input name='password' type='password' placeholder='Пароль' onChange={form.handleChange} />
         <div className={styles.extraOptions}>
-          <NavLink to=''>Забули пароль?</NavLink>
-          <NavLink to=''>Немаєте акаунту?</NavLink>
+          <NavLink to='/password-restore'>Забули пароль?</NavLink>
+          <NavLink to='/signup'>Не маєте акаунту?</NavLink>
         </div>
         <Button type='submit' theme='secondary' disabled={Boolean(form.errors.login && form.errors.password)} uppercase>Увійти</Button>
       </form>
