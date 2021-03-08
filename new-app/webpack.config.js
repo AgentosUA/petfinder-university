@@ -1,4 +1,5 @@
 const path = require('path');
+const { HotModuleReplacementPlugin } = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -7,9 +8,9 @@ module.exports = {
   devtool: 'inline-source-map',
   devServer: {
     port: 8080,
-    contentBase: ['./src'], // both src and output dirs
-    inline: true,
-    hotOnly: true,
+    contentBase: ['./dist'], // both src and output dirs
+    open: true,
+    hot: true
   },
   module: {
     rules: [
@@ -65,5 +66,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/public/index.html'
     }),
+    new HotModuleReplacementPlugin()
   ],
 };
