@@ -10,6 +10,13 @@
   margin: 8px auto;
   display: flex;
   justify-content: space-between;
+  a {
+    text-decoration: none;
+    color: #3C4148;
+    &:hover {
+      color: #FF8E00;
+    }
+  }
 }
 
 .errorMessage {
