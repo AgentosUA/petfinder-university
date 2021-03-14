@@ -1,13 +1,15 @@
 import React from 'react';
-import { Wrapper } from '../../core';
+import { Logo, Wrapper } from '../../core';
 import styles from './Footer.scss';
 
 const Footer: React.FC = () => {
 
   return (
-    <footer>
+    <footer className={styles.footer}>
       <Wrapper>
-        <h3>Footer</h3>
+        <div className={styles.info}>
+          <Logo>Pet Finder</Logo>
+        </div>
       </Wrapper>
     </footer>
   );

@@ -8,9 +8,9 @@ export type SectionProps = {
   style?: string,
 };
 
-export const Section: FC<SectionProps> = ({ theme, display, style, children }) => {
+export const Section: FC<SectionProps> = ({ theme, display, children }) => {
   return (
-    <section className={theme === 'light' ? styles.light : styles.dark}>
+    <section className={`${theme === 'dark' ?  styles.dark: styles.light} ${styles.section}`}>
       <Wrapper display={display}>{children}</Wrapper>
     </section>
   )

@@ -22,6 +22,7 @@
     "paths": {
       "@core": ["./src/modules/core/index"],
       "@modules": ["./src/modules/index"],
+      "@store": ["./src/store/index"]
     }
   },
   "include": [

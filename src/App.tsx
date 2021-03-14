@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Home, NotFound, Login, Logout, Search as SearchPage, Profile } from './modules';
-import { Header, Search } from './components';
+import { Header, Search, Footer } from './components';
 
 import './App.scss';
 
@@ -19,6 +19,7 @@ const App = () => {
         <Route path="/profile" component={Profile} />
         <Route component={NotFound} />
       </Switch>
+      <Footer />
     </BrowserRouter>
 
   );

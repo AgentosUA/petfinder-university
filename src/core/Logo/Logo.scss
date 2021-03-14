@@ -1,9 +1,17 @@
-.header-logo {
-    margin: 0 auto 0 0;
-    width: 80px;
+.logo {
+  margin: 0 0 0 0;
+  a {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color: #fff;
     img {
-        margin-top: 10px;
-        width: 80px;
+      margin-top: 10px;
+      width: 80px;
     }
-    z-index: 9999;
+  }
+}
+
+.text {
+    margin-top: 40px;
 }

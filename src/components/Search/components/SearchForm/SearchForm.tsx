@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom'
 import { useFormik } from 'formik';
-import DatePicker, { registerLocale } from "react-datepicker";
-import { animalType, genderType, statusType, city } from './data'
+import { animalType, genderType, statusType, city, month } from './data'
 import Select from 'react-select';
 
-import "react-datepicker/dist/react-datepicker.css"
-import styles from './SearchForm.module.scss';
 
-import uk from 'date-fns/locale/uk';
+import styles from './SearchForm.scss';
+import 'react-day-picker/lib/style.css';
+
+
 import { Button } from '../../../../core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
-
-registerLocale('uk', uk)
+import DayPickerInput from 'react-day-picker/DayPickerInput';
+import 'react-day-picker/lib/style.css';
 
 const SearchForm: React.FC = () => {
   const history = useHistory();
@@ -94,15 +94,17 @@ const SearchForm: React.FC = () => {
         noOptionsMessage={() => 'Не знайдено'}
         onChange={(value) => form.setFieldValue('city', value?.value)}
       />
-      <DatePicker
-        dateFormat="dd/MM/yyyy"
-        locale={uk}
-        selected={selectedDate}
-        onChange={(value) => setSelectedDate(value)}
-        className={styles.dataInput}
-        placeholderText='Оберіть дату'
 
-      />
+      <DayPickerInput
+        placeholder="Оберіть дату"
+        dayPickerProps={{
+          locale: 'uk-ua',
+          months: month,
+          // weekdaysLong: WEEKDAYS_LONG[locale],
+          // firstDayOfWeek: FIRST_DAY_OF_WEEK[locale],
+          // labels: LABELS[locale]
+        }}
+        onDayChange={day => console.log(day)} />
       <Button type='submit' theme='primary' uppercase>
         Шукати <FontAwesomeIcon icon={faSearch} />
       </Button>

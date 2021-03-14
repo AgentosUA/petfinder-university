@@ -478,10 +478,6 @@ module.exports = function (webpackEnv) {
                 sourceMap: isEnvProduction
                   ? shouldUseSourceMap
                   : isEnvDevelopment,
-                modules: {
-                  getLocalIdent: getCSSModuleLocalIdent,
-                  exportLocalsConvention: 'camelCaseOnly'
-                },
               }),
             },
             // Opt-in support for SASS (using .scss or .sass extensions).

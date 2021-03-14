@@ -1,12 +1,11 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { logout } from '../../store/general';
-import { State } from '../../store/store';
-import { Button } from '../Button';
+
+import { State } from '../../../../store/store';
+import { Button } from '../../../../core/Button';
 import styles from './AuthNav.scss';
-
-
+import { logout } from '../../../../store/general';
 
 export const AuthNav: React.FC = () => {
   const dispatch = useDispatch();

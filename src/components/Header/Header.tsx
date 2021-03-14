@@ -1,5 +1,6 @@
 import React from 'react';
-import { Wrapper, Logo, Navigation, AuthNav } from '../../core';
+import { Wrapper, Logo } from '../../core';
+import { AuthNav, Navigation } from './components';
 import styles from './Header.scss';
 
 const Header: React.FC = () => {
@@ -8,7 +9,7 @@ const Header: React.FC = () => {
     <React.Fragment>
       <header className={styles.header}>
         <Wrapper>
-          <Logo />
+          <Logo>Pet Finder</Logo>
           <Navigation />
           <AuthNav />
         </Wrapper>
