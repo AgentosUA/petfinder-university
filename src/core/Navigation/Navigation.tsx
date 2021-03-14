@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import './Navigation.scss';
+import styles from './Navigation.scss';
 
 export const Navigation: React.FC = () => {
-    return <div className="navigation">
+    return <div className={styles.navigation}>
         <Link to="/">Головна</Link>
         <Link to="/lost">Зниклі</Link>
         <Link to="/founded">Знайдені</Link>

@@ -1,12 +1,12 @@
 import React from 'react';
 import { Wrapper, Logo, Navigation, AuthNav } from '../../core';
-import './Header.scss';
+import styles from './Header.scss';
 
 const Header: React.FC = () => {
 
   return (
     <React.Fragment>
-      <header className="header">
+      <header className={styles.header}>
         <Wrapper>
           <Logo />
           <Navigation />

@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import './Button.scss';
+import styles from './Button.scss';
 
 type ButtonProps = {
   theme?: 'primary' | 'secondary',
@@ -14,14 +14,14 @@ type ButtonProps = {
 export const Button: React.FC<ButtonProps> = ({ theme, children, type, uppercase, to, onClick, disabled }) => {
 
   return (
-    to ? <NavLink to={to} className={`button ${theme ? theme : 'primary'} ${uppercase && 'uppercase'}`}>
+    to ? <NavLink to={to} className={`${styles.button} ${theme ? styles[theme] : styles.primary} ${uppercase && styles.uppercase}`}>
       {children}
     </NavLink>
       : <button
         disabled={disabled || false}
         onClick={onClick}
         type={type}
-        className={`button ${theme ? theme : 'primary'} ${uppercase && 'uppercase'}`}>
+        className={`${styles.button} ${theme ? styles[theme] : styles.primary} ${uppercase && styles.uppercase}`}>
         {children}
       </button>
   );

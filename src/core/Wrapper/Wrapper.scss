@@ -4,13 +4,15 @@
   width: 100%;
   height: auto;
   max-width: 1250px;
-}
-
-.wrapperFlex {
   display: flex;
   justify-content: space-between;
 }
 
-.wrapperBlock {
+.wrapper-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.wrapper-block {
   display: block;
 }

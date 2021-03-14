@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { logout } from '../../store/general';
 import { State } from '../../store/store';
 import { Button } from '../Button';
-import './AuthNav.scss';
+import styles from './AuthNav.scss';
 
 
 
@@ -18,14 +18,14 @@ export const AuthNav: React.FC = () => {
 
   if (isLoggedIn) {
     return (
-      <div className="auth-nav">
+      <div className={styles.authNav}>
         <Link to="/profile">Профіль</Link>
         <Button onClick={onLogout}>Вихід</Button>
       </div>
     );
   }
 
-  return <div className="auth-nav">
+  return <div className={styles.authNav}>
     <Link to="/login">Увійти</Link>
     <Link to="/signup">Реєстрація</Link>
   </div>
