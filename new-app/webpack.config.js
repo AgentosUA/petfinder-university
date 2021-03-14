@@ -7,7 +7,7 @@ module.exports = {
   entry: './src/index.tsx',
   devtool: 'inline-source-map',
   devServer: {
-    port: 8080,
+    port: 3000,
     contentBase: ['./dist'], // both src and output dirs
     open: true,
     hot: true
@@ -25,11 +25,11 @@ module.exports = {
           // Creates `style` nodes from JS strings
           {
 
-            loader: "style-loader",
+            loader: require.resolve('style-loader'),
           },
           // Translates CSS into CommonJS
           {
-            loader: "css-loader",
+            loader: require.resolve('css-loader'),
             options: {
               modules: {
                 exportLocalsConvention: 'camelCaseOnly',
@@ -38,7 +38,9 @@ module.exports = {
             }
           },
           // Compiles Sass to CSS
-          "sass-loader",
+          {
+            loader: require.resolve('sass-loader')
+          },
         ],
       },
       {
