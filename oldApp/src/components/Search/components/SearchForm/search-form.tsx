@@ -5,7 +5,7 @@ import { animalType, genderType, statusType, city, month } from './data'
 import Select from 'react-select';
 
 
-import styles from './SearchForm.scss';
+import styles from './search-form.scss';
 import 'react-day-picker/lib/style.css';
 
 
@@ -100,9 +100,6 @@ const SearchForm: React.FC = () => {
         dayPickerProps={{
           locale: 'uk-ua',
           months: month,
-          // weekdaysLong: WEEKDAYS_LONG[locale],
-          // firstDayOfWeek: FIRST_DAY_OF_WEEK[locale],
-          // labels: LABELS[locale]
         }}
         onDayChange={day => console.log(day)} />
       <Button type='submit' theme='primary' uppercase>

@@ -3,7 +3,7 @@ import React from 'react';
 import { Button, Section } from '../../core';
 import { SearchForm } from './components/SearchForm';
 
-import styles from './Search.module.scss'
+import styles from './search.scss'
 
 const Search: React.FC = () => {
   return (
