@@ -1,9 +1,8 @@
-import { Fragment } from 'react';
-import { Header, Footer } from '../';
+import styles from './wrapper.module.scss'
 
 const Wrapper = ({ children }) => {
   return (
-    <div className={}>
+    <div className={styles.wrapper}>
       {children}
     </div>
   );

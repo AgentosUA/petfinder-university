@@ -1,5 +1,50 @@
-@import '../../styles/core';
+@import "../../styles/core";
 
 .header {
+  width: 100%;
+  display: flex;
   background: $grey;
+  height: 80px;
+  color: #fff;
+}
+
+.wrapper {
+  @include desktop {
+    margin: 0 auto;
+    width: 100%;
+    justify-content: space-between;
+    max-width: 1200px;
+  }
+  margin-left: 30px;
+  align-items: center;
+  display: flex;
+  overflow: hidden;
+}
+
+.logo {
+  width: 85px;
+  color: #fff;
+  img {
+    width: 100%;
+  }
+}
+
+.nav a,
+.auth a {
+  @include desktop {
+    display: inline-block;
+    margin: 0 25px;
+    padding: 5px 10px;
+    text-align: center;
+    height: auto;
+    width: auto;
+    border: 2px solid $grey;
+    font-family: "Roboto-Bold";
+    transition: 0.3s;
+    outline: none;
+    &:hover {
+      border: 2px solid $orange;
+      transition: 0.3s;
+    }
+  }
 }
