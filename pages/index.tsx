@@ -1,10 +1,14 @@
 import Head from 'next/head'
+import { Layout } from '../components'
 
 
 export default function Home() {
   return (
-    <div>
-      sfsdf
-    </div>
-  )
+      <Layout>
+        <Head>
+          <title>Petfinder | Знайти свою тваринку!</title>
+        </Head>
+        
+      </Layout>
+    )
 }
