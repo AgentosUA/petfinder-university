@@ -18,10 +18,17 @@
     "isolatedModules": true,
     "experimentalDecorators": true,
     "jsx": "preserve",
-    "baseUrl": "src",
+    "baseUrl": "./",
     "paths": {
-      "@core": ["./styles/_core.scss"],
-      "@store": ["./store/*"]
+      "@core-css": [
+        "./styles/core.scss"
+      ],
+      "@store": [
+        "./store/index"
+      ],
+      "@home": [
+        "./modules/home/index"
+      ]
     }
   },
   "include": [
@@ -33,4 +40,3 @@
     "node_modules"
   ]
 }
-

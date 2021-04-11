@@ -1,5 +1,11 @@
 import { make } from 'redux-chill';
 
+
+/**
+ * Login
+ */
+ const setSidebarVisible = make('[general] setSidebarVisible').stage((payload): boolean => payload)
+
 /**
  * Login
  */
@@ -9,4 +15,4 @@ const login = make('[general] login')
  */
 const logout = make('[general] logout')
 
-export { login, logout }
+export { login, logout, setSidebarVisible }

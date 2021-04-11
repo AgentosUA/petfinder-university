@@ -4,24 +4,26 @@ import { useEffect, useState } from 'react';
  * Use media points
  */
 const useMediaPoints = (exact: boolean = false) => {
-  const [width, setWidth] = useState(1200)
+  const isSSR = typeof window === "undefined";
+  const [windowSize, setWindowSize] = useState({
+    width: isSSR ? 1200 : window.innerWidth,
+    height: isSSR ? 800 : window.innerHeight,
+  });
 
-  const listener = () => {
-    setWidth(window.innerWidth);
-  };
+  function changeWindowSize() {
+    setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+  }
 
   useEffect(() => {
-    window.addEventListener('resize', listener);
-    const interval = setInterval(listener, 300);
+    window.addEventListener("resize", changeWindowSize);
 
     return () => {
-      clearInterval(interval);
-      window.removeEventListener('resize', listener);
+      window.removeEventListener("resize", changeWindowSize);
     };
   }, []);
 
-  let tablet = width >= 800;
-  let desktop = width >= 1244;
+  let tablet = windowSize.width >= 800;
+  let desktop = windowSize.width >= 1244;
 
   if (exact) {
     tablet = tablet && !desktop;

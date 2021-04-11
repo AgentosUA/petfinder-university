@@ -1,4 +1,4 @@
-@import "../../styles/core";
+@import "@core-css";
 
 .header {
   width: 100%;
@@ -21,20 +21,14 @@
   overflow: hidden;
 }
 
-.logo {
-  width: 85px;
-  color: #fff;
-  img {
-    width: 100%;
-  }
-}
+
 
 .nav a,
 .auth a {
   @include desktop {
     display: inline-block;
-    margin: 0 25px;
-    padding: 5px 10px;
+    margin: 0 15px;
+    padding: 5px 15px;
     text-align: center;
     height: auto;
     width: auto;
@@ -47,4 +41,8 @@
       transition: 0.3s;
     }
   }
+}
+
+.auth a {
+  margin: 0 15px;
 }

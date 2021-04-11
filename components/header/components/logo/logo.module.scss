@@ -1,0 +1,17 @@
+@import "@core-css";
+
+.logo {
+  width: 85px;
+  color: #fff;
+  img {
+    cursor: pointer;
+    width: 100%;
+  }
+
+  @include mobile {
+    img {
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
+}

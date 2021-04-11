@@ -4,7 +4,7 @@ import styles from './footer.module.scss';
 const Footer = ({ }) => {
   return (
     <footer className={styles.footer}>
-      sadsadasd
+      Petfinder - відкритий студенський проект
     </footer>
   )
 }

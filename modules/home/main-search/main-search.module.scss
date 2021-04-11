@@ -1,0 +1,31 @@
+@import '@core-css';
+
+.mainSearch {
+  margin: 0 auto;
+  padding: 15px;
+  background: $grey;
+  height: 250px;
+}
+
+.titleWrapper {
+  margin-top: 25px;
+  text-align: center;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-shadow: 1px 2px #000;
+  letter-spacing: 2px;
+}
+
+.title {
+  margin: 0;
+  padding: 0;
+  color: $orange;
+  font-size: 46px;  
+}
+
+.subtitle {
+  margin: 0;
+  color: #fff;
+  font-size: 16px;
+
+}

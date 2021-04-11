@@ -1,6 +1,6 @@
 import { reducer } from 'redux-chill';
 import { GeneralState } from './state';
-import { login, logout } from './actions'
+import { login, logout, setSidebarVisible } from './actions'
 
 const general = reducer(new GeneralState())
   .on(login, state => {
@@ -8,6 +8,9 @@ const general = reducer(new GeneralState())
   })
   .on(logout, state => {
     state.isLoggedIn = false;
+  })
+  .on(setSidebarVisible, (state, payload) => {
+    state.isSidebarVisible = payload
   })
 
 export { general };
