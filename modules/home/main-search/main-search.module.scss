@@ -27,5 +27,18 @@
   margin: 0;
   color: #fff;
   font-size: 16px;
+}
 
+.filters {
+  margin: 40px auto;
+  max-width: 600px;
+  display: flex;
+}
+
+.button {
+  width: auto;
+  height: 25px;
+  background: $orange;
+  color: #fff;
+  border: none;
 }

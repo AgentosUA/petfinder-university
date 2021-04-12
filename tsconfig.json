@@ -20,6 +20,9 @@
     "jsx": "preserve",
     "baseUrl": "./",
     "paths": {
+      "@core": [
+        "./components/index"
+      ],
       "@core-css": [
         "./styles/core.scss"
       ],
