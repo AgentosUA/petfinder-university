@@ -1,5 +1,6 @@
 import styles from './main-search.module.scss';
 import Select from 'react-select'
+import Link from 'next/link';
 import DatePicker, { registerLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import uk from 'date-fns/locale/uk';
@@ -21,8 +22,12 @@ const MainSearch = () => {
         border: 'none'
       }
     },
-
-
+    container: (provided) => {
+      return {
+        ...provided,
+        marginRight: '5px'
+      }
+    },
     controls: (provided) => {
       return {
         ...provided,
@@ -46,13 +51,15 @@ const MainSearch = () => {
           locale="uk"
           className={styles.date}
           placeholderText='Дата'
+          selected={startDate}
           dateFormat='dd/MM/yyyy'
           onChange={date => setStartDate(date)}
         />
-        <button className={styles.button}>Шукати</button>
+        <Link href='/'><button className={styles.button}>Шукати</button></Link>
       </div>
       <div className={styles.actions}>
-        <Button>asda</Button>
+        <Button>Створити оголошення</Button>
+        <Button>Придбати нашийник</Button>
       </div>
     </div>
   )

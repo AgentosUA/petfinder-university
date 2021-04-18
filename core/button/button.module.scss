@@ -1,0 +1,22 @@
+@import '@core-css';
+
+.button {
+  width: 100%;
+  border: none;
+  height: 40px;
+  background: $orange;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+  outline: none;
+  font-family: 'Roboto';
+  border-radius: 6px;
+  &:hover {
+    background: $orange-dark;
+  }
+
+  &:disabled {
+    background: $grey-light;
+  }
+}
