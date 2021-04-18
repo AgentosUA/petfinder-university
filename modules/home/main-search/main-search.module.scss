@@ -31,14 +31,33 @@
 
 .filters {
   margin: 40px auto;
-  max-width: 600px;
+  justify-content: center;
   display: flex;
 }
 
+.date {
+  margin: 0 15px;
+  height: 40px;
+  width: 100px;
+  text-align: center;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+}
+
 .button {
-  width: auto;
-  height: 25px;
+  width: 120px;
+  height: 40px;
   background: $orange;
   color: #fff;
   border: none;
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+  outline: none;
+  font-family: 'Roboto';
+  border-radius: 6px;
+  &:hover {
+    background: #F08400;
+  }
 }
