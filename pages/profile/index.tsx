@@ -8,7 +8,9 @@ export default function Home() {
         <Head>
           <title>Особистий кабінет | Petfinder</title>
         </Head>
-        
+        <main>
+
+        </main>
       </Layout>
     )
 }

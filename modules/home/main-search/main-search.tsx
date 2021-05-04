@@ -5,13 +5,20 @@ import DatePicker, { registerLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import uk from 'date-fns/locale/uk';
 import { animalType, animalGender, animalStatus } from './data';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Button } from 'core/button';
 
 registerLocale('uk', uk)
 
 const MainSearch = () => {
-  const [startDate, setStartDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(null);
+  const [searchParams, setSearchParams] = useState({
+    type: '',
+    gender: '',
+    status: '',
+    city: '',
+    date: ''
+  });
 
   const inputStyles = {
     input: (provided) => {
@@ -43,10 +50,10 @@ const MainSearch = () => {
         <p className={styles.subtitle}>Пошук ваших улюбленців</p>
       </div>
       <div className={styles.filters}>
-        <Select value={animalType[0]} options={animalType} styles={inputStyles} placeholder='Тип' />
-        <Select value={animalGender[0]} options={animalGender} styles={inputStyles} placeholder='Стать' />
-        <Select value={animalStatus[0]} options={animalStatus} styles={inputStyles} placeholder='Статус' />
-        <Select options={animalType} styles={inputStyles} placeholder='Місто' />
+        <Select options={animalType} styles={inputStyles} placeholder='Тип' onChange={({ value }) => setSearchParams({ ...searchParams, type: value })} />
+        <Select options={animalGender} styles={inputStyles} placeholder='Стать' onChange={({ value }) => setSearchParams({ ...searchParams, gender: value })} />
+        <Select options={animalStatus} styles={inputStyles} placeholder='Статус' onChange={({ value }) => setSearchParams({ ...searchParams, status: value })} />
+        <Select options={animalType} styles={inputStyles} placeholder='Місто' onChange={({ value }) => setSearchParams({ ...searchParams, city: value })} />
         <DatePicker
           locale="uk"
           className={styles.date}
@@ -55,7 +62,9 @@ const MainSearch = () => {
           dateFormat='dd/MM/yyyy'
           onChange={date => setStartDate(date)}
         />
-        <Link href='/'><button className={styles.button}>Шукати</button></Link>
+        <Link href={`/search?type=${searchParams.city || 'all'}&gender=${searchParams.gender || 'all'}&status=${searchParams.status || 'all'}&city=${searchParams.city || 'all'}`}>
+          <button className={styles.button}>Шукати</button>
+        </Link>
       </div>
       <div className={styles.actions}>
         <Button>Створити оголошення</Button>
