@@ -11,7 +11,7 @@ import { setSidebarVisible, State } from '@store';
 const Header = () => {
   const dispatch = useDispatch();
   const { desktop } = useMediaPoints();
-  const { isSidebarVisible } = useSelector((state) => state.general)
+  const { isSidebarVisible } = useSelector((state: State) => state.general)
 
   const onMenuClick = () => {
     dispatch(setSidebarVisible(true));

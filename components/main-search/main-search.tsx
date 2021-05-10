@@ -1,5 +1,6 @@
 import styles from './main-search.module.scss';
-import Select from 'react-select'
+import Select from 'react-select';
+import Creatable from 'react-select/creatable';
 import Link from 'next/link';
 import DatePicker, { registerLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -51,9 +52,9 @@ const MainSearch = () => {
       </div>
       <div className={styles.filters}>
         <Select options={animalType} styles={inputStyles} placeholder='Тип' onChange={({ value }) => setSearchParams({ ...searchParams, type: value })} />
-        <Select options={animalGender} styles={inputStyles} placeholder='Стать' onChange={({ value }) => setSearchParams({ ...searchParams, gender: value })} />
         <Select options={animalStatus} styles={inputStyles} placeholder='Статус' onChange={({ value }) => setSearchParams({ ...searchParams, status: value })} />
-        <Select options={animalType} styles={inputStyles} placeholder='Місто' onChange={({ value }) => setSearchParams({ ...searchParams, city: value })} />
+        <Select options={animalGender} styles={inputStyles} placeholder='Стать' onChange={({ value }) => setSearchParams({ ...searchParams, gender: value })} />
+        <Creatable styles={inputStyles} placeholder='Місто' onChange={({ value }) => setSearchParams({ ...searchParams, city: value })} />
         <DatePicker
           locale="uk"
           className={styles.date}

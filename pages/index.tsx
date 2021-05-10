@@ -1,6 +1,5 @@
 import Head from 'next/head';
-import { Container, Layout } from '../components';
-import { MainSearch } from '@home';
+import { Container, Layout, MainSearch } from '@components';
 
 export default function Home() {
   return (

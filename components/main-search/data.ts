@@ -2,7 +2,7 @@ const animalType = [
   { value: 'all', label: 'Тип (усі)' },
   { value: 'cat', label: 'Коти' },
   { value: 'dog', label: 'Собаки' },
-  { value: 'Інші', label: 'Інші' }
+  { value: 'other', label: 'Інші' }
 ];
 
 const animalGender = [
@@ -13,7 +13,7 @@ const animalGender = [
 
 const animalStatus = [
   { value: 'all', label: 'Статус (усі)' },
-  { value: 'missing', label: 'Зниклі' },
+  { value: 'escaped', label: 'Зниклі' },
   { value: 'founded', label: 'Знайдені' },
 ];
 

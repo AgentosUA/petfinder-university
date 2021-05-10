@@ -20,8 +20,11 @@
     "jsx": "preserve",
     "baseUrl": "./",
     "paths": {
-      "@core": [
+      "@components": [
         "./components/index"
+      ],
+      "@core": [
+        "./core/index"
       ],
       "@core-css": [
         "./styles/core.scss"
@@ -29,8 +32,8 @@
       "@store": [
         "./store/index"
       ],
-      "@home": [
-        "./modules/home/index"
+      "@models": [
+        "./models/index"
       ]
     }
   },

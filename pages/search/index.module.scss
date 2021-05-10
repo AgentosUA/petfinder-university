@@ -1,0 +1,18 @@
+.preloader {
+  margin: 0 auto;
+  width: 320px;
+  text-align: center;
+  img {
+    width: 100%;
+  }
+}
+
+.title {
+  text-align: center;
+}
+
+.posts {
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+}
