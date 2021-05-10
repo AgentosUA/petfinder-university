@@ -1,7 +1,7 @@
 # Pet Finder Project
 
 <p align="center">
-  <img src="https://i.imgur.com/wKrFJcK.png" width="150" title="hover text">
+  <img src="https://i.imgur.com/h9yBWql.png" width="150" title="hover text">
 </p>
 <b>Pet Finder Project</b> - це студентський проект, мета якого є реалізувати централізовану базу даних оголошень про зниклих тварин.
 Проект включає у собі Веб-додаток для швидкого створення та пошуку оголошення про зниклу тварину, а також можливістю відслідковувати власну тварину за допомогою GPS-нашийника на базі Arduino
@@ -34,13 +34,13 @@ The project includes the REST API, React App, and an Arduino-based GPS collar
 
 ### Нашийник | Collar:
 
+- C
 - Arduino
 - GPS Module (NEO-7M GPS NEO7MV2)
-- C
 
 ### Розробники | Developers
 
 - Oleh Stepaniuk (Software) - REST API, React App
 - Andriy Koper (Hardware) - Collar
 - Denis Stoliarchuk (Mentor) - початкові поради та підтримка
-- Vova Shevchyk (Mentor) - початкові поради та підтримка
+- Volodymir Shevchyk (Mentor) - початкові поради та підтримка

@@ -4,8 +4,8 @@ import { Fragment } from 'react';
 
 const AuthLinks = () => (
   <Fragment>
-    <Link href='/'>Увійти</Link>
-    <Link href='/profile'>Реєстрація</Link>
+    <Link href='/login'>Увійти</Link>
+    <Link href='/signup'>Реєстрація</Link>
   </Fragment>
 );
 

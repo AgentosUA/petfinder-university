@@ -1,9 +1,37 @@
-@import "@core-css";
+@import '@core-css';
 
 .footer {
-  // background: $grey;
-  height: 50px;
-  // clear: both;
-  // position: relative;
-  // height: 200px;
+  background: $grey;
+  color: #fff;
+  height: 120px;
+}
+
+.content {
+  margin: 0 auto;
+  padding: 5px 25px;
+  display: flex;
+  max-width: 1200px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.logo {
+  width: 65px;
+}
+
+.copyright {
+  text-align: center;
+}
+
+.links {
+  .link {
+    cursor: pointer;
+    margin: 0 15px;
+  }
+  svg {
+    font-size: 26px;
+    &:hover {
+      color: $orange;
+    }
+  }
 }
