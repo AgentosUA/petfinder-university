@@ -41,6 +41,6 @@ The project includes the REST API, React App, and an Arduino-based GPS collar
 ### Розробники | Developers
 
 - Oleh Stepaniuk (Software) - REST API, React App
-- Andriy Koper (Hardware) - Collar
-- Denis Stoliarchuk (Mentor) - початкові поради та підтримка
-- Volodymir Shevchyk (Mentor) - початкові поради та підтримка
+- Andriy Koper (Hardware) - Нашийник | Collar
+- Denis Stoliarchuk (Mentor) - початкові поради та підтримка | Advice and support
+- Volodymyr Shevchyk (Mentor) - початкові поради та підтримка | Advice and support
