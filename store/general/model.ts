@@ -5,3 +5,8 @@ export type SearchParams = {
   city: 'all' | string,
   date: 'all' | Date | string
 }
+
+export type AuthData = {
+  token: string;
+  expiresIn: number;
+}

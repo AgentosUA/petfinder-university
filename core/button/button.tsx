@@ -8,10 +8,11 @@ type buttonProps = {
   children: React.ReactNode,
   disabled?: boolean,
   theme?: 'dark' | 'light'
-  link?: string
+  link?: string,
+  type?: 'submit' | 'button' | 'reset'
 }
 
-const Button = ({ onClick, children, theme = 'dark', disabled, link }: buttonProps) => {
+const Button = ({ onClick, children, theme = 'dark', disabled, link, type }: buttonProps) => {
   if (link) {
     return (
       <Link href={link}>
@@ -19,6 +20,7 @@ const Button = ({ onClick, children, theme = 'dark', disabled, link }: buttonPro
           className={classNames(styles.button, theme === 'light' ? styles.light : styles.dark)}
           onClick={onClick}
           disabled={disabled}
+          type={type || 'button'}
         >
           {children}
         </button>

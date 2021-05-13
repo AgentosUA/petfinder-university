@@ -1,5 +1,10 @@
 import { make } from 'redux-chill';
-import { SearchParams } from './model';
+import { AuthData, SearchParams } from './model';
+
+/**
+ * Startup
+ */
+ const startup = make('[general] startup')
 
 /**
  * Set sidebar visible
@@ -14,10 +19,10 @@ const setSearchParams = make('[general] setSearchParams').stage((payload): Searc
 /**
  * Login
  */
-const login = make('[general] login')
+const login = make('[general] login').stage((payload): AuthData => payload)
 /**
  * Logout
  */
 const logout = make('[general] logout')
 
-export { login, logout, setSidebarVisible, setSearchParams }
+export { login, logout, setSidebarVisible, setSearchParams, startup }

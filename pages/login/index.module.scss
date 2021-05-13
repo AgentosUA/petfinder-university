@@ -25,9 +25,14 @@
   display: flex;
   justify-content: space-between;
   a {
-    color: $orange;
+    color: $grey;
     &:hover {
       text-decoration: underline;
     }
   }
+}
+
+.error {
+  color: red;
+  text-align: center;
 }
