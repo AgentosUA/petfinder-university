@@ -1,0 +1,45 @@
+@import '@core-css';
+
+.title {
+  text-align: center;
+}
+
+.form {
+  margin: 0 auto;
+  width: 100%;
+  min-width: 320px;
+  max-width: 350px;
+  input {
+    margin: 8px auto;
+    width: 100%;
+    border-radius: 8px;
+    border: 2px solid $orange;
+    background: #fff;
+    padding: 10px 15px;
+    outline: none;
+  }
+  label {
+    margin: 50px auto;
+  }
+}
+
+.help {
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-between;
+  a {
+    color: $grey;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.error {
+  color: red;
+  text-align: center;
+}
+
+.dateWrapper {
+  width: 100%;
+}

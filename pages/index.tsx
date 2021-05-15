@@ -5,7 +5,7 @@ export default function Home() {
   return (
       <Layout>
         <Head>
-          <title>Petfinder | Знайти свою тваринку!</title>
+          <title>Petfinder | Знайди свою тваринку!</title>
         </Head>
         <MainSearch />
         <Container>

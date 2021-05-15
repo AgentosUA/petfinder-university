@@ -52,26 +52,18 @@ export default function Search() {
           setErrors({ email: 'Сталась критична помилка, спробуйте ще раз!' });
         }
       }
-      
-
-      
-
-      
-
-      
-
     }
   });
 
   return (
     <Layout>
       <Head>
-        <title>Petfinder | Знайти свою тваринку!</title>
+        <title>Авторизація | Petfinder</title>
       </Head>
       <MainSearch />
       <Container>
         <h2 className={styles.title}>Авторизація</h2>
-        <form className={styles.form} onClick={handleSubmit}>
+        <form className={styles.form} onSubmit={handleSubmit}>
           <span className={styles.error}>{errors.email} {errors.password}</span>
           <input type='text' name='email' placeholder='Пошта' onChange={handleChange} value={values.email} />
           <input type='password' name='password' placeholder='Пароль' onChange={handleChange} value={values.password} />

@@ -48,7 +48,7 @@ export default function Search({ query: { type, gender, status, city, date, page
   return (
     <Layout>
       <Head>
-        <title>Petfinder | Знайти свою тваринку!</title>
+        <title>Petfinder | Знайди свою тваринку!</title>
       </Head>
       <MainSearch />
       <Container>

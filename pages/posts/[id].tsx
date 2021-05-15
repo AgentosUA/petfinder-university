@@ -42,7 +42,7 @@ export default function Search({ query: { id } }) {
   return (
     <Layout>
       <Head>
-        <title>Petfinder | Знайти свою тваринку!</title>
+        <title>Petfinder | Знайди свою тваринку!</title>
       </Head>
       <MainSearch />
       <Container>

@@ -23,6 +23,7 @@
     "react": "17.0.2",
     "react-datepicker": "^3.7.0",
     "react-dom": "17.0.2",
+    "react-phone-number-input": "^3.1.21",
     "react-redux": "^7.2.3",
     "react-select": "^4.3.0",
     "redux-chill": "^3.0.5",

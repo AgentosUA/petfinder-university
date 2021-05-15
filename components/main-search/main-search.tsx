@@ -5,7 +5,7 @@ import Link from 'next/link';
 import DatePicker, { registerLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import uk from 'date-fns/locale/uk';
-import { animalType, animalGender, animalStatus } from './data';
+import { animalType, animalGender, animalStatus } from '@shared';
 import { useEffect, useState } from 'react';
 import { Button } from 'core/button';
 
@@ -54,21 +54,21 @@ const MainSearch = () => {
         <Select options={animalType} styles={inputStyles} placeholder='Тип' onChange={({ value }) => setSearchParams({ ...searchParams, type: value })} />
         <Select options={animalStatus} styles={inputStyles} placeholder='Статус' onChange={({ value }) => setSearchParams({ ...searchParams, status: value })} />
         <Select options={animalGender} styles={inputStyles} placeholder='Стать' onChange={({ value }) => setSearchParams({ ...searchParams, gender: value })} />
-        <Creatable styles={inputStyles} placeholder='Місто' onChange={({ value }) => setSearchParams({ ...searchParams, city: value })} />
+        <input name='city' className={styles.input} type='text' value={searchParams.city} placeholder='Місто' onChange={( e ) => setSearchParams({ ...searchParams, city: e.target.value })} />
         <DatePicker
           locale="uk"
-          className={styles.date}
+          className={styles.input}
           placeholderText='Дата'
           selected={startDate}
           dateFormat='dd/MM/yyyy'
           onChange={date => setStartDate(date)}
         />
-        <Link href={`/search?type=${searchParams.city || 'all'}&gender=${searchParams.gender || 'all'}&status=${searchParams.status || 'all'}&city=${searchParams.city || 'all'}`}>
+        <Link href={`/search?type=${searchParams.type || 'all'}&gender=${searchParams.gender || 'all'}&status=${searchParams.status || 'all'}&city=${searchParams.city || 'all'}`}>
           <button className={styles.button}>Шукати</button>
         </Link>
       </div>
       <div className={styles.actions}>
-        <Button>Створити оголошення</Button>
+        <Button link='/create'>Створити оголошення</Button>
         <Button>Придбати нашийник</Button>
       </div>
     </div>
