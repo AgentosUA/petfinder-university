@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import Link from 'next/link';
 import React from 'react'
+import { InputProps } from 'react-select';
 import styles from './button.module.scss';
 
 type buttonProps = {
@@ -9,10 +10,10 @@ type buttonProps = {
   disabled?: boolean,
   theme?: 'dark' | 'light'
   link?: string,
-  type?: 'submit' | 'button' | 'reset'
+  type?: 'submit' | 'button' | 'reset',
 }
 
-const Button = ({ onClick, children, theme = 'dark', disabled, link, type }: buttonProps) => {
+const Button = ({ onClick, children, theme = 'dark', disabled, link, type }: buttonProps & React.HTMLProps<buttonProps>) => {
   if (link) {
     return (
       <Link href={link}>
@@ -30,13 +31,13 @@ const Button = ({ onClick, children, theme = 'dark', disabled, link, type }: but
 
   return (
     <button
-      className={classNames(styles.button, theme === 'light' ? styles.light : styles.dark)
-      }
+      className={classNames(styles.button, theme === 'light' ? styles.light : styles.dark)}
       onClick={onClick}
       disabled={disabled}
+      type={type || 'button'}
     >
       {children}
-    </button >
+    </button>
   )
 }
 

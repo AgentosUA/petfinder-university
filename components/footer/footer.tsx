@@ -16,7 +16,7 @@ const Footer = ({ }) => {
 
         <div className={styles.copyright}>
           <div><b>Petfinder</b></div>
-          <img src='loading_dark.gif' alt='logo in footer' className={styles.logo} />
+          <img src='/logo.png' alt='logo in footer' className={styles.logo} />
           <div>відкритий студенський проект</div>
         </div>
         <div className={styles.links}>

@@ -13,7 +13,7 @@ import { login } from '@store';
 import { Form, useFormik } from 'formik';
 import * as Yup from 'yup';
 
-export default function Search() {
+export default function Login() {
   const dispatch = useDispatch();
 
   const validationSchema = Yup.object({
@@ -21,7 +21,7 @@ export default function Search() {
     password: Yup.string().required('Введіть пароль!')
   })
 
-  const { handleSubmit, handleChange, isSubmitting, errors, setErrors, values } = useFormik({
+  const { handleSubmit, handleChange, isSubmitting, errors, setErrors, values, isValid } = useFormik({
     initialValues: {
       email: '',
       password: ''
@@ -64,7 +64,11 @@ export default function Search() {
       <Container>
         <h2 className={styles.title}>Авторизація</h2>
         <form className={styles.form} onSubmit={handleSubmit}>
-          <span className={styles.error}>{errors.email} {errors.password}</span>
+          {!isValid && <ul className={styles.error}>
+            {Object.entries(errors).map(([key, value]) => {
+              return <li>{value}</li>
+            })}
+          </ul>}
           <input type='text' name='email' placeholder='Пошта' onChange={handleChange} value={values.email} />
           <input type='password' name='password' placeholder='Пароль' onChange={handleChange} value={values.password} />
           <Button type='submit' disabled={isSubmitting}>Увійти</Button>

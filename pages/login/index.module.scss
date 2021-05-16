@@ -33,6 +33,9 @@
 }
 
 .error {
-  color: red;
-  text-align: center;
+  padding: 15px 30px;
+  background: rgba($color: (#F22F2F), $alpha: .4);
+  border-radius: 8px;
+  color: #951A28;
+  text-align: left;
 }

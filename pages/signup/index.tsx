@@ -36,7 +36,7 @@ export default function Search() {
     validateOnBlur: false,
     onSubmit: async ({ email, name, password, phone }) => {
       try {
-        const { data } = await axios({
+        await axios({
           method: 'POST',
           url: `${process.env.API}/users`,
           data: {
@@ -46,7 +46,7 @@ export default function Search() {
             phone
           }
         })
-        console.log(data);
+
         setIsRegistered(true);
       } catch (error) {
         if (error?.response?.status === 400) {
@@ -70,11 +70,9 @@ export default function Search() {
         {!isRegistered &&
           (<form className={styles.form} onSubmit={handleSubmit}>
             {!isValid && <ul className={styles.error}>
-              {errors.email && <li>{errors.email}</li>}
-              {errors.name && <li>{errors.name}</li>}
-              {errors.password && <li>{errors.password}</li>}
-              {errors.repassword && <li>{errors.repassword}</li>}
-              {errors.phone && <li>{errors.phone}</li>}
+              {Object.entries(errors).map(([key, value]) => {
+                return <li>{value}</li>
+              })}
             </ul>}
             <label htmlFor='email'>Ваша пошта</label>
             <input type='text' name='email' placeholder='Пошта' onChange={handleChange} value={values.email} />

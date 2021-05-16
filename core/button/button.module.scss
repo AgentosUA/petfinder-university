@@ -1,6 +1,8 @@
 @import '@core-css';
 
 .button {
+  margin-top: 5px;
+  margin-bottom: 5px;
   width: 100%;
   border: none;
   height: 40px;
@@ -18,5 +20,12 @@
 
   &:disabled {
     background: $grey-light;
+  }
+}
+
+.light {
+  background: $grey;
+  &:hover {
+    background: lighten($color: $grey, $amount: 10);
   }
 }
