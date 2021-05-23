@@ -8,18 +8,24 @@ import uk from 'date-fns/locale/uk';
 import { animalType, animalGender, animalStatus } from '@shared';
 import { useEffect, useState } from 'react';
 import { Button } from 'core/button';
+import Router from 'next/router';
+import { useDispatch, useSelector } from 'react-redux';
+import { setSearchParams, State } from '@store';
 
 registerLocale('uk', uk)
 
 const MainSearch = () => {
+  const dispatch = useDispatch();
   const [startDate, setStartDate] = useState(null);
-  const [searchParams, setSearchParams] = useState({
-    type: '',
-    gender: '',
-    status: '',
-    city: '',
-    date: ''
-  });
+  const { searchParams: { type, gender, status, city, date } } = useSelector((state: State) => state.general)
+
+  const updateSearchParams = (params) => {
+    dispatch(setSearchParams(params))
+  }
+
+  useEffect(() => {
+    dispatch(setSearchParams({type, gender, status, city, date: startDate}));
+  }, [startDate])
 
   const inputStyles = {
     input: (provided) => {
@@ -51,21 +57,21 @@ const MainSearch = () => {
         <p className={styles.subtitle}>Пошук ваших улюбленців</p>
       </div>
       <div className={styles.filters}>
-        <Select options={animalType} styles={inputStyles} placeholder='Тип' onChange={({ value }) => setSearchParams({ ...searchParams, type: value })} />
-        <Select options={animalStatus} styles={inputStyles} placeholder='Статус' onChange={({ value }) => setSearchParams({ ...searchParams, status: value })} />
-        <Select options={animalGender} styles={inputStyles} placeholder='Стать' onChange={({ value }) => setSearchParams({ ...searchParams, gender: value })} />
-        <input name='city' className={styles.input} type='text' value={searchParams.city} placeholder='Місто' onChange={( e ) => setSearchParams({ ...searchParams, city: e.target.value })} />
+        <Select value={animalType.find((item) => item.value === type)} options={animalType} styles={inputStyles} placeholder='Тип' onChange={({ value }) => updateSearchParams({ gender, status, city, date, type: value })} />
+        <Select value={animalStatus.find((item) => item.value === status)} options={animalStatus} styles={inputStyles} placeholder='Статус' onChange={({ value }) => updateSearchParams({ type, gender, city, date , status: value })} />
+        <Select value={animalGender.find((item) => item.value === gender)} options={animalGender} styles={inputStyles} placeholder='Стать' onChange={({ value }) => updateSearchParams({ type, status, city, date , gender: value })} />
+        <input name='city' className={styles.input} type='text' value={city} placeholder='Місто' onChange={(e) => updateSearchParams({ type, gender, status, date,  city: e.target.value })} />
         <DatePicker
           locale="uk"
           className={styles.input}
           placeholderText='Дата'
           selected={startDate}
           dateFormat='dd/MM/yyyy'
+          value={startDate}
           onChange={date => setStartDate(date)}
         />
-        <Link href={`/search?type=${searchParams.type || 'all'}&gender=${searchParams.gender || 'all'}&status=${searchParams.status || 'all'}&city=${searchParams.city || 'all'}`}>
-          <button className={styles.button}>Шукати</button>
-        </Link>
+        <button onClick={() => Router.push(`/search?type=${type || 'all'}&gender=${gender || 'all'}&status=${status || 'all'}&city=${city || 'all'}&date=${date || 'all'}&page=1`)} className={styles.button}>Шукати</button>
+
       </div>
       <div className={styles.actions}>
         <Button link='/create'>Створити оголошення</Button>

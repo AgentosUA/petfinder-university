@@ -1,0 +1,28 @@
+@import '@core-css';
+
+.pagination {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.navigate {
+  margin: 0 15px;
+  width: 40px;
+  line-height: 20px;
+  text-align: center;
+  height: 40px;
+  padding: 10px;
+  border: 2px solid $orange;
+  cursor: pointer;
+  &:hover {
+    background: $orange-dark;
+    color: #fff;
+  }
+}
+
+.current {
+  background: $orange;
+  color: #fff;
+}

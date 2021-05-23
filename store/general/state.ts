@@ -1,5 +1,4 @@
 import { SearchParams } from "./model";
-import Cookies from 'cookies'
 class GeneralState {
   
   public isLoggedIn: boolean = false;
@@ -8,8 +7,8 @@ class GeneralState {
     type: 'all',
     gender: 'all',
     status: 'all',
-    city: 'all',
-    date: 'all'
+    city: '',
+    date: ''
   }
 }
 

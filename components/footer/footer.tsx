@@ -15,13 +15,11 @@ const Footer = ({ }) => {
         </div>
 
         <div className={styles.copyright}>
-          <div><b>Petfinder</b></div>
           <img src='/logo.png' alt='logo in footer' className={styles.logo} />
-          <div>відкритий студенський проект</div>
         </div>
         <div className={styles.links}>
-          <FontAwesomeIcon icon={['fab', 'github-alt']} onClick={() => window.location.href = 'https://github.com/AgentosUA/petfinder'} className={styles.link} />
-          <FontAwesomeIcon icon={['fab', 'facebook']} onClick={() => window.location.href = 'https://github.com/AgentosUA/petfinder'} className={styles.link} />
+          <a href='https://github.com/AgentosUA/petfinder'><FontAwesomeIcon icon={['fab', 'github-alt']} className={styles.link} /></a>
+          <a href='https://github.com/AgentosUA/petfinder'><FontAwesomeIcon icon={['fab', 'facebook']} className={styles.link} /></a>
         </div>
       </section>
     </footer>

@@ -1,13 +1,11 @@
 import Head from 'next/head';
-import { useRouter } from "next/router";
-import { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { Container, Layout, MainSearch, Post } from '@components';
 
 import styles from './index.module.scss';
 
 import axios from 'axios';
-import { useSelector } from 'react-redux';
-import { State } from '@store';
+import { Pagination } from '@modules';
 
 Search.getInitialProps = ({ query }) => {
   return { query }
@@ -17,20 +15,26 @@ export default function Search({ query: { type, gender, status, city, date, page
   const [posts, setPosts] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(Number(page) || 1);
+  const [currentLimit, setCurrentLimit] = useState(0)
 
   const fetchPosts = async () => {
     setIsLoading(true);
     try {
-      const { data: { posts, totalCount } } = await axios({
-        url: `${process.env.API}/posts?page=${page || 1}&type=${type}&status=${status}&city=${city}&date=${date}`,
+      const { data: { posts, totalCount, limit } } = await axios({
+        url: `${process.env.API}/posts?page=${currentPage}&type=${type}&status=${status}&city=${city}&date=${date}`,
         method: 'GET',
         data: {
-          page: 1,
-          limit: 99999
+          page,
+          type,
+          gender,
+          status,
+          city
         }
       });
 
       setPosts(posts);
+      setCurrentLimit(limit)
       setTotalCount(totalCount);
       setIsLoading(false);
 
@@ -42,8 +46,9 @@ export default function Search({ query: { type, gender, status, city, date, page
   }
 
   useEffect(() => {
+    setCurrentPage(page);
     fetchPosts();
-  }, [type, gender, status, city, date])
+  }, [type, gender, status, city, date, currentPage, page])
 
   return (
     <Layout>
@@ -56,8 +61,8 @@ export default function Search({ query: { type, gender, status, city, date, page
           <div className={styles.preloader}><img src='loading_light.gif' alt='Preloader' /></div>
           : (
             <Fragment>
-              {Boolean(!posts.length) && <h3 className={styles.title}>Нічого не знайдено!</h3>}
-              {Boolean(posts.length) && <h3 className={styles.title}>Оголошень: {totalCount}</h3>}
+              {<h3 className={styles.title}>{posts.length ? `Оголошень: ${totalCount}` : 'Нічого не знайдено!'}</h3>}
+              {Boolean(posts.length) && (<Pagination city={city} currentLimit={currentLimit} date={date} gender={gender} status={status} type={type} totalCount={totalCount} currentPage={currentPage} />)}
               <div className={styles.posts}>
                 {
                   posts.map(({ _id, name, type, gender, status, city, date, image }) => {
@@ -65,7 +70,6 @@ export default function Search({ query: { type, gender, status, city, date, page
                   })
                 }
               </div>
-
             </Fragment>
           )}
       </Container>
