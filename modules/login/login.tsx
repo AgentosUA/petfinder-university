@@ -13,7 +13,11 @@ import { login } from '@store';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
-export const Login = () => {
+type LoginProps = {
+  redirect?: string;
+}
+
+export const Login = ({ redirect }: LoginProps) => {
   const dispatch = useDispatch();
 
   const validationSchema = Yup.object({
@@ -42,7 +46,10 @@ export const Login = () => {
         })
 
         dispatch(login({ token, expiresIn }))
-        Router.push('/');
+        if (redirect) {
+          Router.push(redirect);
+        }
+
       } catch (error) {
         console.log(error);
         if (error?.response?.status === 400) {
@@ -70,7 +77,7 @@ export const Login = () => {
           <Link href='/restore-password'>Забули пароль?</Link>
           <Link href='/signup'>Немає облікового запису?</Link>
         </div>
-      </form></Fragment>) : <img src='loading_light.gif' alt='preloader' className={styles.preloader} /> 
+      </form></Fragment>) : <img src='loading_light.gif' alt='preloader' className={styles.preloader} />
   )
 
 

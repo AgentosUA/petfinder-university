@@ -22,15 +22,8 @@ export default function Search({ query: { type, gender, status, city, date, page
     setIsLoading(true);
     try {
       const { data: { posts, totalCount, limit } } = await axios({
-        url: `${process.env.API}/posts?page=${currentPage}&type=${type}&status=${status}&city=${city}&date=${date}`,
+        url: `${process.env.API}/posts?page=${currentPage}&type=${type}&status=${status}&city=${city}&date=${date}&gender=${gender}`,
         method: 'GET',
-        data: {
-          page,
-          type,
-          gender,
-          status,
-          city
-        }
       });
 
       setPosts(posts);
