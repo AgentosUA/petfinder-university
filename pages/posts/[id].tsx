@@ -23,7 +23,7 @@ export default function Search({ query: { id } }) {
         url: `${process.env.API}/posts/${id}`,
         method: 'GET',
       });
-      console.log(data);
+
       setPost(data);
       setTotalCount(totalCount);
       setIsLoading(false);

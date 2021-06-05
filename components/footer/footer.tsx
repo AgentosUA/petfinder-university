@@ -8,12 +8,10 @@ const Footer = ({ }) => {
       <section className={styles.content}>
         <div className={styles.partners}>
           <div><b>Наші партнери</b></div>
-          <ul>
-            <li>ads</li>
-
+          <ul className={styles.parthers}>
+            <li><a href="https://www.facebook.com/lyartcreations/">LY Art</a></li>
           </ul>
         </div>
-
         <div className={styles.copyright}>
           <img src='/logo.png' alt='logo in footer' className={styles.logo} />
         </div>

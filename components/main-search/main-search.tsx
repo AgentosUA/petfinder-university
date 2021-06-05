@@ -24,7 +24,19 @@ const MainSearch = () => {
   }
 
   useEffect(() => {
-    dispatch(setSearchParams({type, gender, status, city, date: startDate}));
+    if (!startDate) return;
+    const generatedDate = startDate;
+    const day = generatedDate.getDate();
+    const month = generatedDate.getMonth() + 1;
+    const year = generatedDate.getFullYear();
+
+    dispatch(setSearchParams({
+      type,
+      gender,
+      status,
+      city,
+      date: `${String(day).length > 1 ? day : '0' + day}.${String(month).length > 1 ? month : '0' + month}.${year}`
+    }));
   }, [startDate])
 
   const inputStyles = {
@@ -58,9 +70,9 @@ const MainSearch = () => {
       </div>
       <div className={styles.filters}>
         <Select value={animalType.find((item) => item.value === type)} options={animalType} styles={inputStyles} placeholder='Тип' onChange={({ value }) => updateSearchParams({ gender, status, city, date, type: value })} />
-        <Select value={animalStatus.find((item) => item.value === status)} options={animalStatus} styles={inputStyles} placeholder='Статус' onChange={({ value }) => updateSearchParams({ type, gender, city, date , status: value })} />
-        <Select value={animalGender.find((item) => item.value === gender)} options={animalGender} styles={inputStyles} placeholder='Стать' onChange={({ value }) => updateSearchParams({ type, status, city, date , gender: value })} />
-        <input name='city' className={styles.input} type='text' value={city} placeholder='Місто' onChange={(e) => updateSearchParams({ type, gender, status, date,  city: e.target.value })} />
+        <Select value={animalStatus.find((item) => item.value === status)} options={animalStatus} styles={inputStyles} placeholder='Статус' onChange={({ value }) => updateSearchParams({ type, gender, city, date, status: value })} />
+        <Select value={animalGender.find((item) => item.value === gender)} options={animalGender} styles={inputStyles} placeholder='Стать' onChange={({ value }) => updateSearchParams({ type, status, city, date, gender: value })} />
+        <input name='city' className={styles.input} type='text' value={city} placeholder='Місто' onChange={(e) => updateSearchParams({ type, gender, status, date, city: e.target.value })} />
         <DatePicker
           locale="uk"
           className={styles.input}

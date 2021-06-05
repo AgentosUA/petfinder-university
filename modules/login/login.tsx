@@ -51,7 +51,6 @@ export const Login = ({ redirect }: LoginProps) => {
         }
 
       } catch (error) {
-        console.log(error);
         if (error?.response?.status === 400) {
           setErrors({ email: 'Невірна пошта або пароль!' });
           return;
