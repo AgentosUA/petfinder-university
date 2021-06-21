@@ -20,6 +20,9 @@
     "jsx": "preserve",
     "baseUrl": "./",
     "paths": {
+      "@api": [
+        "./api/index"
+      ],
       "@shared": [
         "./shared/index"
       ],

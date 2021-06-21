@@ -19,17 +19,6 @@ const general = reducer(new GeneralState())
   })
   .on(setSearchParams, (state, searchParams) => {
     state.searchParams = searchParams
-  })
-  .on(startup, (state) => {
-    const token = cookieCutter.get('token');
-    const expiresIn = cookieCutter.get('expiresIn');
-    const currentTime = new Date().getTime() / 1000;
-
-    if (token && (Number(expiresIn) > currentTime)) {
-      state.isLoggedIn = true;
-    } else {
-      state.isLoggedIn = false;
-    }
-  })
+  });
 
 export { general };

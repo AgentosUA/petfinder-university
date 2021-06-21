@@ -12,6 +12,7 @@ import { useDispatch } from 'react-redux';
 import { login } from '@store';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { authService } from '@api';
 
 type LoginProps = {
   redirect?: string;
@@ -36,27 +37,19 @@ export const Login = ({ redirect }: LoginProps) => {
     validateOnBlur: false,
     onSubmit: async ({ email, password }) => {
       try {
-        const { data: { token, expiresIn } } = await axios({
-          method: 'POST',
-          url: `${process.env.API}/auth/login`,
-          data: {
-            email,
-            password: String(password)
-          }
-        })
+        const [{ token, expiresIn }, statusCode] = await authService.login(email, password);
 
-        dispatch(login({ token, expiresIn }))
+        if (statusCode === 400) {
+          setErrors({ email: 'Невірна пошта або пароль!' });
+          return;
+        }
+
+        dispatch(login({ token, expiresIn }));
         if (redirect) {
           Router.push(redirect);
         }
-
       } catch (error) {
-        if (error?.response?.status === 400) {
-          setErrors({ email: 'Невірна пошта або пароль!' });
-          return;
-        } else {
-          setErrors({ email: 'Сталась критична помилка, спробуйте ще раз!' });
-        }
+        setErrors({ email: 'Сталась критична помилка, спробуйте ще раз!' });
       }
     }
   });
@@ -66,7 +59,7 @@ export const Login = ({ redirect }: LoginProps) => {
       <form className={styles.form} onSubmit={handleSubmit}>
         {!isValid && <ul className={styles.error}>
           {Object.entries(errors).map(([key, value]) => {
-            return <li>{value}</li>
+            return <li key={key}>{value}</li>
           })}
         </ul>}
         <input type='text' name='email' placeholder='Пошта' onChange={handleChange} value={values.email} />
