@@ -7,7 +7,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import uk from 'date-fns/locale/uk';
 import { animalType, animalGender, animalStatus } from '@shared';
 import { useEffect, useState } from 'react';
-import { Button } from 'core/button';
+import { Button } from '@components';
 import Router from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSearchParams, State } from '@store';

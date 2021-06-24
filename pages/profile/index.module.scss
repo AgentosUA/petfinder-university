@@ -1,0 +1,42 @@
+@import '@core-css';
+
+.title {
+  text-align: center;
+}
+
+.nav {
+  margin: 0 auto;
+  width: 350px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  button {
+    padding: 10px 15px;
+    color: #fff;
+    display: inline-block;
+    text-align: center;
+    width: 140px;
+    font-family: 'Roboto';
+    font-size: 14px;
+    font-weight: 600;
+    background: $orange;
+    align-items: center;
+    transition: 0.3s;
+    cursor: pointer;
+    border: none;
+    &:hover {
+      background: $grey;
+      transition: 0.3s;
+    }
+    &:first-child {
+      border-radius: 8px 0px 0 8px;
+    }
+    &:last-child {
+      border-radius: 0px 8px 8px 0;
+    }
+  }
+
+  .selected {
+    background: $grey;
+  }
+}

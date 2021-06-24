@@ -13,13 +13,13 @@
 }
 
 .image {
-  margin: 0;
   width: 100%;
-  object-fit: fill;
+  height: 15vw;
+  object-fit: cover;
 }
 
 .name {
-  margin: 0 auto;
+  margin: 10px auto 0 auto;
   width: 100%;
   text-align: center;
   border-bottom: 2px solid grey;

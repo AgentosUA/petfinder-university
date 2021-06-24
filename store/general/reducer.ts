@@ -6,8 +6,12 @@ import { login, logout, setSearchParams, setSidebarVisible, startup } from './ac
 const general = reducer(new GeneralState())
   .on(login, (state, { token, expiresIn }) => {
     state.isLoggedIn = true;
-    cookieCutter.set('token', token)
-    cookieCutter.set('expiresIn', expiresIn)
+    cookieCutter.set('token', token, {
+      path: '/'
+    });
+    cookieCutter.set('expiresIn', expiresIn, {
+      path: '/'
+    });
   })
   .on(logout, state => {
     state.isLoggedIn = false;

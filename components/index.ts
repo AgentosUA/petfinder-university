@@ -6,3 +6,5 @@ export * from './container';
 export * from './main-search';
 export * from './post';
 export * from './preloader';
+export * from './button';
+export * from './modal';
