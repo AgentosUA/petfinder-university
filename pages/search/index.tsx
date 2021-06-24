@@ -6,6 +6,7 @@ import styles from './index.module.scss';
 
 import axios from 'axios';
 import { Pagination } from '@modules';
+import { postsService } from '@api';
 
 Search.getInitialProps = ({ query }) => {
   return { query }
@@ -21,10 +22,9 @@ export default function Search({ query: { type, gender, status, city, date, page
   const fetchPosts = async () => {
     setIsLoading(true);
     try {
-      const { data: { posts, totalCount, limit } } = await axios({
-        url: `${process.env.API}/posts?page=${currentPage}&type=${type}&status=${status}&city=${city}&date=${date}&gender=${gender}`,
-        method: 'GET',
-      });
+      const [{ posts, totalCount, limit }, statusCode] = await postsService.searchPost({ currentPage, type, status, city, date, gender });
+
+      if(statusCode === 404) return;
 
       setPosts(posts);
       setCurrentLimit(limit)

@@ -7,6 +7,7 @@ import { getProfile, State } from '@store';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './index.module.scss';
 import Router from 'next/router';
+import { Pets } from 'modules/profile/pets';
 
 enum TabNames {
   profile = 'profile',
@@ -15,6 +16,7 @@ enum TabNames {
 }
 
 export default function Home() {
+  const { counter: profileCounter } = useSelector((state: State) => state.profile)
   const [isLoading, setIsLoading] = useState(true);
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
@@ -23,8 +25,6 @@ export default function Home() {
   const [posts, setPosts] = useState([]);
 
   const [selectedTab, setSelectedTab] = useState(TabNames.profile);
-
-  const dispatch = useDispatch();
 
   const { isLoggedIn } = useSelector((state: State) => state.general)
 
@@ -43,6 +43,7 @@ export default function Home() {
         setPets(pets);
         setPosts(posts);
         
+
         
       } catch (error) {
         
@@ -51,7 +52,7 @@ export default function Home() {
     
     fetch();
     setIsLoading(false);
-  }, [selectedTab])
+  }, [selectedTab, profileCounter])
 
   return (
     <Layout>
@@ -82,6 +83,7 @@ export default function Home() {
             </nav>
             {selectedTab === TabNames.profile && <Profile name={name} posts={posts} pets={pets} phone={phone} />}
             {selectedTab === TabNames.posts && <Posts posts={posts} />}
+            {selectedTab === TabNames.pets && <Pets />}
           </Fragment>
         )}
 

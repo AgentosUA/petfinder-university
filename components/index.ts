@@ -8,3 +8,4 @@ export * from './post';
 export * from './preloader';
 export * from './button';
 export * from './modal';
+export * from './instruction';

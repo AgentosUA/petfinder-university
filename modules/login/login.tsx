@@ -66,7 +66,7 @@ export const Login = ({ redirect }: LoginProps) => {
         <input type='password' name='password' placeholder='Пароль' onChange={handleChange} value={values.password} />
         <Button type='submit' disabled={isSubmitting}>Увійти</Button>
         <div className={styles.help}>
-          <Link href='/restore-password'>Забули пароль?</Link>
+          {/* <Link href='/restore-password'>Забули пароль?</Link> */}
           <Link href='/signup'>Немає облікового запису?</Link>
         </div>
       </form></Fragment>) : <img src='loading_light.gif' alt='preloader' className={styles.preloader} />

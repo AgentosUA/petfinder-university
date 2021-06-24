@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Router from 'next/router';
 import { logout, State } from '@store';
 
-const Profile = ({ name, posts = [], pets = [], imageUrl = '', phone = null }) => {
+const Profile = ({ name, posts = [], pets = [], imageUrl = '', phone = '' }) => {
   const dispatch = useDispatch();
 
   const onLogOutClick = () => {
@@ -27,7 +27,7 @@ const Profile = ({ name, posts = [], pets = [], imageUrl = '', phone = null }) =
           <p><b>Оголошень: </b>{posts.length}</p>
           <p><b>Улюбленців: </b>{pets.length}</p>
         </div>
-        <Button theme='light'>Редагувати</Button>
+        {/* <Button theme='light'>Редагувати</Button> */}
         <Button onClick={onLogOutClick}>Вийти</Button>
       </div>
     </Fragment >

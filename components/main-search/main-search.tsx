@@ -23,8 +23,6 @@ const MainSearch = () => {
     dispatch(setSearchParams(params))
   }
 
-  console.log(startDate);
-
   useEffect(() => {
     if (!startDate) return;
     const generatedDate = startDate;
@@ -82,7 +80,7 @@ const MainSearch = () => {
           selected={startDate}
           dateFormat='dd/MM/yyyy'
           value={startDate}
-          onChange={value => {setStartDate(value || null); console.log(value, date)}}
+          onChange={value => {setStartDate(value || null)}}
         />
         <button onClick={() => Router.push(`/search?type=${type || 'all'}&gender=${gender || 'all'}&status=${status || 'all'}&city=${city || 'all'}&date=${date || 'all'}&page=1`)} className={styles.button}>Шукати</button>
 

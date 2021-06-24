@@ -4,9 +4,8 @@ import cookieCutter from 'cookie-cutter'
 import { getProfile } from './actions'
 
 const profile = reducer(new ProfileState())
-  .on(getProfile.success, (state, profileInfo) => {
-    console.log('reducer')
-    state.profileInfo = profileInfo
+  .on(getProfile, (state) => {
+    state.counter = state.counter + 1;
   });
 
 export { profile };

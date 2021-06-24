@@ -4,10 +4,12 @@ import { Fragment, useEffect, useState } from 'react';
 import styles from './posts.module.scss';
 import { profileService } from '@api';
 import { Edit } from './edit';
+import { useDispatch } from 'react-redux';
+import { getProfile } from '@store';
 
 
 const Posts = ({ posts = [] }) => {
-  const [postsLocal, setPostsLocal] = useState([...posts]);
+  const dispatch = useDispatch();
   const [selectedPost, setSelectedPost] = useState(null);
 
   const [showEditModal, setShowEditModal] = useState(false);
@@ -24,7 +26,8 @@ const Posts = ({ posts = [] }) => {
         return;
       }
 
-      setPostsLocal(posts.filter((post => post._id !== selectedPost?.id)));
+      // setposts(posts.filter((post => post._id !== selectedPost?._id)));
+      dispatch(getProfile());
     } catch (error) {
       setShowErrorModal(true);
     } finally {
@@ -44,9 +47,9 @@ const Posts = ({ posts = [] }) => {
       formData.append('city', city);
       formData.append('date', date);
       formData.append('image', image);
-      
+
       await profileService.updatePost(selectedPost.id, formData);
-      
+      dispatch(getProfile())
     } catch (error) {
 
     }
@@ -58,29 +61,17 @@ const Posts = ({ posts = [] }) => {
   return (
     <Fragment>
       <div className={styles.posts}>
-        {Boolean(!postsLocal.length) && <Fragment>
+        {Boolean(!posts.length) && <Fragment>
           <div className={styles.empty}>
             <h3>У вас немає жодного оголошення</h3>
             <Button link='/create'>Створити оголошення</Button>
           </div>
         </Fragment>}
-        {postsLocal.map(({ name, type, city, gender, image, status, description, date, _id: id }) => {
-          const generatedDate = new Date(date);
-          const day = generatedDate.getDate();
-          const month = generatedDate.getMonth() + 1;
-          const year = generatedDate.getFullYear();
-
+        {posts.map(({ name, type, city, gender, image, status, description, date, _id: id }) => {
           return (
             <div className={styles.post} key={id}>
               <img className={styles.image} src={image} alt='animal' />
               <h3 className={styles.name}>{name}</h3>
-              {/* <ul className={styles.details}>
-                <li><b>Тип:</b> {AnimalType[type]}</li>
-                <li><b>Статус:</b> {AnimalStatus[status]}</li>
-                <li><b>Стать:</b> {AnimalGender[gender]}</li>
-                <li><b>Місто:</b> {city}</li>
-                <li><b>Дата:</b> {String(day).length > 1 ? day : `0${day}`}.{String(month).length > 1 ? month : `0${month}`}.{year}</li>
-              </ul> */}
               <Button
                 onClick={() => {
                   setSelectedPost({ id, name, type, city, gender, description, image, status, date });

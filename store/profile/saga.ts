@@ -7,9 +7,7 @@ class ProfileSaga {
   @Saga(getProfile)
   public *getProfile() {
     console.log('SAGA')
-    alert('asdasd')
     // const data = yield call(profileService.profile);
-    // console.log(data);
     // yield put(getProfile.success(data));
   }
 }

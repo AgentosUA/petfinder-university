@@ -7,6 +7,8 @@ class ProfileState {
     posts: [],
     pets: []
   };
+
+  public counter = 0;
 }
 
 export { ProfileState }

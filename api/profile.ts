@@ -24,7 +24,7 @@ class ProfileService {
       data
     }) as any;
   }
-  
+
   public updatePost(id: string, data: FormData) {
     return http({
       method: 'PATCH',

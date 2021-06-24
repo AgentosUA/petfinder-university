@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Container, Layout, MainSearch } from '@components';
+import { Container, Layout, MainSearch, Instruction } from '@components';
 
 export default function Home() {
   return (
@@ -9,6 +9,7 @@ export default function Home() {
         </Head>
         <MainSearch />
         <Container>
+          <Instruction />
         </Container>
       </Layout>
     )

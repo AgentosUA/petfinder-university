@@ -111,7 +111,6 @@ export const Edit = ({ post, onClose, onSubmit }) => {
     <Fragment>
       <form className={styles.form} onSubmit={handleSubmit}>
         {!isValid && <ul className={styles.error}>
-          {console.log(errors)}
           {Object.entries(errors).map(([key, data]) => {
             return <li key={key}>{data?.value || data}</li>
           })}
