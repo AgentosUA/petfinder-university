@@ -111,7 +111,7 @@ export const Edit = ({ post, onClose, onSubmit }) => {
     <Fragment>
       <form className={styles.form} onSubmit={handleSubmit}>
         {!isValid && <ul className={styles.error}>
-          {Object.entries(errors).map(([key, data]) => {
+          {Object.entries(errors).map(([key, data]: any) => {
             return <li key={key}>{data?.value || data}</li>
           })}
         </ul>}
@@ -136,7 +136,7 @@ export const Edit = ({ post, onClose, onSubmit }) => {
           selected={startDate}
           dateFormat='dd/MM/yyyy'
           wrapperClassName={styles.dateWrapper}
-          onChange={date => { setStartDate(date); setFieldValue('date', date) }}
+          onChange={date => { setStartDate(date as any); setFieldValue('date', date) }}
         />
         <Button onClick={selectImage} type='button' theme='light'>{'Змінити зображення'}</Button>
         <input ref={imagePreviewInput} type="file" name='image' className={styles.imageInput} onChange={previewChange} accept='image/jpeg,image/png,image/gif' />

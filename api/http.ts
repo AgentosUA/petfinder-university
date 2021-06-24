@@ -1,5 +1,4 @@
 import axios, { AxiosRequestConfig } from 'axios';
-import { store } from '@store';
 
 const http = ({ headers = {}, ...config }: AxiosRequestConfig) => {
   return new Promise(async (resolve, reject) => {
