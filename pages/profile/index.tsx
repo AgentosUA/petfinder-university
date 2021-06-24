@@ -3,8 +3,8 @@ import { Container, Layout, MainSearch, Preloader } from '@components';
 import { Profile, Posts } from 'modules/profile';
 import { Fragment, useEffect, useState } from 'react';
 import { profileService } from '@api';
-import { State } from '@store';
-import { useSelector } from 'react-redux';
+import { getProfile, State } from '@store';
+import { useDispatch, useSelector } from 'react-redux';
 import styles from './index.module.scss';
 import Router from 'next/router';
 
@@ -24,7 +24,7 @@ export default function Home() {
 
   const [selectedTab, setSelectedTab] = useState(TabNames.profile);
 
-
+  const dispatch = useDispatch();
 
   const { isLoggedIn } = useSelector((state: State) => state.general)
 
@@ -33,7 +33,7 @@ export default function Home() {
       Router.push('/');
       return;
     }
-
+    
     const fetch = async () => {
       try {
         const [{ name, pets, posts, role, phone }, statusCode] = await profileService.profile();
@@ -42,15 +42,16 @@ export default function Home() {
         setRole(role);
         setPets(pets);
         setPosts(posts);
-
-        setIsLoading(false);
+        
+        
       } catch (error) {
-
+        
       }
     }
-
+    
     fetch();
-  }, [])
+    setIsLoading(false);
+  }, [selectedTab])
 
   return (
     <Layout>

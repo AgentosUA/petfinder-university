@@ -10,7 +10,7 @@ enum ModalType {
 }
 
 const Modal = ({
-  type = ModalType[0],
+  type,
   children = null,
   selector = 'modal',
   title = '',
@@ -18,7 +18,6 @@ const Modal = ({
   onConfirm = null
 }) => {
   const [isMounted, setIsMounted] = useState(false)
-  let parent = useRef(null);
 
   useEffect(() => {
     setIsMounted(true);
@@ -57,6 +56,9 @@ const Modal = ({
           <Button onClick={onClose} theme='light'>Відмінити</Button>
         </Fragment>
       );
+      break;
+    default:
+      buttons = null;
       break;
   }
 

@@ -19,6 +19,7 @@ import Select from 'react-select';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import { borderRadius } from 'react-select/src/theme';
 import { State } from '@store';
+import { profileService } from "@api";
 
 registerLocale('uk', uk)
 
@@ -27,8 +28,6 @@ export const Create = () => {
   const [startDate, setStartDate] = useState(null);
   const [imagePreviewUrl, setImagePreviewUrl] = useState(null);
   const imagePreviewInput = useRef(null);
-
-  const { isLoggedIn } = useSelector((state: State) => state.general)
 
   const previewChange = (event) => {
     event.preventDefault();
@@ -76,15 +75,8 @@ export const Create = () => {
         formData.append('description', description);
         formData.append('date', date);
         formData.append('city', city);
-        await axios({
-          method: 'POST',
-          url: `${process.env.API}/posts`,
-          headers: {
-            'Authorization': `Bearer ${cookie.get('token')}`
-          },
-          data: formData
-        });
 
+        await profileService.createPost(formData);
         setIsSuccess(true);
       } catch (error) {
         switch (error?.response?.status) {

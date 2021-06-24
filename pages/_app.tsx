@@ -6,7 +6,7 @@ import '@fortawesome/fontawesome-free/js/regular';
 import '@fortawesome/fontawesome-free/js/brands';
 import '../styles/globals.scss'
 
-import { store } from '../store/store';
+import store from '../store/store';
 
 
 function MyApp({ Component, pageProps }) {

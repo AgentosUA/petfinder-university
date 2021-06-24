@@ -1,5 +1,5 @@
 .modal {
-  margin: 20vh auto 0 auto;
+  margin: 20vh auto 20vh auto;
   padding: 10px;
   width: 100%;
   max-width: 650px;
@@ -19,6 +19,7 @@
   width: 100%;
   height: 100%;
   z-index: 999999;
+  overflow-y: scroll;
 }
 
 .title {

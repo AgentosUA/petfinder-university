@@ -3,6 +3,7 @@ import { Fragment, useEffect, useState } from 'react';
 
 import styles from './posts.module.scss';
 import { profileService } from '@api';
+import { Edit } from './edit';
 
 
 const Posts = ({ posts = [] }) => {
@@ -31,6 +32,29 @@ const Posts = ({ posts = [] }) => {
     }
   }
 
+  const onEditPost = async ({ name, type, status, image, gender, description, date, city }) => {
+    try {
+
+      const formData = new FormData();
+      formData.append('name', name);
+      formData.append('type', type.value);
+      formData.append('status', status.value);
+      formData.append('gender', gender.value);
+      formData.append('description', description);
+      formData.append('city', city);
+      formData.append('date', date);
+      formData.append('image', image);
+      
+      await profileService.updatePost(selectedPost.id, formData);
+      
+    } catch (error) {
+
+    }
+    finally {
+      setShowEditModal(false);
+    }
+  };
+
   return (
     <Fragment>
       <div className={styles.posts}>
@@ -40,7 +64,7 @@ const Posts = ({ posts = [] }) => {
             <Button link='/create'>Створити оголошення</Button>
           </div>
         </Fragment>}
-        {postsLocal.map(({ name, type, city, gender, image, status, date, _id: id }) => {
+        {postsLocal.map(({ name, type, city, gender, image, status, description, date, _id: id }) => {
           const generatedDate = new Date(date);
           const day = generatedDate.getDate();
           const month = generatedDate.getMonth() + 1;
@@ -59,7 +83,7 @@ const Posts = ({ posts = [] }) => {
               </ul> */}
               <Button
                 onClick={() => {
-                  setSelectedPost({ id, name, type, city, gender, image, status, date });
+                  setSelectedPost({ id, name, type, city, gender, description, image, status, date });
                   setShowEditModal(true);
                 }}
               >
@@ -67,7 +91,7 @@ const Posts = ({ posts = [] }) => {
               </Button>
               <Button
                 onClick={() => {
-                  setSelectedPost({ id, name, type, city, gender, image, status, date });
+                  setSelectedPost({ id, name, type, city, gender, description, image, status, date });
                   setShowDeleteModal(true);
                 }}
               >
@@ -80,15 +104,12 @@ const Posts = ({ posts = [] }) => {
 
         {showEditModal &&
           (<Modal
-            title='Ви точно хочете видалити це оголошення?'
-            type='save'
-            onConfirm={() => setShowEditModal(false)}
+            title='Редагувати оголошення'
+            type='empty'
+            onConfirm={onEditPost}
             onClose={() => setShowEditModal(false)}
           >
-            <div className={styles.modalPost}>
-              <img className={styles.image} src={selectedPost?.image} alt='animal' />
-              <h3 className={styles.name}>{selectedPost?.name}</h3>
-            </div>
+            <Edit post={selectedPost} onClose={() => setShowEditModal(false)} onSubmit={onEditPost} />
           </Modal>)
         }
 
