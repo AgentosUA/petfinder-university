@@ -49,11 +49,12 @@ const Posts = ({ posts = [] }) => {
       formData.append('image', image);
 
       await profileService.updatePost(selectedPost.id, formData);
-      dispatch(getProfile())
+      
     } catch (error) {
 
     }
     finally {
+      dispatch(getProfile())
       setShowEditModal(false);
     }
   };
