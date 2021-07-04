@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 const useMediaPoints = (exact: boolean = false) => {
   const isSSR = typeof window === "undefined";
   const [windowSize, setWindowSize] = useState({
-    width: isSSR ? 1200 : window.innerWidth,
+    width: isSSR ? 767 : window.innerWidth,
     height: isSSR ? 800 : window.innerHeight,
   });
 

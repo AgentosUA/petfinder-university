@@ -9,6 +9,7 @@
   }
 
   @include mobile {
+    margin: 0 auto;
     img {
       margin: 0 auto;
       text-align: center;

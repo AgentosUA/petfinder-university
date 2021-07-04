@@ -5,7 +5,7 @@ import Link from 'next/link';
 import DatePicker, { registerLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import uk from 'date-fns/locale/uk';
-import { animalType, animalGender, animalStatus } from '@shared';
+import { animalType, animalGender, animalStatus, useMediaPoints } from '@shared';
 import { useEffect, useState } from 'react';
 import { Button } from '@components';
 import Router from 'next/router';
@@ -16,6 +16,7 @@ registerLocale('uk', uk)
 
 const MainSearch = () => {
   const dispatch = useDispatch();
+  const { mobile } = useMediaPoints(true);
   const [startDate, setStartDate] = useState(null);
   const { searchParams: { type, gender, status, city, date } } = useSelector((state: State) => state.general)
 
@@ -51,7 +52,8 @@ const MainSearch = () => {
     container: (provided) => {
       return {
         ...provided,
-        marginRight: '5px'
+        marginRight: mobile ? 0 : '5px',
+        marginBottom: '6px'
       }
     },
     controls: (provided) => {

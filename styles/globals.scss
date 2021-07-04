@@ -1,3 +1,5 @@
+@import './media.scss';
+
 * {
   box-sizing: border-box;
 }
@@ -25,11 +27,13 @@ body {
   font-family: 'Roboto', Tahoma, sans-serif;
 }
 
-#modal {
-  
-}
-
 a {
   color: inherit;
   text-decoration: none;
+}
+
+.react-datepicker-wrapper {
+  @include mobile {
+    width: 100%;
+  }
 }

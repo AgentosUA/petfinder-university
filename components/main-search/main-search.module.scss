@@ -5,6 +5,9 @@
   padding: 15px;
   background: $grey;
   height: 300px;
+  @include mobile {
+    height: auto;
+  }
 }
 
 .titleWrapper {
@@ -20,7 +23,7 @@
   margin: 0;
   padding: 0;
   color: $orange;
-  font-size: 46px;  
+  font-size: 46px;
 }
 
 .subtitle {
@@ -33,9 +36,14 @@
   margin: 40px auto;
   justify-content: center;
   display: flex;
+  @include mobile {
+    width: 100%;
+    display: block;
+  }
 }
 
 .input {
+  margin-bottom: 6px;
   margin-right: 5px;
   height: 40px;
   width: 130px;
@@ -44,6 +52,12 @@
   outline: none;
   font-size: 16px;
   border-radius: 6px;
+  @include mobile {
+    width: 100%;
+    display: block;
+    text-align: left;
+    padding-left: 12px;
+  }
 }
 
 .button {
@@ -59,7 +73,10 @@
   font-family: 'Roboto';
   border-radius: 6px;
   &:hover {
-    background: #F08400;
+    background: #f08400;
+  }
+  @include mobile {
+    width: 100%;
   }
 }
 
@@ -70,5 +87,13 @@
   max-width: 940px;
   button {
     max-width: 300px;
+  }
+  @include mobile {
+    display: block;
+    width: 100%;
+    button {
+      max-width: 100%;
+      width: 100%;
+    }
   }
 }
