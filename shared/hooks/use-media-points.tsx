@@ -22,7 +22,7 @@ const useMediaPoints = (exact: boolean = false) => {
     };
   }, []);
 
-  let tablet = windowSize.width >= 800;
+  let tablet = windowSize.width >= 767;
   let desktop = windowSize.width >= 1244;
 
   if (exact) {

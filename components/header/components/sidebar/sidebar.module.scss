@@ -12,7 +12,7 @@
   height: 100%;
   background: #fff;
   border-right: 2px solid $grey;
-  z-index: 9999;
+  z-index: 100;
 }
 
 .sidebar a {
@@ -31,5 +31,8 @@
 }
 
 .icon {
+  margin: 10px 0 0 10px;
   color: $grey;
+  font-size: 18px;
+
 }

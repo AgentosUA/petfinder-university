@@ -133,11 +133,11 @@ export const Create = () => {
               })}
             </ul>}
             <label htmlFor='type'>Тип тваринки</label>
-            <Select options={animalType} styles={inputStyles} placeholder='Тип' onChange={({ value }) => setFieldValue('type', value)} name='type' />
+            <Select options={animalType} isOptionDisabled={(option) => option.value === 'all'} styles={inputStyles} placeholder='Тип' onChange={({ value }) => setFieldValue('type', value)} name='type' />
             <label htmlFor='status'>Статус тваринки</label>
-            <Select options={animalStatus} styles={inputStyles} placeholder='Статус' onChange={({ value }) => setFieldValue('status', value)} name='status' />
+            <Select options={animalStatus} isOptionDisabled={(option) => option.value === 'all'} styles={inputStyles} placeholder='Статус' onChange={({ value }) => setFieldValue('status', value)} name='status' />
             <label htmlFor='gender'>Стать тваринки</label>
-            <Select options={animalGender} styles={inputStyles} placeholder='Стать' onChange={({ value }) => setFieldValue('gender', value)} name='gender' />
+            <Select options={animalGender} isOptionDisabled={(option) => option.value === 'all'} styles={inputStyles} placeholder='Стать' onChange={({ value }) => setFieldValue('gender', value)} name='gender' />
             <label htmlFor='city'>Місто</label>
             <input placeholder='Місто' onChange={handleChange} name='city' />
             <label htmlFor='name'>Ім'я тваринки</label>

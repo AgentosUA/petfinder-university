@@ -2,12 +2,13 @@ import { login, logout, startup, State } from '@store';
 import { Fragment, useEffect, useLayoutEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import cookieCutter from 'cookie-cutter';
+import { Sidebar } from 'components/header/components';
 import { Header, Footer } from '..';
 import styles from './layout.module.scss';
 
 const Layout = ({ children }) => {
   const dispatch = useDispatch();
-  const { isLoggedIn } = useSelector((state: State) => state.general);
+  const { isLoggedIn, isSidebarVisible } = useSelector((state: State) => state.general);
 
   useEffect(() => {
     const token = cookieCutter.get('token');
@@ -31,6 +32,7 @@ const Layout = ({ children }) => {
   return (
     <Fragment>
       <Header />
+      {isSidebarVisible && <Sidebar />}
       <main className={styles.main}>
         {children}
       </main>

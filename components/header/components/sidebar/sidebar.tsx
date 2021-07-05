@@ -17,7 +17,7 @@ const Sidebar = () => {
     dispatch(setSidebarVisible(false));
   }
   return (
-    <div className={styles.sidebar}>
+    <div className={styles.sidebar} onClick={onMenuClick}>
       <FontAwesomeIcon icon={faTimes} onClick={onMenuClick} className={styles.icon} />
       <Logo />
       <NavLinks />

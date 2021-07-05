@@ -19,6 +19,31 @@
   align-items: center;
   display: flex;
   overflow: hidden;
+  @include mobile {
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 15px;
+    position: fixed;
+    justify-content: space-between;
+    display: flex;
+    z-index: 1;
+    background: $grey;
+    width: 100%;
+    font-size: 18px;
+  }
+
+  @include tablet {
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 15px;
+    position: fixed;
+    justify-content: space-between;
+    display: flex;
+    z-index: 1;
+    background: $grey;
+    width: 100%;
+    font-size: 18px;
+  }
 }
 
 

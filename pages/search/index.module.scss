@@ -17,4 +17,8 @@
   display: flex;
   justify-content: left;
   flex-wrap: wrap;
+
+  @include mobile {
+    justify-content: center;
+  }
 }

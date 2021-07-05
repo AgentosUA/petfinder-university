@@ -143,6 +143,7 @@ export const Edit = ({ post, onClose, onSubmit }) => {
           value={values.type}
           styles={inputStyles}
           placeholder='Тип'
+          isOptionDisabled={(option) => option.value === 'all'}
           onChange={(value) => setFieldValue('type', value)}
           name='type'
         />
@@ -152,6 +153,7 @@ export const Edit = ({ post, onClose, onSubmit }) => {
           value={values.status}
           styles={inputStyles}
           placeholder='Статус'
+          isOptionDisabled={(option) => option.value === 'all'}
           onChange={(value) => setFieldValue('status', value)}
           name='status'
         />
@@ -161,6 +163,7 @@ export const Edit = ({ post, onClose, onSubmit }) => {
           value={values.gender}
           styles={inputStyles}
           placeholder='Стать'
+          isOptionDisabled={(option) => option.value === 'all'}
           onChange={(value) => setFieldValue('gender', value)}
           name='gender'
         />

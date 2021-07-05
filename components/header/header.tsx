@@ -31,7 +31,7 @@ const Header = () => {
         </div>
       )}
 
-      {!desktop && (
+      {!desktop && !isSidebarVisible && (
         <div className={styles.wrapper}>
           {!isSidebarVisible && (
             <Fragment>
@@ -42,10 +42,13 @@ const Header = () => {
               />
             </Fragment>
           )}
-          {isSidebarVisible && <Sidebar />}
-          <Logo />
+          <div>
+            <Logo />
+          </div>
         </div>
       )}
+
+      
     </header>
   );
 };

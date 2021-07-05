@@ -17,8 +17,10 @@ registerLocale('uk', uk)
 const MainSearch = () => {
   const dispatch = useDispatch();
   const { mobile } = useMediaPoints(true);
-  const [startDate, setStartDate] = useState(null);
   const { searchParams: { type, gender, status, city, date } } = useSelector((state: State) => state.general)
+  const [paramDay, paramMonth, paramYear] = String(date).split('.');
+  const defaultDate = (date === 'all' || date === '') ? null : new Date(`${paramMonth}/${paramDay}/${paramYear}`);
+  const [startDate, setStartDate] = useState(defaultDate);
 
   const updateSearchParams = (params) => {
     dispatch(setSearchParams(params))
@@ -81,8 +83,8 @@ const MainSearch = () => {
           placeholderText='Дата'
           selected={startDate}
           dateFormat='dd/MM/yyyy'
-          value={startDate}
-          onChange={value => {setStartDate(value || null)}}
+          value={startDate as any}
+          onChange={value => {setStartDate(value as any || null); updateSearchParams({ type, gender, status, city, date: value || 'all' })}}
         />
         <button onClick={() => Router.push(`/search?type=${type || 'all'}&gender=${gender || 'all'}&status=${status || 'all'}&city=${city || 'all'}&date=${date || 'all'}&page=1`)} className={styles.button}>Шукати</button>
 
