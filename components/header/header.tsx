@@ -10,7 +10,7 @@ import { setSidebarVisible, State } from '@store';
 
 const Header = () => {
   const dispatch = useDispatch();
-  const { desktop } = useMediaPoints();
+  const { desktop, mobile } = useMediaPoints(true);
   const { isSidebarVisible } = useSelector((state: State) => state.general);
 
   const onMenuClick = () => {
@@ -31,7 +31,7 @@ const Header = () => {
         </div>
       )}
 
-      {!desktop && !isSidebarVisible && (
+      {mobile && !isSidebarVisible && (
         <div className={styles.wrapper}>
           {!isSidebarVisible && (
             <Fragment>
