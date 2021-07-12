@@ -1,4 +1,5 @@
 const withImages = require('next-images')
+const envs = require('./config/local.json');
 module.exports = withImages({
   fileExtensions: ["jpg", "jpeg", "png", "gif"],
   webpack(config, options) {
@@ -8,7 +9,5 @@ module.exports = withImages({
     autoPrerender: false,
   },
   // ENVs
-  env: {
-    API: 'http://localhost:3000',
-  },
+  env: envs ? { ...envs } : {},
 })
