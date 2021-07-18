@@ -6,4 +6,9 @@ jobs:
   Deploy:
     runs-on: self-hosted
     steps:
-      - run: mkdir test
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+    - run: npm ci
+    - run: npm run build
