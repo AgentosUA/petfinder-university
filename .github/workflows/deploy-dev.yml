@@ -6,5 +6,5 @@ jobs:
   Deploy:
     runs-on: ubuntu-latest
     steps:
-      - run: ssh {{ secrets.ssh_user }}@{{ ssh.ip }} -p {{ ssh.port }}
+      - run: ssh {{ secrets.SSH_USER }}@{{ SSH_IP }} -p {{ SSH_PORT }}
       - run: mkdir test
