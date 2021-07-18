@@ -4,7 +4,7 @@ on:
     branches: [ dev ]
 jobs:
   Deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
       - run: ssh {{ secrets.SSH_USER }}@{{ SSH_IP }} -p {{ SSH_PORT }}
       - run: mkdir test
