@@ -1,0 +1,9 @@
+name: Autodeploy dev
+on: 
+  push:
+    branches: [ dev ]
+jobs:
+  Deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "test"
