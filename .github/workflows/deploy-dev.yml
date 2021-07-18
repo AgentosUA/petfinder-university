@@ -6,6 +6,7 @@ jobs:
   Deploy:
     runs-on: self-hosted
     steps:
-      - uses: actions/checkout@dev
+      - uses: actions/checkout@v2
+      - run: git checkout dev
       - run: npm ci
       - run: npm run build
