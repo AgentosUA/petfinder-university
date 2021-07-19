@@ -9,6 +9,6 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: dev
-      - run: cd ~/envs/petfinder && cp local.json ~/deploy/deploy/petfinder/petfinder
+      - run: cd ~/envs/petfinder && cp local.json ~/deploy/deploy/petfinder/petfinder/config
       - run: npm ci
       - run: npm run build
