@@ -10,5 +10,6 @@ jobs:
         with:
           ref: dev
       - run: cd ~/envs/petfinder && cp local.json ~/deploy/deploy/petfinder/petfinder/config
+      - run: cp ~/deploy/deploy/petfinder/petfinder/ ~/dev
       - run: npm ci
       - run: npm run build
