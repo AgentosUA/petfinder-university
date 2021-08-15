@@ -12,4 +12,4 @@ jobs:
       - run: cd ~/envs/petfinder-dev && cp local.json ~/deploy/deploy/petfinder/petfinder/config
       - run: npm ci
       - run: npm run build
-      - run: cp -R ~/deploy/deploy/petfinder/petfinder/.next ~/dev/petfinder
+      - run: cp -R ~/deploy/deploy/petfinder/petfinder ~/dev
