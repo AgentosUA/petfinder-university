@@ -44,7 +44,7 @@ export const Login = ({ redirect }: LoginProps) => {
           Router.push(redirect);
         }
       } catch (error) {
-        if (error?.response?.status === 400) {
+        if (error?.response?.status === 400 || error?.response?.status === 404) {
           setErrors({ email: 'Невірна пошта або пароль!' });
           return;
         }
