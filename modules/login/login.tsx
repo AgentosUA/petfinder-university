@@ -37,18 +37,17 @@ export const Login = ({ redirect }: LoginProps) => {
     validateOnBlur: false,
     onSubmit: async ({ email, password }) => {
       try {
-        const [{ token, expiresIn }, statusCode] = await authService.login(email, password);
-
-        if (statusCode === 400) {
-          setErrors({ email: 'Невірна пошта або пароль!' });
-          return;
-        }
+        const [{ token, expiresIn }] = await authService.login(email, password);
 
         dispatch(login({ token, expiresIn }));
         if (redirect) {
           Router.push(redirect);
         }
       } catch (error) {
+        if (error?.response?.status === 400) {
+          setErrors({ email: 'Невірна пошта або пароль!' });
+          return;
+        }
         setErrors({ email: 'Сталась критична помилка, спробуйте ще раз!' });
       }
     }

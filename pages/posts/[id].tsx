@@ -77,7 +77,7 @@ export default function Search({ query: { id } }) {
                   <h3 className={styles.name}>{post.name}</h3>
                   <ul className={styles.details}>
                     <li><b>Тип:</b> {AnimalType[post.type]}</li>
-                    <li><b>Статус:</b> {AnimalStatus[status]}</li>
+                    <li><b>Статус:</b> {AnimalStatus[post.status]}</li>
                     <li><b>Стать:</b> {AnimalGender[post.gender]}</li>
                     <li><b>Місто:</b> {post.city}</li>
                     <li><b>Дата:</b> {String(day).length > 1 ? day : `0${day}`}.{String(month).length > 1 ? month : `0${month}`}.{year}</li>
