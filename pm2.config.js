@@ -1,4 +1,4 @@
-import { PORT } from './config/local.json';
+const { PORT } = require('./config/local.json');
 
 module.exports = {
   apps: [{
