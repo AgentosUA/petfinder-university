@@ -3,6 +3,8 @@ const { PORT } = require('./config/local.json');
 module.exports = {
   apps: [{
     name: "petfinder-app",
-    script: `npm --name "petfinder-dev" --watch -- start -- -p ${PORT || 2000}`
+    watch: true,
+    script: "npm",
+    args: `start --p ${PORT || 4000}`
   }]
 }
