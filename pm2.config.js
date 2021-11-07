@@ -5,6 +5,6 @@ module.exports = {
     name: "petfinder-app",
     watch: true,
     script: "npm",
-    args: `start --p ${PORT || 4000}`
+    args: `start -p ${PORT || 4000}`
   }]
 }
