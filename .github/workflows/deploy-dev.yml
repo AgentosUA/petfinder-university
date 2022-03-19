@@ -12,5 +12,6 @@ jobs:
           ref: dev
       - run: env
       - run: npm ci
-      - run: cd config && echo "${{ secrets.CONFIG }}" > local.json
+      #- run: cd config && echo "${{ secrets.CONFIG }}" > local.json
+      - run: cd config && echo "{\"API\": \"https://dev.petfinder.com.ua/api\",\"MAPS\": \"AIzaSyDFcgjFmW1IFDT8TV-fce4iFWvN3PA148g\",\"PORT\": 4000}" > local.json
       - run: npm run build
