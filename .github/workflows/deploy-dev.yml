@@ -5,15 +5,14 @@ on:
 jobs:
   Deploy:
     runs-on: self-hosted
-    environment: 
-      name: dev
-      url: https://github.com
+    environment: dev
     steps:
       - uses: actions/checkout@v2
         with:
           ref: dev
       - run: env
+      - run: ${{ secrets.CONFIG }}
       #- run: cd /home/petfinder/envs/dev/frontend && cp local.json /home/petfinder/github-actions/frontend/_work/petfinder/petfinder/config
       #- run: npm ci
-      #- run: cd config && echo "${{ github.env.dev.local }}" > local.json
+      - run: cd config && echo "${{ secrets.CONFIG }}" > local.json
       #- run: npm run build
