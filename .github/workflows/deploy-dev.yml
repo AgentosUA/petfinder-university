@@ -14,6 +14,6 @@ jobs:
           ref: dev
       #- run: cd /home/petfinder/envs/dev/frontend && cp local.json /home/petfinder/github-actions/frontend/_work/petfinder/petfinder/config
       - run: npm ci
-      - run: cd config && echo "{github.env.dev.local}" > local.json
+      - run: cd config && echo "${{ github.env.dev.local }}" > local.json
       - run: npm run build
       #- run: cp -a /home/petfinder/github-actions/frontend/_work/petfinder/petfinder/. /home/petfinder/deployed/dev/frontend/
