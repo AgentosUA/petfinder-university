@@ -11,11 +11,11 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: dev
-      - run: npm ci
       - name: set config
         uses: jsdaniell/create-json@1.1.2
         with:
           name: "config.json"
           json: ${{ secrets.CONFIG }}
           dir: './config'
+      - run: npm ci
       - run: npm run build
