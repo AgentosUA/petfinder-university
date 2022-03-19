@@ -7,11 +7,15 @@ jobs:
     runs-on: self-hosted
     environment: dev
     steps:
-      - uses: actions/checkout@v2
+      - name: checkout
+        uses: actions/checkout@v2
         with:
           ref: dev
-      - run: env
-      - run: secrets      
-      #- run: npm ci
-      #- run: cd config && echo "${{ secrets.CONFIG }}" > local.json
-      #- run: npm run build
+      - run: npm ci
+      - name: set config
+        uses: jsdaniell/create-json@1.1.2
+        with:
+          name: "config.json"
+          json: ${{ secrets.CONFIG }}
+          dir: './config'
+      - run: npm run build
