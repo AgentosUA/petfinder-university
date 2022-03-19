@@ -1,7 +1,7 @@
 name: Autodeploy dev
-on: 
+on:
   push:
-    branches: [ dev ]
+    branches: [dev]
 jobs:
   Deploy:
     runs-on: self-hosted
@@ -11,8 +11,6 @@ jobs:
         with:
           ref: dev
       - run: env
-      - run: ${{ secrets.CONFIG }}
-      #- run: cd /home/petfinder/envs/dev/frontend && cp local.json /home/petfinder/github-actions/frontend/_work/petfinder/petfinder/config
-      #- run: npm ci
+      - run: npm ci
       - run: cd config && echo "${{ secrets.CONFIG }}" > local.json
-      #- run: npm run build
+      - run: npm run build
