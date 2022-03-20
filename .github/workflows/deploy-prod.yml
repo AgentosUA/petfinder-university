@@ -1,15 +1,21 @@
-name: Autodeploy dev
-on: 
+name: Autodeploy prod
+on:
   push:
-    branches: [ master ]
+    branches: [master]
 jobs:
   Deploy:
     runs-on: self-hosted
+    environment: prod
     steps:
-      - uses: actions/checkout@v2
+      - name: checkout
+        uses: actions/checkout@v2
         with:
           ref: master
-      #- run: cd ~/envs/petfinder-dev && cp local.json ~/deploy/deploy/petfinder/petfinder/config
-      #- run: npm ci
-      #- run: npm run build
-      #- run: cp -R ~/deploy/deploy/petfinder/petfinder ~/dev
+      - run: npm ci
+      - name: set config
+        uses: jsdaniell/create-json@1.1.2
+        with:
+          name: "config.json"
+          json: ${{ secrets.CONFIG }}
+          dir: './config'
+      - run: npm run build
