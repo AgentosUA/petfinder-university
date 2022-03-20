@@ -5,6 +5,6 @@ module.exports = {
     name: "app-dev",
     watch: true,
     script: './node_modules/next/bin/next',
-    node_args: `start -p ${PORT || 4000}`
+    node_args: `start -- -p ${PORT || 4000}`
   }]
 }

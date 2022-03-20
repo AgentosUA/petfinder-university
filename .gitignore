@@ -33,3 +33,4 @@ yarn-error.log*
 local.json
 # vercel
 .vercel
+config.json
