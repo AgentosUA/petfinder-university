@@ -1,22 +1,19 @@
 import styles from './main-search.module.scss';
 import Select from 'react-select';
-import Creatable from 'react-select/creatable';
-import Link from 'next/link';
-import DatePicker, { registerLocale } from "react-datepicker";
+import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import uk from 'date-fns/locale/uk';
-import { animalType, animalGender, animalStatus, useMediaPoints } from '@shared';
+import { animalType, animalGender, animalStatus } from '@shared';
 import { useEffect, useState } from 'react';
 import { Button } from '@components';
 import Router from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSearchParams, State } from '@store';
 
-registerLocale('uk', uk)
+// registerLocale('uk', uk)
 
 const MainSearch = () => {
   const dispatch = useDispatch();
-  const { mobile } = useMediaPoints(true);
+  // const { mobile } = useMediaPoints(true);
   const { searchParams: { type, gender, status, city, date } } = useSelector((state: State) => state.general)
   const [paramDay, paramMonth, paramYear] = String(date).split('.');
   const defaultDate = (date === 'all' || date === '') ? null : new Date(`${paramMonth}/${paramDay}/${paramYear}`);
@@ -54,7 +51,7 @@ const MainSearch = () => {
     container: (provided) => {
       return {
         ...provided,
-        marginRight: mobile ? 0 : '5px',
+        marginRight: '5px',
         marginBottom: '6px'
       }
     },

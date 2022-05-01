@@ -3,14 +3,14 @@ import { Container, Layout, MainSearch, Instruction } from '@components';
 
 export default function Home() {
   return (
-      <Layout>
-        <Head>
-          <title>Petfinder | Знайди свою тваринку!</title>
-        </Head>
-        <MainSearch />
-        <Container>
-          <Instruction />
-        </Container>
-      </Layout>
-    )
+    <Layout>
+      <Head>
+        <title>Petfinder | Знайди свою тваринку!</title>
+      </Head>
+      <MainSearch />
+      <Container>
+        <Instruction />
+      </Container>
+    </Layout>
+  );
 }

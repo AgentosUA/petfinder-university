@@ -8,12 +8,13 @@ import { useSelector } from 'react-redux';
 import { State } from '@store';
 import Router from 'next/router';
 
-
 export default function LoginPage() {
-  const { general: { isLoggedIn } } = useSelector((state: State) => state)
+  const {
+    general: { isLoggedIn }
+  } = useSelector((state: State) => state);
 
   if (isLoggedIn) {
-    Router.push('/')
+    Router.push('/');
   }
 
   return (
@@ -26,5 +27,5 @@ export default function LoginPage() {
         {isLoggedIn ? <Preloader /> : <Login redirect='/' />}
       </Container>
     </Layout>
-  )
-};
+  );
+}

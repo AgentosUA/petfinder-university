@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimes } from '@fortawesome/free-solid-svg-icons'
+
 import { Logo } from '../logo';
 import { AuthLinks } from '../auth-links';
 import { NavLinks } from '../nav-links';
@@ -18,7 +17,7 @@ const Sidebar = () => {
   }
   return (
     <div className={styles.sidebar} onClick={onMenuClick}>
-      <FontAwesomeIcon icon={faTimes} onClick={onMenuClick} className={styles.icon} />
+      {/* <FontAwesomeIcon icon={faTimes} onClick={onMenuClick} className={styles.icon} /> */}
       <Logo />
       <NavLinks />
       <br />
