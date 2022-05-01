@@ -9,13 +9,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import Router from 'next/router';
 import { logout, State } from '@store';
 
-const Profile = ({ name, posts = [], pets = [], imageUrl = '', phone = '' }) => {
+const Profile = ({
+  name,
+  posts = [],
+  pets = [],
+  imageUrl = '',
+  phone = ''
+}) => {
   const dispatch = useDispatch();
 
   const onLogOutClick = () => {
     dispatch(logout());
     Router.push('/');
-  }
+  };
 
   return (
     <Fragment>
@@ -23,15 +29,24 @@ const Profile = ({ name, posts = [], pets = [], imageUrl = '', phone = '' }) => 
         <img src={imageUrl || '/avatar.png'} alt='avatar' />
         <div className={styles.description}>
           <h3 className={styles.username}>{name}</h3>
-          <p><b>Телефон: </b>{phone}</p>
-          <p><b>Оголошень: </b>{posts.length}</p>
-          <p><b>Улюбленців: </b>{pets.length}</p>
+          <p>
+            <b>Телефон: </b>
+            {phone}
+          </p>
+          <p>
+            <b>Оголошень: </b>
+            {posts.length}
+          </p>
+          <p>
+            <b>Улюбленців: </b>
+            {pets.length}
+          </p>
         </div>
         {/* <Button theme='light'>Редагувати</Button> */}
         <Button onClick={onLogOutClick}>Вийти</Button>
       </div>
-    </Fragment >
-  )
-}
+    </Fragment>
+  );
+};
 
 export { Profile };

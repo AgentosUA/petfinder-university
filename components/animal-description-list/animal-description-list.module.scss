@@ -1,0 +1,11 @@
+@import '@core-css';
+
+.details {
+  list-style: none;
+  padding-left: 0;
+  line-height: 25px;
+
+  svg: {
+    height: 15px;
+  }
+}

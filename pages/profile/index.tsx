@@ -16,7 +16,9 @@ enum TabNames {
 }
 
 export default function Home() {
-  const { counter: profileCounter } = useSelector((state: State) => state.profile)
+  const { counter: profileCounter } = useSelector(
+    (state: State) => state.profile
+  );
   const [isLoading, setIsLoading] = useState(true);
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
@@ -26,33 +28,29 @@ export default function Home() {
 
   const [selectedTab, setSelectedTab] = useState(TabNames.profile);
 
-  const { isLoggedIn } = useSelector((state: State) => state.general)
+  const { isLoggedIn } = useSelector((state: State) => state.general);
 
   useEffect(() => {
     if (!isLoggedIn) {
       Router.push('/');
       return;
     }
-    
+
     const fetch = async () => {
       try {
-        const [{ name, pets, posts, role, phone }, statusCode] = await profileService.profile();
+        const [{ name, pets, posts, role, phone }, statusCode] =
+          await profileService.profile();
         setName(name);
         setPhone(phone);
         setRole(role);
         setPets(pets);
         setPosts(posts);
-        
+      } catch (error) {}
+    };
 
-        
-      } catch (error) {
-        
-      }
-    }
-    
     fetch();
     setIsLoading(false);
-  }, [selectedTab, profileCounter])
+  }, [selectedTab, profileCounter]);
 
   return (
     <Layout>
@@ -61,33 +59,42 @@ export default function Home() {
       </Head>
       <MainSearch />
       <Container>
-        {isLoading ? <Preloader /> : (
+        {isLoading ? (
+          <Preloader />
+        ) : (
           <Fragment>
             <h2 className={styles.title}>Особистий кабінет</h2>
             <nav className={styles.nav}>
               <button
-                className={selectedTab === TabNames.profile ? styles.selected : ''}
-                onClick={() => setSelectedTab(TabNames.profile)}>
+                className={
+                  selectedTab === TabNames.profile ? styles.selected : ''
+                }
+                onClick={() => setSelectedTab(TabNames.profile)}
+              >
                 Профіль
               </button>
               <button
-                className={selectedTab === TabNames.posts ? styles.selected : ''}
-                onClick={() => setSelectedTab(TabNames.posts)}>
+                className={
+                  selectedTab === TabNames.posts ? styles.selected : ''
+                }
+                onClick={() => setSelectedTab(TabNames.posts)}
+              >
                 Оголошення
               </button>
-              <button
+              {/* <button
                 className={selectedTab === TabNames.pets ? styles.selected : ''}
                 onClick={() => setSelectedTab(TabNames.pets)}>
                 Улюбленці
-              </button>
+              </button> */}
             </nav>
-            {selectedTab === TabNames.profile && <Profile name={name} posts={posts} pets={pets} phone={phone} />}
+            {selectedTab === TabNames.profile && (
+              <Profile name={name} posts={posts} pets={pets} phone={phone} />
+            )}
             {selectedTab === TabNames.posts && <Posts posts={posts} />}
             {selectedTab === TabNames.pets && <Pets />}
           </Fragment>
         )}
-
       </Container>
     </Layout>
-  )
+  );
 }

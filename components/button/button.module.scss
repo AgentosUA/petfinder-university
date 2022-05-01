@@ -3,10 +3,10 @@
 .button {
   margin-top: 5px;
   margin-bottom: 5px;
-  width: 100%;
+  padding: 12px 30px;
+  width: auto;
   border: none;
-  height: 40px;
-  background: $orange;
+  // height: 40px;
   color: #fff;
   cursor: pointer;
   font-weight: 600;
@@ -14,17 +14,26 @@
   outline: none;
   font-family: 'Roboto';
   border-radius: 6px;
-  &:hover {
-    background: $orange-dark;
-  }
-
   &:disabled {
     background: $grey-light;
   }
 }
 
+.fullWidth {
+  width: 100%;
+}
+
+.dark {
+  background: $orange;
+
+  &:hover {
+    background: $orange-dark;
+  }
+}
+
 .light {
   background: $grey;
+
   &:hover {
     background: lighten($color: $grey, $amount: 10);
   }

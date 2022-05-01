@@ -9,39 +9,48 @@ import { Pagination } from '@modules';
 import { postsService } from '@api';
 
 Search.getInitialProps = ({ query }) => {
-  return { query }
-}
+  return { query };
+};
 
-export default function Search({ query: { type, gender, status, city, date, page } }) {
+export default function Search({
+  query: { type, gender, status, city, date, page }
+}) {
   const [posts, setPosts] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(Number(page) || 1);
-  const [currentLimit, setCurrentLimit] = useState(0)
+  const [currentLimit, setCurrentLimit] = useState(0);
 
   const fetchPosts = async () => {
     setIsLoading(true);
     try {
-      const [{ posts, totalCount, limit }, statusCode] = await postsService.searchPost({ currentPage, type, status, city, date, gender });
+      const [{ posts, totalCount, limit }, statusCode] =
+        await postsService.searchPost({
+          currentPage,
+          type,
+          status,
+          city,
+          date,
+          gender
+        });
 
-      if(statusCode === 404) return;
+      if (statusCode === 404) return;
 
       setPosts(posts);
-      setCurrentLimit(limit)
+      setCurrentLimit(limit);
       setTotalCount(totalCount);
       setIsLoading(false);
-
     } catch (error) {
       // TODO: Popup with error
     } finally {
       setIsLoading(false);
     }
-  }
+  };
 
   useEffect(() => {
     setCurrentPage(page);
     fetchPosts();
-  }, [type, gender, status, city, date, currentPage, page])
+  }, [type, gender, status, city, date, currentPage, page]);
 
   return (
     <Layout>
@@ -50,22 +59,53 @@ export default function Search({ query: { type, gender, status, city, date, page
       </Head>
       <MainSearch />
       <Container>
-        {isLoading ?
-          <div className={styles.preloader}><img src='loading_light.gif' alt='Preloader' /></div>
-          : (
-            <Fragment>
-              {<h3 className={styles.title}>{posts.length ? `Оголошень: ${totalCount}` : 'Нічого не знайдено!'}</h3>}
-              {Boolean(posts.length) && (<Pagination city={city} currentLimit={currentLimit} date={date} gender={gender} status={status} type={type} totalCount={totalCount} currentPage={currentPage} />)}
-              <div className={styles.posts}>
-                {
-                  posts.map(({ _id, name, type, gender, status, city, date, image }) => {
-                    return <Post key={_id} id={_id} name={name} type={type} gender={gender} status={status} city={city} date={date} imgUrl={image} />
-                  })
+        {isLoading ? (
+          <div className={styles.preloader}>
+            <img src='loading_light.gif' alt='Preloader' />
+          </div>
+        ) : (
+          <Fragment>
+            {
+              <h3 className={styles.title}>
+                {posts.length
+                  ? `Оголошень: ${totalCount}`
+                  : 'Нічого не знайдено!'}
+              </h3>
+            }
+            {Boolean(posts.length) && (
+              <Pagination
+                city={city}
+                currentLimit={currentLimit}
+                date={date}
+                gender={gender}
+                status={status}
+                type={type}
+                totalCount={totalCount}
+                currentPage={currentPage}
+              />
+            )}
+            <div className={styles.posts}>
+              {posts.map(
+                ({ _id, name, type, gender, status, city, date, image }) => {
+                  return (
+                    <Post
+                      key={_id}
+                      id={_id}
+                      name={name}
+                      type={type}
+                      gender={gender}
+                      status={status}
+                      city={city}
+                      date={date}
+                      imgUrl={image}
+                    />
+                  );
                 }
-              </div>
-            </Fragment>
-          )}
+              )}
+            </div>
+          </Fragment>
+        )}
       </Container>
     </Layout>
-  )
-};
+  );
+}

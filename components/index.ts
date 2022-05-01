@@ -9,3 +9,4 @@ export * from './preloader';
 export * from './button';
 export * from './modal';
 export * from './instruction';
+export * from './animal-description-list';
