@@ -84,7 +84,7 @@ export default function Search({ query: { id } }) {
                     </p>
                   </Fragment>
                 ) : (
-                  <Button onClick={() => setShowContacts(true)}>
+                  <Button fullWidth onClick={() => setShowContacts(true)}>
                     Контакти автора
                   </Button>
                 )}

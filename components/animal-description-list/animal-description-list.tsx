@@ -8,6 +8,7 @@ import { FaPaw as PawIcon } from 'react-icons/fa';
 import { BsGenderAmbiguous as GenderIcon } from 'react-icons/bs';
 import { GrStatusInfo as StatusIcon } from 'react-icons/gr';
 import { MdLocationOn as LocationIcon } from 'react-icons/md';
+import { BsCalendarDate as CalendarIcon } from 'react-icons/bs';
 import { AnimalDescriptionListProps } from './animal-description-list.props';
 
 const AnimalDescriptionList = ({
@@ -33,7 +34,7 @@ const AnimalDescriptionList = ({
       <LocationIcon /> {city}
     </li>
     <li>
-      <b>Дата:</b> {String(day).length > 1 ? day : `0${day}`}.
+      <CalendarIcon /> {String(day).length > 1 ? day : `0${day}`}.
       {String(month).length > 1 ? month : `0${month}`}.{year}
     </li>
   </ul>

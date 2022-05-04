@@ -1,4 +1,5 @@
 @import './media.scss';
+@import './variables.scss';
 
 * {
   box-sizing: border-box;
@@ -26,6 +27,7 @@ body {
   height: 100%;
   font-family: 'Roboto', Tahoma, sans-serif;
   position: relative;
+  color: $grey;
 }
 
 a {

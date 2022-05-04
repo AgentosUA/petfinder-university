@@ -49,7 +49,7 @@ const Posts = ({ posts = [] }) => {
       formData.append('image', image);
 
       await profileService.updatePost(selectedPost.id, formData);
-      
+
     } catch (error) {
 
     }
@@ -74,6 +74,7 @@ const Posts = ({ posts = [] }) => {
               <img className={styles.image} src={image} alt='animal' />
               <h3 className={styles.name}>{name}</h3>
               <Button
+                fullWidth
                 onClick={() => {
                   setSelectedPost({ id, name, type, city, gender, description, image, status, date });
                   setShowEditModal(true);
@@ -82,6 +83,7 @@ const Posts = ({ posts = [] }) => {
                 Редагувати
               </Button>
               <Button
+                fullWidth
                 onClick={() => {
                   setSelectedPost({ id, name, type, city, gender, description, image, status, date });
                   setShowDeleteModal(true);

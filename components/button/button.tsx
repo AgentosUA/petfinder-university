@@ -24,7 +24,6 @@ const Button = ({
       onClick={onClick}
       disabled={disabled}
       type={type}
-      
     >
       {children}
     </button>

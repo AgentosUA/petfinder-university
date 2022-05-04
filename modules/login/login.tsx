@@ -63,7 +63,7 @@ export const Login = ({ redirect }: LoginProps) => {
         </ul>}
         <input type='text' name='email' placeholder='Пошта' onChange={handleChange} value={values.email} />
         <input type='password' name='password' placeholder='Пароль' onChange={handleChange} value={values.password} />
-        <Button type='submit' disabled={isSubmitting}>Увійти</Button>
+        <Button fullWidth type='submit' disabled={isSubmitting}>Увійти</Button>
         <div className={styles.help}>
           {/* <Link href='/restore-password'>Забули пароль?</Link> */}
           <Link href='/signup'>Немає облікового запису?</Link>

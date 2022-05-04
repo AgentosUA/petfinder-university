@@ -83,8 +83,8 @@
 .actions {
   margin: 0 auto;
   display: flex;
+  max-width: 960px;
   justify-content: space-between;
-  max-width: 940px;
   button {
     max-width: 300px;
   }
