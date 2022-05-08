@@ -17,19 +17,18 @@ const Modal = ({
   onClose = null,
   onConfirm = null
 }) => {
-  const [isMounted, setIsMounted] = useState(false)
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
-    document.body.style.overflow = 'hidden'
+    document.body.style.overflow = 'hidden';
     window.scrollTo({ top: 0 });
 
     return () => {
-      document.body.style.overflow = 'auto'
-      setIsMounted(false)
+      document.body.style.overflow = 'auto';
+      setIsMounted(false);
     };
-  }, [])
-
+  }, []);
 
   let buttons = null;
 
@@ -38,7 +37,9 @@ const Modal = ({
       buttons = (
         <Fragment>
           <Button onClick={onConfirm}>Підтвердити</Button>
-          <Button onClick={onClose} theme='light'>Відмінити</Button>
+          <Button onClick={onClose} theme='light'>
+            Відмінити
+          </Button>
         </Fragment>
       );
       break;
@@ -53,7 +54,9 @@ const Modal = ({
       buttons = (
         <Fragment>
           <Button onClick={onConfirm}>Зберегти</Button>
-          <Button onClick={onClose} theme='light'>Відмінити</Button>
+          <Button onClick={onClose} theme='light'>
+            Відмінити
+          </Button>
         </Fragment>
       );
       break;
@@ -62,17 +65,18 @@ const Modal = ({
       break;
   }
 
-  return isMounted ?
-    createPortal(
-      <div className={styles.overlay}>
-        <div className={styles.modal}>
-          {title && <h3 className={styles.title}>{title}</h3>}
-          {children}
-          {buttons && <div className={styles.buttons}>{buttons}</div>}
-        </div>
-      </div>, document.getElementById(selector)
-    ) : null
+  return isMounted
+    ? createPortal(
+        <div className={styles.overlay}>
+          <div className={styles.modal}>
+            {title && <h3 className={styles.title}>{title}</h3>}
+            {children}
+            {buttons && <div className={styles.buttons}>{buttons}</div>}
+          </div>
+        </div>,
+        document.getElementById(selector)
+      )
+    : null;
+};
 
-}
-
-export { Modal }
+export { Modal };

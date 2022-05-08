@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Container, Layout, MainSearch, Button } from '@components';
+import { Container, Layout,  Button } from '@components';
 import { Fragment, useEffect, useState } from 'react';
 import { profileService } from '@api';
 
@@ -10,7 +10,7 @@ import GoogleMapReact from 'google-map-react';
 const AnyReactComponent = ({ text, lat, lng }) => <div className={styles.marker}>{text}</div>;
 
 const Pets = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const center = {
     lat: 49.846486489566395,

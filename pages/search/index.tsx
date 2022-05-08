@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import React, { Fragment, useEffect, useState } from 'react';
-import { Container, Layout, MainSearch, Post } from '@components';
+import { Container, Layout,  Post } from '@components';
 
 import styles from './index.module.scss';
 
@@ -57,7 +57,8 @@ export default function Search({
       <Head>
         <title>Petfinder | Знайди свою тваринку!</title>
       </Head>
-      <MainSearch />
+      {// <MainSearch />
+}
       <Container>
         {isLoading ? (
           <div className={styles.preloader}>

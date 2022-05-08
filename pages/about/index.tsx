@@ -9,7 +9,8 @@ export default function About() {
       <Head>
         <title>Petfinder | Знайди свою тваринку!</title>
       </Head>
-      <MainSearch />
+      {// <MainSearch />
+}
       <Container>
         <h1 className={styles.title}>Pet Finder Project</h1>
         <div className={styles.logo}>

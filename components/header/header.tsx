@@ -2,16 +2,16 @@ import styles from './header.module.scss';
 import Link from 'next/link';
 
 import { NavLinks, AuthLinks, Logo, Sidebar } from './components';
-import { useDispatch, useSelector } from 'react-redux';
-import { setSidebarVisible, State } from '@store';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { setSidebarVisible, State } from '@store';
 
 const Header = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   // const { desktop, mobile } = useMediaPoints(true);
-  const { isSidebarVisible } = useSelector((state: State) => state.general);
+  // const { isSidebarVisible } = useSelector((state: State) => state.general);
 
   const onMenuClick = () => {
-    dispatch(setSidebarVisible(true));
+    // dispatch(setSidebarVisible(true));
   };
 
   return (

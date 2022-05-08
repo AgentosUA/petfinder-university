@@ -1,13 +1,13 @@
 .modal {
-  margin: 20vh auto 20vh auto;
-  padding: 10px;
+  margin: 20vh auto;
+  padding: 30px;
   width: 100%;
   max-width: 650px;
   min-width: 320px;
-  min-height: 100px;
-  padding: 30px;
+  max-height: 50vh;
   border-radius: 8px;
   background: #fff;
+  overflow-y: auto;
 }
 
 .overlay {

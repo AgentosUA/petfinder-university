@@ -9,7 +9,8 @@ export default function SignupPage() {
       <Head>
         <title>Реєстрація | Petfinder</title>
       </Head>
-      <MainSearch />
+      {// <MainSearch />
+}
       <Signup />
     </Layout>
   )

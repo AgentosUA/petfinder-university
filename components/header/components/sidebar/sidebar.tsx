@@ -7,13 +7,13 @@ import { NavLinks } from '../nav-links';
 
 import styles from './sidebar.module.scss';
 import { useDispatch } from 'react-redux';
-import { setSidebarVisible } from '@store';
+// import { setSidebarVisible } from '@store';
 
 const Sidebar = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const onMenuClick = () => {
-    dispatch(setSidebarVisible(false));
+    // dispatch(setSidebarVisible(false));
   }
   return (
     <div className={styles.sidebar} onClick={onMenuClick}>

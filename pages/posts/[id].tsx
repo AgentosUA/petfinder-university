@@ -4,7 +4,7 @@ import { Fragment, useEffect, useState } from 'react';
 import {
   Container,
   Layout,
-  MainSearch,
+  
   Button,
   AnimalDescriptionList
 } from '@components';
@@ -61,7 +61,8 @@ export default function Search({ query: { id } }) {
       <Head>
         <title>Petfinder | Знайди свою тваринку!</title>
       </Head>
-      <MainSearch />
+      {// <MainSearch />
+}
       <Container>
         {isLoading ? (
           <div className={styles.preloader}>

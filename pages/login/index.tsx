@@ -1,28 +1,33 @@
 import Head from 'next/head';
 
-import { Container, Layout, MainSearch, Preloader } from '@components';
+import { Container, Layout, Preloader } from '@components';
 
 import styles from './index.module.scss';
 import { Login } from '@modules';
 import { useSelector } from 'react-redux';
-import { State } from '@store';
-import Router from 'next/router';
+// import { State } from '@store';
+import { auth } from 'store/auth';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
 export default function LoginPage() {
-  const {
-    general: { isLoggedIn }
-  } = useSelector((state: State) => state);
+  const router = useRouter();
+  const { isLoggedIn } = auth;
 
-  if (isLoggedIn) {
-    Router.push('/');
-  }
+  useEffect(() => {
+    if (isLoggedIn) {
+      router.push('/');
+    }
+  }, [isLoggedIn]);
 
   return (
     <Layout>
       <Head>
         <title>Авторизація | Petfinder</title>
       </Head>
-      <MainSearch />
+      {
+        // <MainSearch />
+      }
       <Container>
         {isLoggedIn ? <Preloader /> : <Login redirect='/' />}
       </Container>

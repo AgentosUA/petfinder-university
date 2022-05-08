@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Container, Layout, MainSearch, Instruction } from '@components';
+import { Container, Layout,  Instruction } from '@components';
 
 export default function Home() {
   return (
@@ -7,7 +7,8 @@ export default function Home() {
       <Head>
         <title>Petfinder | Знайди свою тваринку!</title>
       </Head>
-      <MainSearch />
+      {// <MainSearch />
+}
       <Container>
         <Instruction />
       </Container>
