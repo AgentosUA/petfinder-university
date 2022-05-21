@@ -1,34 +1,32 @@
 import { authService } from '@api';
-import cookieCutter from 'cookie-cutter';
 import { makeAutoObservable } from 'mobx';
+import Cookie from 'mobx-cookie';
 
 class Auth {
-  isLoggedIn: boolean = false;
-
+  tokenCookie = new Cookie('token');
+  expiresInCookie = new Cookie('token');
+  isLoggedIn = false;
   constructor() {
-    // const expiresIn = Number(cookieCutter.get('expiresIn'));
-    const expiresIn = 99999999999999;
-    const currentTime = +new Date() / 1000;
-    const timeLeft = (expiresIn - currentTime) * 1000;
-    this.isLoggedIn = (isNaN(timeLeft) || timeLeft) <= 0;
-
+    this.checkAuth();
     makeAutoObservable(this);
   }
+
+  checkAuth = () => {
+    // const expiresIn = this.expiresInCookie.value;
+    // const currentTime = +new Date() / 1000;
+    // const timeLeft = (Number(expiresIn) - currentTime) * 1000;
+    // if (timeLeft > 0) {
+    //   this.isLoggedIn = true;
+    // } else {
+    //   this.isLoggedIn = false;
+    // }
+  };
 
   login = async ({ email, password, redirect = '/', setErrors }) => {
     try {
       const [{ token, expiresIn }] = await authService.login(email, password);
-      cookieCutter.set('token', token, {
-        path: '/'
-      });
-      cookieCutter.set('expiresIn', expiresIn, {
-        path: '/'
-      });
-
-      if (redirect) {
-        // Router.push(redirect);
-      }
-
+      this.tokenCookie.set(token);
+      this.expiresInCookie.set(expiresIn);
       this.isLoggedIn = true;
     } catch (error) {
       console.log(error);
@@ -41,8 +39,8 @@ class Auth {
   };
 
   logout = () => {
-    cookieCutter.set('token', '', { expires: new Date(0) });
-    cookieCutter.set('expiresIn', '', { expires: new Date(0) });
+    this.tokenCookie.remove();
+    this.expiresInCookie.remove();
     this.isLoggedIn = false;
   };
 }

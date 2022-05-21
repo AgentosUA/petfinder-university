@@ -15,6 +15,7 @@
     "formik": "^2.2.6",
     "google-map-react": "^2.1.10",
     "mobx": "^6.5.0",
+    "mobx-cookie": "^4.0.5",
     "mobx-react-lite": "^3.3.0",
     "next": "^12.1.5",
     "next-auth": "^3.29.3",

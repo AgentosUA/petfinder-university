@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Container, Layout,  Preloader } from '@components';
+import { Container, Layout, MainSearch, Preloader } from '@components';
 import { Profile, Posts } from 'modules/profile';
 import { Fragment, useEffect, useState } from 'react';
 import { profileService } from '@api';
@@ -57,8 +57,7 @@ export default function Home() {
       <Head>
         <title>Особистий кабінет</title>
       </Head>
-      {/* {// <MainSearch />
-} */}
+      <MainSearch />
       <Container>
         {isLoading ? (
           <Preloader />

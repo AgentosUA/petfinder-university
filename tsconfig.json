@@ -27,7 +27,7 @@
         "./shared/index"
       ],
       "@components": [
-        "./components/index"
+        "./shared/components/index"
       ],
       "@core": [
         "./core/index"
@@ -36,7 +36,10 @@
         "./styles/core.scss"
       ],
       "@store": [
-        "./store/index"
+        "./store/"
+      ],
+      "@types": [
+        "./types/index"
       ],
       "@models": [
         "./models/index"

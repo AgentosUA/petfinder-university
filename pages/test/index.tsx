@@ -1,9 +1,9 @@
 import Head from 'next/head';
 import { Container, Layout, Instruction } from '@components';
 import { observer } from 'mobx-react-lite';
-import { auth } from 'store/auth';
+import { auth } from 'store/auth/auth';
 
-const Test = observer((props) => {
+const Test = observer(() => {
   const { isLoggedIn } = auth;
   return (
     <Layout>

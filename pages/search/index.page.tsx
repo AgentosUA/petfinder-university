@@ -1,12 +1,13 @@
 import Head from 'next/head';
 import React, { Fragment, useEffect, useState } from 'react';
-import { Container, Layout,  Post } from '@components';
+import { Container, Layout, MainSearch, Post } from '@components';
 
 import styles from './index.module.scss';
 
 import axios from 'axios';
 import { Pagination } from '@modules';
 import { postsService } from '@api';
+import { searchStore } from 'store/search';
 
 Search.getInitialProps = ({ query }) => {
   return { query };
@@ -23,42 +24,34 @@ export default function Search({
 
   const fetchPosts = async () => {
     setIsLoading(true);
-    try {
-      const [{ posts, totalCount, limit }, statusCode] =
-        await postsService.searchPost({
-          currentPage,
-          type,
-          status,
-          city,
-          date,
-          gender
-        });
+    const data: any = await searchStore.search({
+      type,
+      gender,
+      status,
+      city,
+      date,
+      currentPage
+    });
 
-      if (statusCode === 404) return;
-
-      setPosts(posts);
-      setCurrentLimit(limit);
-      setTotalCount(totalCount);
-      setIsLoading(false);
-    } catch (error) {
-      // TODO: Popup with error
-    } finally {
-      setIsLoading(false);
-    }
+    if (!data) return setIsLoading(false);
+    console.log(data);
+    setPosts(data.posts);
+    setCurrentLimit(data.limit);
+    setTotalCount(data.totalCount);
+    setIsLoading(false);
   };
 
   useEffect(() => {
     setCurrentPage(page);
     fetchPosts();
-  }, [type, gender, status, city, date, currentPage, page]);
+  }, []);
 
   return (
     <Layout>
       <Head>
         <title>Petfinder | Знайди свою тваринку!</title>
       </Head>
-      {// <MainSearch />
-}
+      <MainSearch />
       <Container>
         {isLoading ? (
           <div className={styles.preloader}>
@@ -68,12 +61,12 @@ export default function Search({
           <Fragment>
             {
               <h3 className={styles.title}>
-                {posts.length
+                {posts?.length
                   ? `Оголошень: ${totalCount}`
                   : 'Нічого не знайдено!'}
               </h3>
             }
-            {Boolean(posts.length) && (
+            {Boolean(posts?.length) && (
               <Pagination
                 city={city}
                 currentLimit={currentLimit}
@@ -86,7 +79,7 @@ export default function Search({
               />
             )}
             <div className={styles.posts}>
-              {posts.map(
+              {posts?.map(
                 ({ _id, name, type, gender, status, city, date, image }) => {
                   return (
                     <Post

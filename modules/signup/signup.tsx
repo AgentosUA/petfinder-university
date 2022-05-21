@@ -7,7 +7,7 @@ import PhoneInput from 'react-phone-number-input/input'
 import styles from './signup.module.scss';
 
 import axios from 'axios';
-import { Button } from '@core';
+import { Button } from '@components';
 import Link from 'next/link';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';

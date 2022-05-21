@@ -1,6 +1,6 @@
 import Head from 'next/head';
-import { Layout, MainSearch } from '@components';
-import { Signup } from '@modules';
+import { Layout } from '@components';
+import { MainSearch, Signup } from '@modules';
 
 export default function SignupPage() {
   
@@ -9,8 +9,7 @@ export default function SignupPage() {
       <Head>
         <title>Реєстрація | Petfinder</title>
       </Head>
-      {// <MainSearch />
-}
+      <MainSearch />
       <Signup />
     </Layout>
   )

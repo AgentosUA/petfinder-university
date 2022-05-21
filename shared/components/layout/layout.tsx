@@ -1,8 +1,8 @@
 import { Fragment, useEffect, useLayoutEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import cookieCutter from 'cookie-cutter';
-import { Sidebar } from 'components/header/components';
-import { Header, Footer } from '..';
+import { Sidebar } from 'modules/header/components';
+import { Header, Footer } from '@modules';
 import styles from './layout.module.scss';
 
 const Layout = ({ children }) => {

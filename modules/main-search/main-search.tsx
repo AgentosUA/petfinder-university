@@ -19,7 +19,7 @@ const MainSearch = () => {
     gender: 'sdfs',
     status: 'sdfs',
     city: 'sdfs',
-    date: 'sdfs'
+    date: new Date(),
   } as any;
   const [paramDay, paramMonth, paramYear] = String(date).split('.');
   const defaultDate =
@@ -132,18 +132,18 @@ const MainSearch = () => {
           locale='uk'
           className={styles.input}
           placeholderText='Дата'
-          selected={startDate}
-          dateFormat='dd/MM/yyyy'
-          value={startDate as any}
+          // selected={startDate}
+          // dateFormat='dd/MM/yyyy'
+          // value={startDate as any}
           onChange={(value) => {
-            setStartDate((value as any) || null);
-            updateSearchParams({
-              type,
-              gender,
-              status,
-              city,
-              date: value || 'all'
-            });
+            // setStartDate((value as any) || null);
+            // updateSearchParams({
+            //   type,
+            //   gender,
+            //   status,
+            //   city,
+            //   date: value || 'all'
+            // });
           }}
         />
         <button

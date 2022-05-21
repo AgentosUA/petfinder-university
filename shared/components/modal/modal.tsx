@@ -1,5 +1,5 @@
 import { createPortal } from 'react-dom';
-import { Button } from '@core';
+import { Button } from '@components';
 import styles from './modal.module.scss';
 import { useEffect, useState, useRef, Fragment } from 'react';
 

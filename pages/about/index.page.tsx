@@ -1,7 +1,8 @@
 import Head from 'next/head';
-import { Container, Layout, MainSearch } from '@components';
+import { Container, Layout } from '@components';
 
-import styles from './index.module.scss'
+import styles from './index.module.scss';
+import { MainSearch } from 'modules';
 
 export default function About() {
   return (
@@ -9,25 +10,29 @@ export default function About() {
       <Head>
         <title>Petfinder | Знайди свою тваринку!</title>
       </Head>
-      {// <MainSearch />
-}
+      <MainSearch />
       <Container>
         <h1 className={styles.title}>Pet Finder Project</h1>
+        <p>Some</p>
         <div className={styles.logo}>
           <img src="/logo.png" width="150" title="hover text" />
         </div>
         <div className={styles.paragraph}>
-          <b>Pet Finder Project</b> - це студентський проект, мета якого є реалізувати централізовану базу даних оголошень про зниклих тварин. <br />
-          Проект включає у собі Веб-додаток для швидкого створення та пошуку оголошення про зниклу тварину, а також можливістю відслідковувати власну тварину за допомогою GPS-нашийника на базі Arduino
+          <b>Pet Finder Project</b> - це проект, що дозволяє розміщувати мета
+          якого є реалізувати централізовану базу даних оголошень про зниклих
+          тварин. <br />
+          Проект включає у собі Веб-додаток для швидкого створення та пошуку
+          оголошення про зниклу тварину, а також можливістю відслідковувати
+          власну тварину за допомогою GPS-нашийника на базі Arduino
         </div>
         <hr />
         <h2 className={styles.subtitle}>Ціль</h2>
         <div className={styles.paragraph}>
-          Ціль нашого проекту - надати користувачам з України централізовану та зручну у використанні базу даних зниклих та знайдених тварин.
-          Ключовими аспектами проекту є:
-          - Розміщення оголошень про зниклих / знайдених тварин
-          - Пошук по GPS-нашийнику
-          - Пошук по фільтру (тип тварини, стать, коли зник, т.д.)
+          Ціль нашого проекту - надати користувачам з України швидку,
+          централізовану та зручну у використанні базу зниклих та знайдених
+          тварин. Ключовими аспектами проекту є: - Розміщення оголошень про
+          зниклих / знайдених тварин - Пошук по GPS-нашийнику - Пошук по фільтру
+          (тип тварини, стать, коли зник, т.д.)
         </div>
         <hr />
         <h2 className={styles.subtitle}>Список технологій</h2>
@@ -59,5 +64,5 @@ export default function About() {
         </ul>
       </Container>
     </Layout>
-  )
+  );
 }

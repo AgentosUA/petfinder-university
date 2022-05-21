@@ -1,12 +1,11 @@
 import Head from 'next/head';
 
 import { Container, Layout, Preloader } from '@components';
-
 import styles from './index.module.scss';
-import { Login } from '@modules';
+import { Login, MainSearch } from '@modules';
 import { useSelector } from 'react-redux';
 // import { State } from '@store';
-import { auth } from 'store/auth';
+import { auth } from 'store/auth/auth';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 
@@ -25,9 +24,7 @@ export default function LoginPage() {
       <Head>
         <title>Авторизація | Petfinder</title>
       </Head>
-      {
-        // <MainSearch />
-      }
+      <MainSearch />
       <Container>
         {isLoggedIn ? <Preloader /> : <Login redirect='/' />}
       </Container>

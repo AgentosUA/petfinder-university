@@ -5,10 +5,9 @@ import Router from 'next/router';
 
 import { Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { auth } from 'store/auth';
+import { auth } from 'store/auth/auth';
 
 const AuthLinks = observer((props) => {
-  // const dispatch = useDispatch();
   const { isLoggedIn } = auth;
 
   const onLogOutClick = () => {

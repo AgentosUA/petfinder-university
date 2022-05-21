@@ -10,7 +10,7 @@ import styles from './create.module.scss';
 import * as Yup from 'yup';
 import uk from 'date-fns/locale/uk';
 import axios from 'axios';
-import { Button } from '@core';
+import { Button } from '@components';
 import { useSelector } from 'react-redux';
 
 import { useFormik } from 'formik';

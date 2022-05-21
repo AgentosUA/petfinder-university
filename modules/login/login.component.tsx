@@ -6,14 +6,14 @@ import { Container, Layout, Post } from '@components';
 import styles from './login.module.scss';
 
 import axios from 'axios';
-import { Button } from '@core';
+import { Button } from '@components';
 import Link from 'next/link';
 import { useDispatch } from 'react-redux';
 
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { authService } from '@api';
-import { auth } from 'store/auth';
+import { auth } from 'store/auth/auth';
 import { observer } from 'mobx-react-lite';
 
 type LoginProps = {

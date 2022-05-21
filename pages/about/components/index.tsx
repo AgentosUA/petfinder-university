@@ -1,0 +1,1 @@
+export const Some = () => (<h2>Some</h2>);
