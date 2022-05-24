@@ -19,7 +19,7 @@
     "formik": "^2.2.6",
     "google-map-react": "^2.1.10",
     "next": "^10.2.0",
-    "next-auth": "^3.14.0",
+    "next-auth": "^3.29.3",
     "next-images": "^1.7.0",
     "react": "17.0.2",
     "react-datepicker": "^3.7.0",
